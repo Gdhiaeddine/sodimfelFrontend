@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import { useLanguage } from '@/components/language-provider'
@@ -8,21 +9,25 @@ import { ProductCard } from '@/components/product-card'
 const PRODUCTS = [
   {
     title: { en: 'Oil Transformers', fr: 'Transformateurs à huile' },
+    slug: 'oil-immersed-transformer',
     category: 'Industrial Equipment',
     image: '/images/product-oil-transformer.png',
   },
   {
     title: { en: 'Dry Transformers', fr: 'Transformateurs secs' },
+    slug: 'dry-type-transformer',
     category: 'Industrial Equipment',
     image: '/images/product-dry-transformer.png',
   },
   {
     title: { en: 'Compact Substations', fr: 'Postes compacts' },
+    slug: 'compact-substation',
     category: 'Industrial Equipment',
     image: '/images/product-substation.png',
   },
   {
     title: { en: 'Switchgear', fr: 'Cellules électriques' },
+    slug: 'mv-switchgear',
     category: 'Industrial Equipment',
     image: '/images/product-switchgear.png',
   },
@@ -81,10 +86,10 @@ export function Products() {
             transition={{ delay: 0.35, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="flex justify-start md:justify-end"
           >
-            <a href="#contact" className="solution-button group">
+            <Link href="/products" className="solution-button group">
               {isFrench ? 'Voir tous les produits' : 'View All Products'}
               <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
-            </a>
+            </Link>
           </motion.div>
         </div>
 
@@ -93,6 +98,7 @@ export function Products() {
             <ProductCard
               key={p.title.en}
               title={p.title[language]}
+              slug={p.slug}
               image={p.image}
               index={index}
             />

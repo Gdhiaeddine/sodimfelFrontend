@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
@@ -8,18 +9,18 @@ import { useLanguage } from '@/components/language-provider'
 
 const LINKS = {
   en: [
-    { label: 'Home', href: '#home' },
+    { label: 'Home', href: '/' },
     { label: 'About', href: '#trust' },
     { label: 'Solutions', href: '#services' },
-    { label: 'Products', href: '#products' },
+    { label: 'Products', href: 'products' },
     { label: 'Projects', href: '#projects' },
     { label: 'Contact', href: '#contact' },
   ],
   fr: [
-    { label: 'Accueil', href: '#home' },
+    { label: 'Accueil', href: '/' },
     { label: 'À propos', href: '#trust' },
     { label: 'Solutions', href: '#services' },
-    { label: 'Produits', href: '#products' },
+    { label: 'Produits', href: 'products' },
     { label: 'Projets', href: '#projects' },
     { label: 'Contact', href: '#contact' },
   ],
@@ -30,8 +31,10 @@ export function Navbar() {
   const [hidden, setHidden] = useState(false)
   const [open, setOpen] = useState(false)
   const { language, toggleLanguage, isFrench } = useLanguage()
+  const pathname = usePathname()
   const links = LINKS[language]
   const quoteLabel = isFrench ? 'Demander un devis' : 'Request a Quote'
+  const keepVisible = pathname.startsWith('/products')
 
   useEffect(() => {
     let lastY = window.scrollY
@@ -42,7 +45,7 @@ export function Navbar() {
 
       setScrolled(currentY > 40)
 
-      if (currentY < 80 || open) {
+      if (keepVisible || currentY < 80 || open) {
         setHidden(false)
       } else if (delta > 8) {
         setHidden(true)
@@ -56,15 +59,15 @@ export function Navbar() {
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
-  }, [open])
+  }, [keepVisible, open])
 
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
         scrolled
-          ? 'border-b border-white/10 bg-[var(--ink)]/70 backdrop-blur-xl'
-          : 'border-b border-transparent bg-transparent'
-      } ${hidden ? '-translate-y-full' : 'translate-y-0'}`}
+          ? 'border-b border-white/10 bg-[var(--ink)] backdrop-blur-xl'
+          : 'border-b border-white/10 bg-[var(--ink)] backdrop-blur-xl'
+      } ${hidden && !keepVisible ? '-translate-y-full' : 'translate-y-0'}`}
     >
       <nav className="mx-auto flex h-18 max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
         <a href="#home" className="relative h-30 w-36 shrink-0 glow-brand">

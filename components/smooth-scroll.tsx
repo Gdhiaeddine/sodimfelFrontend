@@ -16,6 +16,24 @@ export function SmoothScroll() {
       smoothWheel: true,
     })
 
+    function refreshScrollState() {
+      lenis.resize()
+      lenis.start()
+      requestAnimationFrame(() => {
+        window.dispatchEvent(new Event('resize'))
+        window.dispatchEvent(new Event('scroll'))
+      })
+    }
+
+    function onPageShow(event: PageTransitionEvent) {
+      if (event.persisted) {
+        refreshScrollState()
+      }
+    }
+
+    window.addEventListener('pageshow', onPageShow)
+    window.addEventListener('popstate', refreshScrollState)
+
     let rafId = 0
     function raf(time: number) {
       lenis.raf(time)
@@ -24,6 +42,8 @@ export function SmoothScroll() {
     rafId = requestAnimationFrame(raf)
 
     return () => {
+      window.removeEventListener('pageshow', onPageShow)
+      window.removeEventListener('popstate', refreshScrollState)
       cancelAnimationFrame(rafId)
       lenis.destroy()
     }

@@ -1,6 +1,9 @@
 import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { LanguageProvider } from '@/components/language-provider'
+import { Navbar } from '@/components/navbar'
+import { Footer } from '@/components/footer'
 import './globals.css'
 
 const inter = Inter({
@@ -38,7 +41,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} bg-background`}>
       <body className="font-sans antialiased">
-        {children}
+        <LanguageProvider>
+          <Navbar />
+          {children}
+          <Footer />
+        </LanguageProvider>
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>

@@ -1,29 +1,36 @@
 'use client'
 
 import Image from 'next/image'
+import Link from 'next/link'
 import { motion } from 'framer-motion'
 export function ProductCard({
   title,
+  slug,
   image,
   index,
 }: {
   title: string
+  slug: string
   image: string
   index: number
 }) {
   return (
-    <motion.article
-      initial={{ y: 50 }}
-      whileInView={{ y: 0 }}
-      viewport={{ once: true, margin: '-80px' }}
-      transition={{
-        delay: index * 0.15,
-        duration: 0.8,
-        ease: [0.22, 1, 0.36, 1],
-      }}
-      whileHover={{ y: -10 }}
+    <Link
+      href={`/products/${slug}`}
       className="group relative flex min-w-[min(82vw,360px)] flex-none flex-col items-center justify-start text-center text-slate-900 lg:min-w-0 lg:flex-1"
     >
+      <motion.div
+        initial={{ y: 50 }}
+        whileInView={{ y: 0 }}
+        viewport={{ once: true, margin: '-80px' }}
+        transition={{
+          delay: index * 0.15,
+          duration: 0.8,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+        whileHover={{ y: -10 }}
+        className="w-full"
+      >
       <div className="relative flex h-[280px] w-full items-center justify-center overflow-visible">
         <motion.div
           animate={{ y: [0, -8, 0] }}
@@ -49,6 +56,7 @@ export function ProductCard({
       <h3 className="mt-5 text-center text-[22px] font-bold leading-tight text-[#111827]">
         {title}
       </h3>
-    </motion.article>
+      </motion.div>
+    </Link>
   )
 }

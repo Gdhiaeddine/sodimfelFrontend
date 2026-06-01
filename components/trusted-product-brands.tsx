@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import { useLanguage } from '@/components/language-provider'
@@ -85,10 +86,10 @@ export function TrustedProductBrands() {
             transition={{ delay: 0.28, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="flex justify-start md:justify-end"
           >
-            <a href="#contact" className="solution-button group">
+            <Link href="/products" className="solution-button group">
               {isFrench ? 'Voir toutes les marques' : 'View All Brands'}
               <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
-            </a>
+            </Link>
           </motion.div>
         </div>
 
