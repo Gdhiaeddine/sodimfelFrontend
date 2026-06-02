@@ -41,7 +41,7 @@ export function Hero() {
     <section
       ref={sectionRef}
       onMouseMove={onMouseMove}
-      className="relative flex min-h-[100svh] w-full flex-col justify-center overflow-hidden bg-[var(--ink)] px-0 pb-10 pt-28 md:h-[100svh] md:min-h-[720px] md:items-center md:py-0"
+      className="relative flex min-h-[100svh] w-full flex-col justify-center overflow-hidden bg-[var(--ink)] px-0 pb-10 pt-28 md:h-[100svh] md:min-h-[760px] md:items-center md:pb-44 md:pt-24 lg:min-h-[780px] lg:pb-48 xl:pb-0 xl:pt-0"
     >
       {/* Background industrial environment */}
       <motion.div
@@ -133,7 +133,7 @@ export function Hero() {
       />
 
       {/* Content */}
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 lg:px-10">
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 lg:px-10 xl:-translate-y-10 2xl:translate-y-0">
         <div className="max-w-xl">
           <motion.p
             initial={{ opacity: 0, y: 16 }}
@@ -151,7 +151,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={powered ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.25, duration: 0.8, ease: 'easeOut' }}
-            className="text-balance text-5xl font-extrabold leading-[0.92] tracking-tight text-foreground sm:text-6xl lg:text-7xl xl:text-[5.5rem]"
+            className="text-balance text-4xl font-extrabold leading-[0.95] tracking-tight text-foreground sm:text-5xl lg:text-6xl xl:text-7xl 2xl:text-[5rem] laptop-hero-title"
             style={{ letterSpacing: '-0.04em' }}
           >
             {isFrench ? (
