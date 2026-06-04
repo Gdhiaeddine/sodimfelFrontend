@@ -10,19 +10,19 @@ import { useLanguage } from '@/components/language-provider'
 const LINKS = {
   en: [
     { label: 'Home', href: '/' },
-    { label: 'About', href: '#trust' },
+    { label: 'About', href: '/about' },
     { label: 'Solutions', href: '/solutions' },
     { label: 'Products', href: '/products' },
     { label: 'Projects', href: '#projects' },
-    { label: 'Contact', href: '#contact' },
+    { label: 'Contact', href: '/contact' },
   ],
   fr: [
     { label: 'Accueil', href: '/' },
-    { label: 'À propos', href: '#trust' },
+    { label: 'À propos', href: '/about' },
     { label: 'Solutions', href: '/solutions' },
     { label: 'Produits', href: '/products' },
     { label: 'Projets', href: '#projects' },
-    { label: 'Contact', href: '#contact' },
+    { label: 'Contact', href: '/contact' },
   ],
 }
 
@@ -96,7 +96,7 @@ export function Navbar() {
 
         <div className="hidden lg:block">
           <a
-            href="#contact"
+            href="/request-quote"
             className="inline-flex items-center rounded-full bg-[var(--electric)] px-5 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:glow-electric"
           >
             {quoteLabel}
@@ -144,7 +144,7 @@ export function Navbar() {
               ))}
               <li className="pt-2">
                 <a
-                  href="#contact"
+                  href="/request-quote"
                   onClick={() => setOpen(false)}
                   className="inline-flex w-full items-center justify-center rounded-full bg-[var(--electric)] px-5 py-3 text-sm font-semibold text-white"
                 >

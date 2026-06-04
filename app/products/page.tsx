@@ -358,7 +358,6 @@ export default function ProductsPage() {
         </div>
       </section>
       </main>
-      <Footer />
     </LanguageProvider>
   )
 }
