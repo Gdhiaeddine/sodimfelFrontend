@@ -2,12 +2,12 @@
 
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import { useLanguage } from '@/components/language-provider'
 
 export function Loader() {
   const [done, setDone] = useState(false)
-  const { isFrench } = useLanguage()
+  const { content } = useLanguage()
 
   useEffect(() => {
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -47,7 +47,7 @@ export function Loader() {
             />
           </div>
           <p className="mt-4 text-[10px] uppercase tracking-[0.4em] text-muted-foreground">
-            {isFrench ? 'Initialisation de l’énergie' : 'Initializing Power'}
+            {content.loader.initializingPower}
           </p>
         </motion.div>
       )}

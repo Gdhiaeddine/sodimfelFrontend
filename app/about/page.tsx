@@ -4,7 +4,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { motion, useInView } from 'framer-motion'
 import {
-  ArrowDownToLine,
   ArrowRight,
   Award,
   BadgeCheck,
@@ -21,7 +20,6 @@ import {
   LifeBuoy,
   Lightbulb,
   RadioTower,
-  Recycle,
   ShieldCheck,
   Sparkles,
   Users,
@@ -29,7 +27,9 @@ import {
   Zap,
 } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
-import { solutionList } from '@/lib/solutions'
+import aboutContent from '@/data/about-content.json'
+import { useLanguage } from '@/components/language-provider'
+import { getSolutionList } from '@/lib/solutions'
 
 const fadeUp = {
   hidden: { opacity: 0, y: 36 },
@@ -41,77 +41,20 @@ const stagger = {
   show: { transition: { staggerChildren: 0.09 } },
 }
 
-const heroStats = [
-  { value: 25, suffix: '+', label: 'Years Experience' },
-  { value: 500, suffix: '+', label: 'Projects Completed' },
-  { value: 1000, suffix: '+', label: 'Satisfied Clients' },
-  { value: 24, suffix: '/7', label: 'Technical Support' },
-]
-
-const timeline = [
-  ['1998', 'Company Founded'],
-  ['2005', 'Expanded Product Portfolio'],
-  ['2012', 'Regional Expansion'],
-  ['2018', 'Manufacturing Development'],
-  ['2023', '1000+ Projects Milestone'],
-  ['2025', 'National Industry Leader'],
-]
-
-const values = [
-  { title: 'Quality First', text: 'Reliable products, verified processes, and precise execution.', icon: BadgeCheck },
-  { title: 'Safety Always', text: 'Every project is designed around people, assets, and continuity.', icon: ShieldCheck },
-  { title: 'Innovation', text: 'Modern engineering for smarter, more efficient power systems.', icon: Lightbulb },
-  { title: 'Integrity', text: 'Transparent guidance and responsible delivery from start to finish.', icon: Award },
-  { title: 'Customer Success', text: 'Technical support that protects long-term performance.', icon: Users },
-  { title: 'Sustainability', text: 'Efficient solutions that reduce losses and support cleaner energy.', icon: Leaf },
-]
-
-const checklist = [
-  '25+ Years of Experience',
-  'Certified and Tested Products',
-  'Expert Engineers & Technicians',
-  'Reliable After-Sales Support',
-  'Wide Product Portfolio',
-  'Industry Compliance & Standards',
-]
-
-const expertiseSolutions = solutionList.slice(0, 4)
-
 const solutionIcons = {
-  'electrical-design-engineering': Zap,
-  'power-distribution-systems': RadioTower,
-  'installation-commissioning': Wrench,
-  'testing-maintenance': LifeBuoy,
-  'automation-control-systems': Bot,
-  'technical-support-consulting': Headset,
+  'etudes-realisations-electriques': Zap,
+  'postes-livraison-sous-stations': RadioTower,
+  'armoires-electriques-diverses': Wrench,
+  'installation-electrique-industrielle': Factory,
+  'equipements-sf6-schneider-sarel-ediel': Zap,
+  'postes-prefabriques-beton-10kv-30kv': RadioTower,
+  'disjoncteurs-bt-hp': LifeBuoy,
+  'postes-transformateurs-mt-bt': RadioTower,
+  'fusibles-cables-mt-bt': Wrench,
 }
 
-const statBar = [
-  { value: 25, suffix: '+', label: 'Years Experience' },
-  { value: 500, suffix: '+', label: 'Projects Completed' },
-  { value: 1000, suffix: '+', label: 'Satisfied Clients' },
-  { value: 50, suffix: '+', label: 'Global Partners' },
-  { value: 24, suffix: '/7', label: 'Technical Support' },
-]
-
-const industries = [
-  { title: 'Industrial Plants', icon: Factory },
-  { title: 'Power Utilities', icon: RadioTower },
-  { title: 'Commercial Buildings', icon: Building2 },
-  { title: 'Data Centers', icon: Cpu },
-  { title: 'Oil & Gas', icon: Gauge },
-  { title: 'Renewable Energy', icon: Leaf },
-  { title: 'Infrastructure', icon: Globe2 },
-]
-
-const certifications = [
-  'ISO 9001:2015',
-  'ISO 14001:2015',
-  'ISO 45001:2018',
-  'IEC',
-  'Quality Assurance',
-  'Regulatory Compliance',
-]
+const valueIcons = [BadgeCheck, ShieldCheck, Lightbulb, Award, Users, Leaf]
+const industryIcons = [Factory, RadioTower, Building2, Cpu, Gauge, Leaf, Globe2]
 
 function CountUp({
   value,
@@ -159,8 +102,18 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 }
 
 export default function AboutPage() {
+  const { language, isArabic } = useLanguage()
+  const about = aboutContent[language]
+  const expertiseSolutions = getSolutionList(language).slice(0, 4)
+  const heroStats = [
+    { value: 25, suffix: '+', label: about.stats.years },
+    { value: 500, suffix: '+', label: about.stats.projects },
+    { value: 1000, suffix: '+', label: about.stats.clients },
+    { value: 24, suffix: '/7', label: about.stats.support },
+  ]
+
   return (
-    <main className="min-h-screen bg-white text-[#0F172A]">
+    <main className={`min-h-screen bg-white text-[#0F172A] ${isArabic ? 'text-right' : ''}`}>
       <section className="relative overflow-hidden px-6 pb-24 pt-32 lg:px-10 lg:pt-40">
         <div className="absolute left-1/2 top-24 h-[540px] w-[720px] -translate-x-1/2 rounded-full bg-[#2563EB]/10 blur-[100px]" />
         <div className="relative z-10 mx-auto grid max-w-[1400px] grid-cols-1 items-center gap-14 lg:grid-cols-2">
@@ -170,38 +123,43 @@ export default function AboutPage() {
             variants={stagger}
             className="max-w-3xl"
           >
+            <motion.nav
+              variants={fadeUp}
+              className="mb-8 flex items-center gap-2 text-sm font-semibold text-[#64748B]"
+            >
+              <Link href="/" className="hover:text-[#2563EB]">
+                {about.breadcrumbHome}
+              </Link>
+              <ArrowRight className={`h-4 w-4 ${isArabic ? 'rotate-180' : ''}`} />
+              <span className="text-[#0F172A]">{about.breadcrumbCurrent}</span>
+            </motion.nav>
             <motion.div variants={fadeUp}>
-              <SectionLabel>Company Profile</SectionLabel>
+              <SectionLabel>{about.hero.label}</SectionLabel>
             </motion.div>
             <motion.h1
               variants={fadeUp}
               className="mt-5 text-5xl font-extrabold leading-[1.04] tracking-tight text-[#0F172A] sm:text-6xl lg:text-[70px]"
             >
-              Our Story,
-              <br />
-              Our Mission,
-              <br />
-              Our Future
+              {about.hero.title.map((line) => (
+                <span key={line} className="block">
+                  {line}
+                </span>
+              ))}
             </motion.h1>
             <motion.p
               variants={fadeUp}
               className="mt-6 max-w-2xl text-lg leading-[1.85] text-[#64748B]"
             >
-              Building reliable electrical solutions that power industries,
-              businesses, and communities.
+              {about.hero.description}
             </motion.p>
             <motion.div variants={fadeUp} className="mt-9 flex flex-wrap gap-4">
               <Link
-                href="/#contact"
+                href="/contact"
                 className="inline-flex h-13 items-center gap-2 rounded-2xl bg-[#2563EB] px-7 text-sm font-bold text-white shadow-[0_18px_38px_rgba(37,99,235,0.24)]"
               >
-                Contact Us
-                <ArrowRight className="h-4 w-4" />
+                {about.hero.contact}
+                <ArrowRight className={`h-4 w-4 ${isArabic ? 'rotate-180' : ''}`} />
               </Link>
-              <a className="inline-flex h-13 items-center gap-2 rounded-2xl border border-[#E5E7EB] bg-white px-7 text-sm font-bold text-[#0F172A] transition hover:border-[#2563EB] hover:text-[#2563EB]">
-                Download Brochure
-                <ArrowDownToLine className="h-4 w-4" />
-              </a>
             </motion.div>
           </motion.div>
 
@@ -267,33 +225,29 @@ export default function AboutPage() {
           className="flex flex-col justify-center"
         >
           <motion.div variants={fadeUp}>
-            <SectionLabel>Our Story</SectionLabel>
+            <SectionLabel>{about.story.label}</SectionLabel>
           </motion.div>
           <motion.h2
             variants={fadeUp}
             className="mt-4 text-4xl font-extrabold leading-tight text-[#0F172A] sm:text-5xl"
           >
-            Engineering Excellence Since Day One
+            {about.story.title}
           </motion.h2>
           <motion.p
             variants={fadeUp}
             className="mt-6 text-lg leading-[1.85] text-[#64748B]"
           >
-            SODIMFEL has grown from a focused electrical solutions provider into
-            a trusted partner for industrial, commercial, and energy
-            infrastructure projects. Our expertise combines product supply,
-            engineering support, installation, commissioning, and long-term
-            maintenance for mission-critical power environments.
+            {about.story.text}
           </motion.p>
 
           <motion.div
             variants={fadeUp}
             className="mt-9 rounded-[28px] border border-[#E5E7EB] bg-white p-6 shadow-[0_22px_70px_rgba(15,23,42,0.06)]"
           >
-            {timeline.map(([year, label], index) => (
+            {about.story.timeline.map(([year, label], index) => (
               <div key={year} className="relative flex gap-5 pb-6 last:pb-0">
-                {index !== timeline.length - 1 && (
-                  <div className="absolute left-[27px] top-10 h-full w-px bg-[#E5E7EB]" />
+                {index !== about.story.timeline.length - 1 && (
+                  <div className={`absolute top-10 h-full w-px bg-[#E5E7EB] ${isArabic ? 'right-[27px]' : 'left-[27px]'}`} />
                 )}
                 <div className="relative z-15 flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-[#2563EB]/10 text-sm font-extrabold text-[#2563EB]">
                   {year}
@@ -309,9 +263,9 @@ export default function AboutPage() {
 
       <section className="mx-auto max-w-[1400px] px-6 py-24 lg:px-10">
         <div className="max-w-3xl">
-          <SectionLabel>Our Core Values</SectionLabel>
+          <SectionLabel>{about.values.label}</SectionLabel>
           <h2 className="mt-4 text-4xl font-extrabold text-[#0F172A] sm:text-5xl">
-            Principles Behind Every Project
+            {about.values.title}
           </h2>
         </div>
         <motion.div
@@ -321,11 +275,11 @@ export default function AboutPage() {
           variants={stagger}
           className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
         >
-          {values.map((value) => {
-            const Icon = value.icon
+          {about.values.items.map((value, index) => {
+            const Icon = valueIcons[index] ?? BadgeCheck
             return (
               <motion.article
-                key={value.title}
+                key={`value-${index}`}
                 variants={fadeUp}
                 className="rounded-[24px] border border-[#E5E7EB] bg-white p-7 shadow-[0_18px_55px_rgba(15,23,42,0.05)] transition hover:-translate-y-2 hover:border-[#2563EB] hover:shadow-[0_28px_75px_rgba(37,99,235,0.13)]"
               >
@@ -350,12 +304,12 @@ export default function AboutPage() {
             viewport={{ once: true }}
             className="flex flex-col justify-center"
           >
-            <SectionLabel>Why Choose SODIMFEL</SectionLabel>
+            <SectionLabel>{about.why.label}</SectionLabel>
             <h2 className="mt-4 text-4xl font-extrabold leading-tight text-[#0F172A] sm:text-5xl">
-              Your Trusted Partner in Electrical Solutions
+              {about.why.title}
             </h2>
             <div className="mt-8 grid gap-4">
-              {checklist.map((item) => (
+              {about.why.checklist.map((item) => (
                 <div key={item} className="flex items-center gap-3">
                   <CheckCircle2 className="h-5 w-5 text-[#2563EB]" />
                   <span className="font-semibold text-[#0F172A]">{item}</span>
@@ -381,9 +335,9 @@ export default function AboutPage() {
       </section>
 
       <section className="mx-auto max-w-[1400px] px-6 py-24 lg:px-10">
-        <SectionLabel>Our Expertise</SectionLabel>
+        <SectionLabel>{about.expertise.label}</SectionLabel>
         <h2 className="mt-4 max-w-3xl text-4xl font-extrabold text-[#0F172A] sm:text-5xl">
-          End-to-End Electrical Capability
+          {about.expertise.title}
         </h2>
         <motion.div
           initial="hidden"
@@ -425,8 +379,14 @@ export default function AboutPage() {
                       {solution.description}
                     </p>
                     <span className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-[#2563EB]">
-                      Learn More
-                      <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+                      {about.expertise.learnMore}
+                      <ArrowRight
+                        className={`h-4 w-4 transition ${
+                          isArabic
+                            ? 'rotate-180 group-hover:-translate-x-1'
+                            : 'group-hover:translate-x-1'
+                        }`}
+                      />
                     </span>
                   </div>
                 </Link>
@@ -438,14 +398,14 @@ export default function AboutPage() {
 
       <section className="w-full bg-white px-6 py-24 lg:px-10">
         <div className="mx-auto max-w-[1400px]">
-          <SectionLabel>Industries We Serve</SectionLabel>
+          <SectionLabel>{about.industries.label}</SectionLabel>
         </div>
         <div className="mx-auto mt-8 flex w-full max-w-[1400px] flex-wrap justify-start gap-5">
-          {industries.map((industry) => {
-            const Icon = industry.icon
+          {about.industries.items.map((title, index) => {
+            const Icon = industryIcons[index] ?? Factory
             return (
               <motion.div
-                key={industry.title}
+                key={title}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -454,7 +414,7 @@ export default function AboutPage() {
                 <div>
                   <Icon className="h-8 w-8 text-[#2563EB]" />
                   <h3 className="mt-5 font-bold text-[#0F172A]">
-                    {industry.title}
+                    {title}
                   </h3>
                 </div>
               </motion.div>
@@ -471,28 +431,26 @@ export default function AboutPage() {
           className="relative mx-auto min-h-[520px] max-w-[1400px] overflow-hidden rounded-[32px] shadow-[0_30px_90px_rgba(15,23,42,0.12)]"
         >
           <Image
-            src="/images/project-solar-farm.png"
-            alt="Wind turbines and green energy landscape"
+            src="/images/project-power-plant.png"
+            alt="MT/BT transformer post and industrial electrical infrastructure"
             fill
             className="object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#0F172A]/75 via-[#0F172A]/30 to-transparent" />
           <div className="relative z-10 max-w-2xl p-8 text-white sm:p-12 lg:p-16">
-            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-500 text-white">
-              <Recycle className="h-7 w-7" />
+            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#2563EB] text-white">
+              <Zap className="h-7 w-7" />
             </div>
             <h2 className="mt-8 text-4xl font-extrabold leading-tight sm:text-5xl">
-              Building a Sustainable Energy Future
+              {about.cta.title}
             </h2>
             <p className="mt-5 text-lg leading-[1.8] text-white/80">
-              We are committed to environmentally responsible electrical
-              solutions and energy efficiency that contribute to a cleaner and
-              greener world.
+              {about.cta.description}
             </p>
-            <a className="mt-8 inline-flex h-13 items-center gap-2 rounded-2xl bg-white px-7 text-sm font-bold text-[#0F172A]">
-              Our Sustainability Approach
-              <ArrowRight className="h-4 w-4" />
-            </a>
+            <Link href="/solutions/postes-transformateurs-mt-bt" className="mt-8 inline-flex h-13 items-center gap-2 rounded-2xl bg-white px-7 text-sm font-bold text-[#0F172A]">
+              {about.cta.button}
+              <ArrowRight className={`h-4 w-4 ${isArabic ? 'rotate-180' : ''}`} />
+            </Link>
           </div>
         </motion.div>
       </section>

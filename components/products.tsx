@@ -5,36 +5,11 @@ import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import { useLanguage } from '@/components/language-provider'
 import { ProductCard } from '@/components/product-card'
-
-const PRODUCTS = [
-  {
-    title: { en: 'Oil Transformers', fr: 'Transformateurs à huile' },
-    slug: 'oil-immersed-transformer',
-    category: 'Industrial Equipment',
-    image: '/images/product-oil-transformer.png',
-  },
-  {
-    title: { en: 'Dry Transformers', fr: 'Transformateurs secs' },
-    slug: 'dry-type-transformer',
-    category: 'Industrial Equipment',
-    image: '/images/product-dry-transformer.png',
-  },
-  {
-    title: { en: 'Compact Substations', fr: 'Postes compacts' },
-    slug: 'compact-substation',
-    category: 'Industrial Equipment',
-    image: '/images/product-substation.png',
-  },
-  {
-    title: { en: 'Switchgear', fr: 'Cellules électriques' },
-    slug: 'mv-switchgear',
-    category: 'Industrial Equipment',
-    image: '/images/product-switchgear.png',
-  },
-]
+import { getProductList } from '@/lib/products'
 
 export function Products() {
-  const { isFrench, language } = useLanguage()
+  const { content, isArabic, language } = useLanguage()
+  const featuredProducts = getProductList(language).slice(0, 4)
 
   return (
     <section
@@ -55,7 +30,7 @@ export function Products() {
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
               className="text-sm font-semibold uppercase tracking-[3px] text-[#2563EB]"
             >
-              {isFrench ? 'Produits phares' : 'Featured Products'}
+              {content.products.label}
             </motion.span>
             <motion.h2
               initial={{ opacity: 0, y: 50 }}
@@ -69,12 +44,10 @@ export function Products() {
               className="mt-5 text-balance text-5xl font-extrabold leading-[1.1] text-[#111827] sm:text-6xl lg:text-[64px]"
             >
               <span className="block">
-                {isFrench ? 'Solutions de puissance' : 'Power Solutions'}
+                {content.products.titleTop}
               </span>
               <span className="block">
-                {isFrench
-                  ? "Conçues pour l'industrie moderne"
-                  : 'Built For Modern Industry'}
+                {content.products.titleBottom}
               </span>
             </motion.h2>
           </div>
@@ -87,19 +60,25 @@ export function Products() {
             className="flex justify-start md:justify-end"
           >
             <Link href="/products" className="solution-button group">
-              {isFrench ? 'Voir tous les produits' : 'View All Products'}
-              <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+              {content.common.viewAllProducts}
+              <ArrowRight
+                className={`h-5 w-5 transition-transform duration-300 ${
+                  isArabic
+                    ? 'rotate-180 group-hover:-translate-x-1'
+                    : 'group-hover:translate-x-1'
+                }`}
+              />
             </Link>
           </motion.div>
         </div>
 
         <div className="products-showcase mt-16 flex flex-row items-stretch gap-6 overflow-x-auto pb-8 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:overflow-visible lg:pb-2">
-          {PRODUCTS.map((p, index) => (
+          {featuredProducts.map((product, index) => (
             <ProductCard
-              key={p.title.en}
-              title={p.title[language]}
-              slug={p.slug}
-              image={p.image}
+              key={product.slug}
+              title={product.title}
+              slug={product.slug}
+              image={product.image}
               index={index}
             />
           ))}

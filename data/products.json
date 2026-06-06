@@ -1,0 +1,518 @@
+{
+  "en": {
+    "poste-acc": {
+      "slug": "poste-acc",
+      "category": "Electrical Posts",
+      "badge": "POSTES ACC",
+      "title": "ACC Electrical Post",
+      "description": "ACC electrical post with pole-mounted transformer and required accessories: fuse holders, fuses, compact or HP circuit breaker, cables, lugs, and connection components.",
+      "image": "/images/product-substation.png",
+      "brandKey": "utec",
+      "specs": [
+        { "label": "Type", "value": "Pole-mounted ACC post" },
+        { "label": "Included Accessories", "value": "Fuse holders, fuses, circuit breaker, cables, lugs" },
+        { "label": "Transformer Mounting", "value": "Pole-mounted" },
+        { "label": "Voltage Class", "value": "10 KV / 30 KV" },
+        { "label": "Installation Type", "value": "Indoor / Outdoor" },
+        { "label": "Service", "value": "Supply / Assembly / Installation" }
+      ]
+    },
+    "poste-10-30kv-schneider": {
+      "slug": "poste-10-30kv-schneider",
+      "category": "Electrical Posts",
+      "badge": "POSTES 10/30KV",
+      "title": "630 KVA 30 KV Electrical Post",
+      "description": "10 KV or 30 KV electrical post equipped with all required components, including a 630 KVA 30 KV configuration with Schneider equipment.",
+      "image": "/images/product-oil-transformer.png",
+      "brandKey": "schneider",
+      "specs": [
+        { "label": "Power Rating", "value": "630 KVA" },
+        { "label": "Voltage Class", "value": "10 KV / 30 KV" },
+        { "label": "Equipment Brand", "value": "Schneider Electric" },
+        { "label": "Configuration", "value": "Complete required equipment" },
+        { "label": "Application", "value": "MT/BT Distribution" },
+        { "label": "Availability", "value": "On Request" }
+      ]
+    },
+    "poste-beton-prefabrique": {
+      "slug": "poste-beton-prefabrique",
+      "category": "Prefabricated Posts",
+      "badge": "CONCRETE POSTS",
+      "title": "Prefabricated Concrete Post",
+      "description": "Reinforced concrete prefabricated electrical post, delivered turnkey with the required accessories for 10 KV and 30 KV networks.",
+      "image": "/images/product-substation.png",
+      "brandKey": "utec",
+      "specs": [
+        { "label": "Structure", "value": "Prefabricated reinforced concrete" },
+        { "label": "Voltage Class", "value": "10 KV / 30 KV" },
+        { "label": "Delivery", "value": "Turnkey" },
+        { "label": "Accessories", "value": "Required accessories included" },
+        { "label": "Application", "value": "MT/BT Distribution" },
+        { "label": "Service", "value": "Supply / Assembly / Installation" }
+      ]
+    },
+    "poste-specifique-schneider": {
+      "slug": "poste-specifique-schneider",
+      "category": "Specific Posts",
+      "badge": "SPECIFIC POSTS",
+      "title": "Specific 10 KV / 30 KV Post",
+      "description": "Custom 10 KV or 30 KV electrical post configured according to project needs and equipped with Schneider components.",
+      "image": "/images/product-switchgear.png",
+      "brandKey": "schneider",
+      "specs": [
+        { "label": "Type", "value": "Custom specific post" },
+        { "label": "Voltage Class", "value": "10 KV / 30 KV" },
+        { "label": "Equipment Brand", "value": "Schneider Electric" },
+        { "label": "Configuration", "value": "According to client needs" },
+        { "label": "Application", "value": "MT/BT Distribution" },
+        { "label": "Service", "value": "Supply / Assembly / Installation" }
+      ]
+    },
+    "transformateurs": {
+      "slug": "transformateurs",
+      "category": "Transformers",
+      "badge": "TRANSFORMERS",
+      "title": "MT/BT Transformers",
+      "description": "Transformers for MT/BT posts with available ratings from 100 KVA to 2500 KVA.",
+      "image": "/images/product-oil-transformer.png",
+      "brandKey": "abb",
+      "specs": [
+        { "label": "Power Ratings", "value": "100 KVA - 2500 KVA" },
+        { "label": "Voltage Class", "value": "10 KV / 30 KV" },
+        { "label": "Application", "value": "MT/BT transformer posts" },
+        { "label": "Approval", "value": "Sonelgaz approved depending on configuration" },
+        { "label": "Accessories", "value": "Complete accessories available" },
+        { "label": "Service", "value": "Sale / Assembly" }
+      ]
+    },
+    "equipements-sf6": {
+      "slug": "equipements-sf6",
+      "category": "SF6 Equipment",
+      "badge": "SF6",
+      "title": "Complete SF6 Equipment",
+      "description": "Complete SF6 equipment supply for transformer posts, including Sarel, Schneider, and adapted configurations.",
+      "image": "/images/product-switchgear.png",
+      "brandKey": "sarel",
+      "specs": [
+        { "label": "Technology", "value": "SF6" },
+        { "label": "Brands", "value": "Sarel / Schneider / Ediel" },
+        { "label": "Application", "value": "Transformer posts" },
+        { "label": "Voltage Class", "value": "MT" },
+        { "label": "Configuration", "value": "Complete equipment set" },
+        { "label": "Availability", "value": "On Request" }
+      ]
+    },
+    "cables": {
+      "slug": "cables",
+      "category": "Cables",
+      "badge": "CABLES",
+      "title": "Medium and Low Voltage Cables",
+      "description": "Cable reels for medium and low voltage installations, transformer posts, and industrial connections.",
+      "image": "/images/service-electrical.png",
+      "brandKey": "enel",
+      "specs": [
+        { "label": "Product Type", "value": "Cable reel" },
+        { "label": "Voltage Class", "value": "Medium / Low voltage" },
+        { "label": "Application", "value": "Installation and connection" },
+        { "label": "Supply", "value": "On Request" },
+        { "label": "Accessories", "value": "Lugs and connections available" },
+        { "label": "Service", "value": "Supply" }
+      ]
+    },
+    "armoires": {
+      "slug": "armoires",
+      "category": "Electrical Cabinets",
+      "badge": "CABINETS",
+      "title": "CLPG 1250A Electrical Cabinets",
+      "description": "Electrical cabinets including CLPG 1250A for distribution, protection, and control of electrical installations.",
+      "image": "/images/service-electrical.png",
+      "brandKey": "sarel",
+      "specs": [
+        { "label": "Type", "value": "Electrical cabinet" },
+        { "label": "Rated Current", "value": "CLPG 1250A" },
+        { "label": "Application", "value": "Distribution / Protection / Control" },
+        { "label": "Installation Type", "value": "Indoor / Industrial" },
+        { "label": "Configuration", "value": "According to need" },
+        { "label": "Service", "value": "Supply / Assembly" }
+      ]
+    },
+    "lot-de-securite": {
+      "slug": "lot-de-securite",
+      "category": "Electrical Safety",
+      "badge": "SAFETY LOT",
+      "title": "Electrical Safety Lot",
+      "description": "Safety lot for electrical posts, including safety stool and required accessories for electrical interventions.",
+      "image": "/images/product-capacitor.png",
+      "brandKey": "utec",
+      "specs": [
+        { "label": "Included Item", "value": "Safety stool" },
+        { "label": "Application", "value": "Electrical post safety" },
+        { "label": "Use Case", "value": "Intervention / Operation" },
+        { "label": "Voltage Class", "value": "MT / BT" },
+        { "label": "Availability", "value": "On Request" },
+        { "label": "Service", "value": "Supply" }
+      ]
+    },
+    "disjoncteurs": {
+      "slug": "disjoncteurs",
+      "category": "Circuit Breakers",
+      "badge": "CIRCUIT BREAKERS",
+      "title": "BT and HP Circuit Breakers",
+      "description": "Low-voltage and high-pole HP circuit breakers, including 100 KVA and 160 KVA configurations for network and post protection.",
+      "image": "/images/product-switchgear.png",
+      "brandKey": "schneider",
+      "specs": [
+        { "label": "Product Type", "value": "BT / HP circuit breaker" },
+        { "label": "Power Ratings", "value": "100 KVA / 160 KVA" },
+        { "label": "Application", "value": "Network and post protection" },
+        { "label": "Installation Type", "value": "Compact / High pole" },
+        { "label": "Brand", "value": "Schneider depending on configuration" },
+        { "label": "Availability", "value": "On Request" }
+      ]
+    }
+  },
+  "fr": {
+    "poste-acc": {
+      "slug": "poste-acc",
+      "category": "Postes électriques",
+      "badge": "POSTES ACC",
+      "title": "Poste électrique ACC",
+      "description": "Poste électrique ACC avec transformateur sur poteau et accessoires nécessaires: porte-fusibles, fusibles, disjoncteur compact ou HP, câbles, cosses et composants de raccordement.",
+      "image": "/images/product-substation.png",
+      "brandKey": "utec",
+      "specs": [
+        { "label": "Type", "value": "Poste ACC sur poteau" },
+        { "label": "Accessoires inclus", "value": "Porte-fusibles, fusibles, disjoncteur, câbles, cosses" },
+        { "label": "Montage transformateur", "value": "Sur poteau" },
+        { "label": "Classe de tension", "value": "10 KV / 30 KV" },
+        { "label": "Type d'installation", "value": "Intérieur / extérieur" },
+        { "label": "Service", "value": "Fourniture / montage / installation" }
+      ]
+    },
+    "poste-10-30kv-schneider": {
+      "slug": "poste-10-30kv-schneider",
+      "category": "Postes électriques",
+      "badge": "POSTES 10/30KV",
+      "title": "Poste électrique 630 KVA 30 KV",
+      "description": "Poste électrique 10 KV ou 30 KV équipé de tous les articles nécessaires, incluant une configuration 630 KVA 30 KV avec équipement Schneider.",
+      "image": "/images/product-oil-transformer.png",
+      "brandKey": "schneider",
+      "specs": [
+        { "label": "Puissance", "value": "630 KVA" },
+        { "label": "Classe de tension", "value": "10 KV / 30 KV" },
+        { "label": "Marque équipement", "value": "Schneider Electric" },
+        { "label": "Configuration", "value": "Articles complets nécessaires" },
+        { "label": "Application", "value": "Distribution MT/BT" },
+        { "label": "Disponibilité", "value": "Sur demande" }
+      ]
+    },
+    "poste-beton-prefabrique": {
+      "slug": "poste-beton-prefabrique",
+      "category": "Postes préfabriqués",
+      "badge": "POSTES BETON",
+      "title": "Poste béton préfabriqué",
+      "description": "Poste électrique préfabriqué en béton armé, livré clé en main avec les accessoires nécessaires pour réseaux 10 KV et 30 KV.",
+      "image": "/images/product-substation.png",
+      "brandKey": "utec",
+      "specs": [
+        { "label": "Structure", "value": "Béton armé préfabriqué" },
+        { "label": "Classe de tension", "value": "10 KV / 30 KV" },
+        { "label": "Livraison", "value": "Clé en main" },
+        { "label": "Accessoires", "value": "Accessoires nécessaires inclus" },
+        { "label": "Application", "value": "Distribution MT/BT" },
+        { "label": "Service", "value": "Fourniture / montage / installation" }
+      ]
+    },
+    "poste-specifique-schneider": {
+      "slug": "poste-specifique-schneider",
+      "category": "Postes spécifiques",
+      "badge": "POSTES SPECIFIQUES",
+      "title": "Poste spécifique 10 KV / 30 KV",
+      "description": "Poste électrique de type spécifique en 10 KV ou 30 KV selon vos besoins, équipé de tous les articles nécessaires avec équipement Schneider.",
+      "image": "/images/product-switchgear.png",
+      "brandKey": "schneider",
+      "specs": [
+        { "label": "Type", "value": "Poste spécifique sur mesure" },
+        { "label": "Classe de tension", "value": "10 KV / 30 KV" },
+        { "label": "Marque équipement", "value": "Schneider Electric" },
+        { "label": "Configuration", "value": "Selon besoin client" },
+        { "label": "Application", "value": "Distribution MT/BT" },
+        { "label": "Service", "value": "Fourniture / montage / installation" }
+      ]
+    },
+    "transformateurs": {
+      "slug": "transformateurs",
+      "category": "Transformateurs",
+      "badge": "TRANSFORMATEURS",
+      "title": "Transformateurs MT/BT",
+      "description": "Transformateurs pour postes MT/BT avec puissances disponibles de 100 KVA à 2500 KVA.",
+      "image": "/images/product-oil-transformer.png",
+      "brandKey": "abb",
+      "specs": [
+        { "label": "Puissances", "value": "100 KVA - 2500 KVA" },
+        { "label": "Classe de tension", "value": "10 KV / 30 KV" },
+        { "label": "Application", "value": "Postes transformateurs MT/BT" },
+        { "label": "Homologation", "value": "Homologué Sonelgaz selon configuration" },
+        { "label": "Accessoires", "value": "Accessoires complets disponibles" },
+        { "label": "Service", "value": "Vente / montage" }
+      ]
+    },
+    "equipements-sf6": {
+      "slug": "equipements-sf6",
+      "category": "Équipements SF6",
+      "badge": "SF6",
+      "title": "Équipements SF6 complets",
+      "description": "Fourniture d'équipements SF6 complets pour postes transformateurs, notamment équipements Sarel, Schneider et configurations adaptées.",
+      "image": "/images/product-switchgear.png",
+      "brandKey": "sarel",
+      "specs": [
+        { "label": "Technologie", "value": "SF6" },
+        { "label": "Marques", "value": "Sarel / Schneider / Ediel" },
+        { "label": "Application", "value": "Postes transformateurs" },
+        { "label": "Classe de tension", "value": "MT" },
+        { "label": "Configuration", "value": "Ensemble complet" },
+        { "label": "Disponibilité", "value": "Sur demande" }
+      ]
+    },
+    "cables": {
+      "slug": "cables",
+      "category": "Câbles",
+      "badge": "CABLES",
+      "title": "Câbles moyenne et basse tension",
+      "description": "Tourets de câbles moyenne et basse tension pour installations électriques, postes transformateurs et raccordements industriels.",
+      "image": "/images/service-electrical.png",
+      "brandKey": "enel",
+      "specs": [
+        { "label": "Type produit", "value": "Touret de câble" },
+        { "label": "Classe de tension", "value": "Moyenne / basse tension" },
+        { "label": "Application", "value": "Installation et raccordement" },
+        { "label": "Fourniture", "value": "Sur demande" },
+        { "label": "Accessoires", "value": "Cosses et raccordements disponibles" },
+        { "label": "Service", "value": "Fourniture" }
+      ]
+    },
+    "armoires": {
+      "slug": "armoires",
+      "category": "Armoires électriques",
+      "badge": "ARMOIRES",
+      "title": "Armoires électriques CLPG 1250A",
+      "description": "Armoires électriques diverses, incluant CLPG 1250A, pour distribution, protection et contrôle des installations électriques.",
+      "image": "/images/service-electrical.png",
+      "brandKey": "sarel",
+      "specs": [
+        { "label": "Type", "value": "Armoire électrique" },
+        { "label": "Courant nominal", "value": "CLPG 1250A" },
+        { "label": "Application", "value": "Distribution / protection / contrôle" },
+        { "label": "Type d'installation", "value": "Intérieur / industriel" },
+        { "label": "Configuration", "value": "Selon besoin" },
+        { "label": "Service", "value": "Fourniture / montage" }
+      ]
+    },
+    "lot-de-securite": {
+      "slug": "lot-de-securite",
+      "category": "Sécurité électrique",
+      "badge": "LOT DE SECURITE",
+      "title": "Lot de sécurité électrique",
+      "description": "Lot de sécurité pour postes électriques, incluant tabouret et accessoires de sécurité nécessaires aux interventions électriques.",
+      "image": "/images/product-capacitor.png",
+      "brandKey": "utec",
+      "specs": [
+        { "label": "Élément inclus", "value": "Tabouret de sécurité" },
+        { "label": "Application", "value": "Sécurité des postes électriques" },
+        { "label": "Usage", "value": "Intervention / exploitation" },
+        { "label": "Classe de tension", "value": "MT / BT" },
+        { "label": "Disponibilité", "value": "Sur demande" },
+        { "label": "Service", "value": "Fourniture" }
+      ]
+    },
+    "disjoncteurs": {
+      "slug": "disjoncteurs",
+      "category": "Disjoncteurs",
+      "badge": "DISJONCTEURS",
+      "title": "Disjoncteurs BT et haut poteau",
+      "description": "Disjoncteurs basse tension et haut poteau HP, incluant configurations 100 KVA et 160 KVA, pour protection des réseaux et postes électriques.",
+      "image": "/images/product-switchgear.png",
+      "brandKey": "schneider",
+      "specs": [
+        { "label": "Type produit", "value": "Disjoncteur BT / HP" },
+        { "label": "Puissances", "value": "100 KVA / 160 KVA" },
+        { "label": "Application", "value": "Protection réseau et postes" },
+        { "label": "Type d'installation", "value": "Compact / haut poteau" },
+        { "label": "Marque", "value": "Schneider selon configuration" },
+        { "label": "Disponibilité", "value": "Sur demande" }
+      ]
+    }
+  },
+  "ar": {
+    "poste-acc": {
+      "slug": "poste-acc",
+      "category": "محطات كهربائية",
+      "badge": "POSTES ACC",
+      "title": "محطة كهربائية ACC",
+      "description": "محطة كهربائية ACC مع محول على عمود وجميع الملحقات اللازمة مثل حوامل الفيوزات، الفيوزات، القاطع، الكوابل، والعروات.",
+      "image": "/images/product-substation.png",
+      "brandKey": "utec",
+      "specs": [
+        { "label": "النوع", "value": "محطة ACC على عمود" },
+        { "label": "الملحقات", "value": "حوامل فيوزات، فيوزات، قاطع، كوابل، عروات" },
+        { "label": "تركيب المحول", "value": "على عمود" },
+        { "label": "فئة الجهد", "value": "10 KV / 30 KV" },
+        { "label": "نوع التركيب", "value": "داخلي / خارجي" },
+        { "label": "الخدمة", "value": "توريد / تركيب / إنجاز" }
+      ]
+    },
+    "poste-10-30kv-schneider": {
+      "slug": "poste-10-30kv-schneider",
+      "category": "محطات كهربائية",
+      "badge": "POSTES 10/30KV",
+      "title": "محطة كهربائية 630 KVA 30 KV",
+      "description": "محطة كهربائية 10 KV أو 30 KV مجهزة بكل العناصر اللازمة، مع تجهيزات Schneider.",
+      "image": "/images/product-oil-transformer.png",
+      "brandKey": "schneider",
+      "specs": [
+        { "label": "القدرة", "value": "630 KVA" },
+        { "label": "فئة الجهد", "value": "10 KV / 30 KV" },
+        { "label": "العلامة", "value": "Schneider Electric" },
+        { "label": "التجهيز", "value": "عناصر كاملة حسب الحاجة" },
+        { "label": "الاستخدام", "value": "توزيع MT/BT" },
+        { "label": "التوفر", "value": "حسب الطلب" }
+      ]
+    },
+    "poste-beton-prefabrique": {
+      "slug": "poste-beton-prefabrique",
+      "category": "محطات مسبقة الصنع",
+      "badge": "POSTES BETON",
+      "title": "محطة خرسانية مسبقة الصنع",
+      "description": "محطة كهربائية مسبقة الصنع من الخرسانة المسلحة، جاهزة مع الملحقات اللازمة لشبكات 10 KV و30 KV.",
+      "image": "/images/product-substation.png",
+      "brandKey": "utec",
+      "specs": [
+        { "label": "البنية", "value": "خرسانة مسلحة مسبقة الصنع" },
+        { "label": "فئة الجهد", "value": "10 KV / 30 KV" },
+        { "label": "التسليم", "value": "حل جاهز" },
+        { "label": "الملحقات", "value": "ملحقات ضرورية مرفقة" },
+        { "label": "الاستخدام", "value": "توزيع MT/BT" },
+        { "label": "الخدمة", "value": "توريد / تركيب / إنجاز" }
+      ]
+    },
+    "poste-specifique-schneider": {
+      "slug": "poste-specifique-schneider",
+      "category": "محطات خاصة",
+      "badge": "POSTES SPECIFIQUES",
+      "title": "محطة خاصة 10 KV / 30 KV",
+      "description": "محطة كهربائية خاصة بجهد 10 KV أو 30 KV حسب احتياجات المشروع، مجهزة بعناصر Schneider.",
+      "image": "/images/product-switchgear.png",
+      "brandKey": "schneider",
+      "specs": [
+        { "label": "النوع", "value": "محطة خاصة حسب الطلب" },
+        { "label": "فئة الجهد", "value": "10 KV / 30 KV" },
+        { "label": "العلامة", "value": "Schneider Electric" },
+        { "label": "التجهيز", "value": "حسب حاجة العميل" },
+        { "label": "الاستخدام", "value": "توزيع MT/BT" },
+        { "label": "الخدمة", "value": "توريد / تركيب / إنجاز" }
+      ]
+    },
+    "transformateurs": {
+      "slug": "transformateurs",
+      "category": "محولات",
+      "badge": "TRANSFORMATEURS",
+      "title": "محولات MT/BT",
+      "description": "محولات لمحطات MT/BT بقدرات متوفرة من 100 KVA إلى 2500 KVA.",
+      "image": "/images/product-oil-transformer.png",
+      "brandKey": "abb",
+      "specs": [
+        { "label": "القدرات", "value": "100 KVA - 2500 KVA" },
+        { "label": "فئة الجهد", "value": "10 KV / 30 KV" },
+        { "label": "الاستخدام", "value": "محطات تحويل MT/BT" },
+        { "label": "الاعتماد", "value": "معتمد من Sonelgaz حسب التجهيز" },
+        { "label": "الملحقات", "value": "ملحقات كاملة متوفرة" },
+        { "label": "الخدمة", "value": "بيع / تركيب" }
+      ]
+    },
+    "equipements-sf6": {
+      "slug": "equipements-sf6",
+      "category": "تجهيزات SF6",
+      "badge": "SF6",
+      "title": "تجهيزات SF6 كاملة",
+      "description": "توريد تجهيزات SF6 كاملة لمحطات التحويل، بما في ذلك تجهيزات Sarel وSchneider وتكوينات مناسبة.",
+      "image": "/images/product-switchgear.png",
+      "brandKey": "sarel",
+      "specs": [
+        { "label": "التقنية", "value": "SF6" },
+        { "label": "العلامات", "value": "Sarel / Schneider / Ediel" },
+        { "label": "الاستخدام", "value": "محطات التحويل" },
+        { "label": "فئة الجهد", "value": "MT" },
+        { "label": "التجهيز", "value": "مجموعة كاملة" },
+        { "label": "التوفر", "value": "حسب الطلب" }
+      ]
+    },
+    "cables": {
+      "slug": "cables",
+      "category": "كوابل",
+      "badge": "CABLES",
+      "title": "كوابل الجهد المتوسط والمنخفض",
+      "description": "بكرات كوابل للجهد المتوسط والمنخفض للتركيبات الكهربائية ومحطات التحويل والربط الصناعي.",
+      "image": "/images/service-electrical.png",
+      "brandKey": "enel",
+      "specs": [
+        { "label": "نوع المنتج", "value": "بكرة كابل" },
+        { "label": "فئة الجهد", "value": "متوسط / منخفض" },
+        { "label": "الاستخدام", "value": "تركيب وربط" },
+        { "label": "التوريد", "value": "حسب الطلب" },
+        { "label": "الملحقات", "value": "عروات وروابط متوفرة" },
+        { "label": "الخدمة", "value": "توريد" }
+      ]
+    },
+    "armoires": {
+      "slug": "armoires",
+      "category": "خزائن كهربائية",
+      "badge": "ARMOIRES",
+      "title": "خزائن كهربائية CLPG 1250A",
+      "description": "خزائن كهربائية متنوعة، بما في ذلك CLPG 1250A، للتوزيع والحماية والتحكم في التركيبات الكهربائية.",
+      "image": "/images/service-electrical.png",
+      "brandKey": "sarel",
+      "specs": [
+        { "label": "النوع", "value": "خزانة كهربائية" },
+        { "label": "التيار الاسمي", "value": "CLPG 1250A" },
+        { "label": "الاستخدام", "value": "توزيع / حماية / تحكم" },
+        { "label": "نوع التركيب", "value": "داخلي / صناعي" },
+        { "label": "التجهيز", "value": "حسب الحاجة" },
+        { "label": "الخدمة", "value": "توريد / تركيب" }
+      ]
+    },
+    "lot-de-securite": {
+      "slug": "lot-de-securite",
+      "category": "سلامة كهربائية",
+      "badge": "LOT DE SECURITE",
+      "title": "مجموعة السلامة الكهربائية",
+      "description": "مجموعة سلامة للمحطات الكهربائية، تشمل كرسي السلامة والملحقات اللازمة للتدخلات الكهربائية.",
+      "image": "/images/product-capacitor.png",
+      "brandKey": "utec",
+      "specs": [
+        { "label": "العنصر المرفق", "value": "كرسي سلامة" },
+        { "label": "الاستخدام", "value": "سلامة المحطات الكهربائية" },
+        { "label": "الحالة", "value": "تدخل / تشغيل" },
+        { "label": "فئة الجهد", "value": "MT / BT" },
+        { "label": "التوفر", "value": "حسب الطلب" },
+        { "label": "الخدمة", "value": "توريد" }
+      ]
+    },
+    "disjoncteurs": {
+      "slug": "disjoncteurs",
+      "category": "قواطع كهربائية",
+      "badge": "DISJONCTEURS",
+      "title": "قواطع BT وHP",
+      "description": "قواطع جهد منخفض وHP، بما في ذلك تكوينات 100 KVA و160 KVA، لحماية الشبكات والمحطات الكهربائية.",
+      "image": "/images/product-switchgear.png",
+      "brandKey": "schneider",
+      "specs": [
+        { "label": "نوع المنتج", "value": "قاطع BT / HP" },
+        { "label": "القدرات", "value": "100 KVA / 160 KVA" },
+        { "label": "الاستخدام", "value": "حماية الشبكات والمحطات" },
+        { "label": "نوع التركيب", "value": "مدمج / على عمود" },
+        { "label": "العلامة", "value": "Schneider حسب التجهيز" },
+        { "label": "التوفر", "value": "حسب الطلب" }
+      ]
+    }
+  }
+}

@@ -2,7 +2,9 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
+import { useSearchParams } from 'next/navigation'
 import { motion } from 'framer-motion'
+import { Suspense, useEffect, useMemo, useState } from 'react'
 import {
   ArrowRight,
   ChevronDown,
@@ -15,13 +17,6 @@ import {
   Zap,
 } from 'lucide-react'
 import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select'
-import {
   Sheet,
   SheetContent,
   SheetHeader,
@@ -29,30 +24,11 @@ import {
   SheetTrigger,
 } from '@/components/ui/sheet'
 import { Navbar } from '@/components/navbar'
-import { LanguageProvider } from '@/components/language-provider'
-import { Footer } from '@/components/footer'
-import { productList } from '@/lib/products'
+import productsPageContent from '@/data/products-page-content.json'
+import { useLanguage } from '@/components/language-provider'
+import { getProductList, type Product } from '@/lib/products'
 
-const filters = {
-  categories: [
-    'All Products',
-    'Transformers',
-    'Substations',
-    'Switchgear',
-    'Power Distribution',
-    'Protection Systems',
-    'Industrial Accessories',
-  ],
-  voltage: [
-    'Up to 1kV',
-    '1kV-36kV',
-    '36kV-72.5kV',
-    '72.5kV-145kV',
-    'Above 145kV',
-  ],
-  type: ['Oil Immersed', 'Dry Type', 'Indoor', 'Outdoor', 'Gas Insulated'],
-  standards: ['IEC', 'ANSI', 'IEEE', 'Other'],
-}
+const PAGE_SIZE = 12
 
 function FilterGroup({
   title,
@@ -74,7 +50,15 @@ function FilterGroup({
   )
 }
 
-function CheckboxList({ items }: { items: string[] }) {
+function FilterOptionList({
+  items,
+  selected,
+  onSelect,
+}: {
+  items: string[]
+  selected: string
+  onSelect: (item: string) => void
+}) {
   return (
     <div className="space-y-3">
       {items.map((item) => (
@@ -83,9 +67,11 @@ function CheckboxList({ items }: { items: string[] }) {
           className="flex cursor-pointer items-center gap-3 text-sm text-slate-600 transition-colors hover:text-slate-950"
         >
           <input
-            type="checkbox"
+            type="radio"
+            name={items[0]}
             className="h-4 w-4 rounded border-slate-300 accent-blue-600"
-            defaultChecked={item === 'All Products'}
+            checked={selected === item}
+            onChange={() => onSelect(item)}
           />
           {item}
         </label>
@@ -94,15 +80,41 @@ function CheckboxList({ items }: { items: string[] }) {
   )
 }
 
-function FilterSidebar() {
+function FilterSidebar({
+  search,
+  selectedCategory,
+  selectedBrand,
+  onSearchChange,
+  onCategoryChange,
+  onBrandChange,
+  onReset,
+  copy,
+  categoryOptions,
+  brandOptions,
+}: {
+  search: string
+  selectedCategory: string
+  selectedBrand: string
+  onSearchChange: (value: string) => void
+  onCategoryChange: (value: string) => void
+  onBrandChange: (value: string) => void
+  onReset: () => void
+  copy: (typeof productsPageContent)['en']
+  categoryOptions: string[]
+  brandOptions: string[]
+}) {
   return (
     <aside className="rounded-[24px] border border-[#E5E7EB] bg-white p-6 shadow-[0_20px_60px_rgba(15,23,42,0.06)]">
       <div className="mb-6 flex items-center justify-between">
         <h2 className="text-xs font-extrabold uppercase tracking-[2px] text-slate-950">
-          Filter Products
+          {copy.filterTitle}
         </h2>
-        <button className="text-xs font-semibold text-blue-600 transition-colors hover:text-blue-700">
-          Reset All
+        <button
+          type="button"
+          onClick={onReset}
+          className="text-xs font-semibold text-blue-600 transition-colors hover:text-blue-700"
+        >
+          {copy.resetAll}
         </button>
       </div>
 
@@ -110,44 +122,29 @@ function FilterSidebar() {
         <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
         <input
           type="search"
-          placeholder="Search products..."
+          placeholder={copy.searchPlaceholder}
+          value={search}
+          onChange={(event) => onSearchChange(event.target.value)}
           className="h-12 w-full rounded-xl border border-[#E5E7EB] bg-white pl-11 pr-4 text-sm text-slate-900 outline-none transition focus:border-blue-600 focus:ring-4 focus:ring-blue-600/10"
         />
       </label>
 
       <div className="mt-6">
-        <FilterGroup title="Categories">
-          <CheckboxList items={filters.categories} />
+        <FilterGroup title={copy.categories}>
+          <FilterOptionList
+            items={categoryOptions}
+            selected={selectedCategory}
+            onSelect={onCategoryChange}
+          />
         </FilterGroup>
-        <FilterGroup title="Voltage Class">
-          <CheckboxList items={filters.voltage} />
-        </FilterGroup>
-        <FilterGroup title="Product Type">
-          <CheckboxList items={filters.type} />
-        </FilterGroup>
-        <FilterGroup title="Power Rating">
-          <div>
-            <div className="mb-3 flex justify-between text-xs font-semibold text-slate-500">
-              <span>25 kVA</span>
-              <span>100 MVA</span>
-            </div>
-            <input
-              type="range"
-              min="0"
-              max="100"
-              defaultValue="55"
-              className="h-2 w-full accent-blue-600"
-            />
-          </div>
-        </FilterGroup>
-        <FilterGroup title="Standards">
-          <CheckboxList items={filters.standards} />
+        <FilterGroup title={copy.brands}>
+          <FilterOptionList
+            items={brandOptions}
+            selected={selectedBrand}
+            onSelect={onBrandChange}
+          />
         </FilterGroup>
       </div>
-
-      <button className="mt-2 h-12 w-full rounded-xl border border-blue-600 bg-white text-sm font-bold text-blue-600 transition-all duration-300 hover:bg-blue-600 hover:text-white hover:shadow-[0_18px_40px_rgba(37,99,235,0.22)]">
-        Apply Filters
-      </button>
     </aside>
   )
 }
@@ -155,10 +152,66 @@ function FilterSidebar() {
 function ProductCard({
   product,
   index,
+  viewMode,
 }: {
-  product: (typeof productList)[number]
+  product: Product
   index: number
+  viewMode: 'grid' | 'list'
 }) {
+  if (viewMode === 'list') {
+    return (
+      <Link href={`/products/${product.slug}`} className="group block">
+        <motion.article
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{
+            duration: 0.65,
+            delay: index * 0.04,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+          className="grid overflow-hidden rounded-[24px] border border-[#E5E7EB] bg-white transition-all duration-300 group-hover:-translate-y-1 group-hover:border-blue-600 group-hover:shadow-[0_25px_80px_rgba(37,99,235,0.12)] md:grid-cols-[240px_1fr]"
+        >
+          <div className="relative flex min-h-[190px] items-center justify-center bg-[#F8FAFC] p-6">
+            <span className="absolute left-4 top-4 rounded-full bg-blue-600 px-3 py-1 text-[10px] font-bold uppercase tracking-[1.6px] text-white">
+              {product.badge}
+            </span>
+            <Image
+              src={product.image}
+              alt={product.title}
+              width={230}
+              height={170}
+              className="max-h-[135px] w-auto object-contain transition-transform duration-500 group-hover:scale-105"
+            />
+          </div>
+
+          <div className="flex flex-col justify-center p-6">
+            <div className="flex flex-wrap items-center gap-4">
+              <p className="text-xs font-bold uppercase tracking-[2px] text-blue-600">
+                {product.category}
+              </p>
+              <span className="flex h-9 max-w-[130px] items-center rounded-full border border-[#E5E7EB] bg-white px-3 shadow-sm">
+                <Image
+                  src={product.brand.logo}
+                  alt={product.brand.name}
+                  width={100}
+                  height={28}
+                  className="max-h-5 w-auto object-contain"
+                />
+              </span>
+            </div>
+            <h3 className="mt-3 text-2xl font-bold leading-tight text-[#0F172A]">
+              {product.title}
+            </h3>
+            <p className="mt-2 text-sm font-semibold text-[#64748B]">
+              {product.brand.name}
+            </p>
+          </div>
+        </motion.article>
+      </Link>
+    )
+  }
+
   return (
     <Link href={`/products/${product.slug}`} className="group block">
       <motion.article
@@ -175,6 +228,15 @@ function ProductCard({
         <span className="absolute left-4 top-4 z-10 rounded-full bg-blue-600 px-3 py-1 text-[10px] font-bold uppercase tracking-[1.6px] text-white">
           {product.badge}
         </span>
+        <span className="absolute right-4 top-4 z-10 flex h-9 max-w-[110px] items-center rounded-full border border-[#E5E7EB] bg-white/90 px-3 shadow-sm backdrop-blur-sm">
+          <Image
+            src={product.brand.logo}
+            alt={product.brand.name}
+            width={92}
+            height={28}
+            className="max-h-5 w-auto object-contain"
+          />
+        </span>
 
         <div className="flex h-[180px] items-center justify-center bg-[#F8FAFC] p-6">
           <Image
@@ -190,6 +252,9 @@ function ProductCard({
           <p className="text-xs font-bold uppercase tracking-[2px] text-blue-600">
             {product.category}
           </p>
+          <p className="mt-1 text-xs font-semibold text-[#64748B]">
+            {product.brand.name}
+          </p>
           <h3 className="mt-2 text-xl font-bold leading-tight text-[#0F172A]">
             {product.title}
           </h3>
@@ -200,31 +265,138 @@ function ProductCard({
   )
 }
 
-export default function ProductsPage() {
+function ProductsContent() {
+  const { isArabic, language } = useLanguage()
+  const copy = productsPageContent[language]
+  const productList = useMemo(() => getProductList(language), [language])
+  const categoryOptions = useMemo(
+    () => [
+      copy.allProducts,
+      ...Array.from(new Set(productList.map((product) => product.category))),
+    ],
+    [copy.allProducts, productList]
+  )
+  const brandOptions = useMemo(
+    () => [
+      copy.allBrands,
+      ...Array.from(new Set(productList.map((product) => product.brand.name))),
+    ],
+    [copy.allBrands, productList]
+  )
+  const searchParams = useSearchParams()
+  const brandParam = searchParams.get('brand')
+  const initialBrand =
+    brandOptions.find(
+      (brand) => brand.toLowerCase() === (brandParam ?? '').toLowerCase()
+    ) ?? copy.allBrands
+  const [currentPage, setCurrentPage] = useState(1)
+  const [search, setSearch] = useState('')
+  const [selectedCategory, setSelectedCategory] = useState(copy.allProducts)
+  const [selectedBrand, setSelectedBrand] = useState(initialBrand)
+  const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid')
+
+  useEffect(() => {
+    const nextBrand =
+      brandOptions.find(
+        (brand) => brand.toLowerCase() === (brandParam ?? '').toLowerCase()
+      ) ?? copy.allBrands
+
+    setSelectedBrand(nextBrand)
+    setCurrentPage(1)
+  }, [brandParam, brandOptions, copy.allBrands])
+
+  useEffect(() => {
+    setSelectedCategory(copy.allProducts)
+    setSelectedBrand(initialBrand)
+    setCurrentPage(1)
+  }, [copy.allProducts, initialBrand, language])
+
+  const filteredProducts = useMemo(() => {
+    const query = search.trim().toLowerCase()
+
+    return productList.filter((product) => {
+      const matchesSearch =
+        !query ||
+        product.title.toLowerCase().includes(query) ||
+        product.category.toLowerCase().includes(query) ||
+        product.brand.name.toLowerCase().includes(query)
+      const matchesCategory =
+        selectedCategory === copy.allProducts ||
+        product.category === selectedCategory
+      const matchesBrand =
+        selectedBrand === copy.allBrands || product.brand.name === selectedBrand
+
+      return matchesSearch && matchesCategory && matchesBrand
+    })
+  }, [copy.allBrands, copy.allProducts, productList, search, selectedCategory, selectedBrand])
+
+  const totalProducts = filteredProducts.length
+  const totalPages = Math.max(1, Math.ceil(totalProducts / PAGE_SIZE))
+  const activePage = Math.min(currentPage, totalPages)
+  const startIndex = (activePage - 1) * PAGE_SIZE
+  const endIndex = Math.min(startIndex + PAGE_SIZE, totalProducts)
+  const visibleProducts = useMemo(
+    () => filteredProducts.slice(startIndex, endIndex),
+    [filteredProducts, startIndex, endIndex]
+  )
+  const pages = Array.from({ length: totalPages }, (_, index) => index + 1)
+
+  function updateSearch(value: string) {
+    setSearch(value)
+    setCurrentPage(1)
+  }
+
+  function updateCategory(value: string) {
+    setSelectedCategory(value)
+    setCurrentPage(1)
+  }
+
+  function updateBrand(value: string) {
+    setSelectedBrand(value)
+    setCurrentPage(1)
+  }
+
+  function resetFilters() {
+    setSearch('')
+    setSelectedCategory(copy.allProducts)
+    setSelectedBrand(copy.allBrands)
+    setCurrentPage(1)
+  }
+
+  function goToPage(page: number) {
+    const nextPage = Math.min(Math.max(page, 1), totalPages)
+    setCurrentPage(nextPage)
+  }
+
   return (
-    <LanguageProvider>
+    <>
       <Navbar />
-      <main className="min-h-screen bg-white text-slate-900">
-      <section className="relative h-auto overflow-hidden bg-[var(--ink)] pt-24 md:h-[520px] md:pt-20">
-        <div className="absolute inset-0 bg-gradient-to-r from-[var(--ink)] via-[var(--ink)]/95 to-[var(--ink-2)]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[var(--ink)] via-transparent to-[var(--ink)]/30" />
-        <div className="absolute right-[8%] top-1/2 hidden h-80 w-80 -translate-y-1/2 rounded-full bg-blue-600/20 blur-[90px] md:block" />
-        <div className="relative z-10 mx-auto grid h-full max-w-[1440px] grid-cols-1 items-center gap-10 px-6 py-16 md:grid-cols-[45%_55%] md:py-0">
+      <main className={`min-h-screen bg-white text-slate-900 ${isArabic ? 'text-right' : ''}`}>
+      <section className="relative overflow-hidden bg-white pt-28 md:min-h-[560px] md:pt-24">
+        <div className="absolute left-1/2 top-20 h-[520px] w-[780px] -translate-x-1/2 rounded-full bg-[#2563EB]/10 blur-[110px]" />
+        <div className="absolute right-[8%] top-1/2 hidden h-80 w-80 -translate-y-1/2 rounded-full bg-blue-600/10 blur-[90px] md:block" />
+        <div className="absolute inset-0 opacity-[0.035] [background-image:linear-gradient(rgba(37,99,235,0.7)_1px,transparent_1px),linear-gradient(90deg,rgba(37,99,235,0.7)_1px,transparent_1px)] [background-size:44px_44px]" />
+        <div className="relative z-10 mx-auto grid min-h-[inherit] max-w-[1440px] grid-cols-1 items-center gap-10 px-6 py-16 md:grid-cols-[45%_55%] md:py-12">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
-            <p className="text-electric text-xs font-bold uppercase tracking-[2px]">
-              Products
+            <nav className="mb-8 flex items-center gap-2 text-sm font-semibold text-[#64748B]">
+              <Link href="/" className="hover:text-[#2563EB]">
+                {copy.breadcrumbHome}
+              </Link>
+              <ArrowRight className={`h-4 w-4 ${isArabic ? 'rotate-180' : ''}`} />
+              <span className="text-[#0F172A]">{copy.breadcrumbCurrent}</span>
+            </nav>
+            <p className="text-xs font-bold uppercase tracking-[2px] text-[#1D4ED8]">
+              {copy.heroLabel}
             </p>
-            <h1 className="mt-5 max-w-[650px] text-5xl font-extrabold leading-[1.05] text-white sm:text-6xl lg:text-[64px]">
-              Premium Electrical Equipment For Every Need
+            <h1 className="mt-5 max-w-[650px] text-5xl font-extrabold leading-[1.05] text-[#0F172A] sm:text-6xl lg:text-[64px]">
+              {copy.heroTitle}
             </h1>
-            <p className="mt-6 max-w-[600px] text-lg leading-[1.8] text-slate-300">
-              Explore our complete range of high-quality electrical equipment
-              designed for reliability, efficiency, and long-lasting
-              performance.
+            <p className="mt-6 max-w-[600px] text-lg leading-[1.8] text-[#64748B]">
+              {copy.heroDescription}
             </p>
           </motion.div>
 
@@ -261,13 +433,25 @@ export default function ProductsPage() {
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           className="sticky top-[100px] hidden w-[240px] shrink-0 lg:w-[280px] md:block"
         >
-          <FilterSidebar />
+          <FilterSidebar
+            search={search}
+            selectedCategory={selectedCategory}
+            selectedBrand={selectedBrand}
+            onSearchChange={updateSearch}
+            onCategoryChange={updateCategory}
+            onBrandChange={updateBrand}
+            onReset={resetFilters}
+            copy={copy}
+            categoryOptions={categoryOptions}
+            brandOptions={brandOptions}
+          />
         </motion.div>
 
         <div className="min-w-0 flex-1">
           <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
             <p className="text-sm font-medium text-[#64748B]">
-              Showing 1-12 of 84 Products
+              {copy.showing} {totalProducts === 0 ? 0 : startIndex + 1}-{endIndex}{' '}
+              {copy.of} {totalProducts} {copy.products}
             </p>
 
             <div className="flex flex-wrap items-center gap-3">
@@ -275,7 +459,7 @@ export default function ProductsPage() {
                 <SheetTrigger asChild>
                   <button className="inline-flex h-10 items-center gap-2 rounded-xl border border-[#E5E7EB] bg-white px-4 text-sm font-semibold text-slate-700 shadow-sm md:hidden">
                     <SlidersHorizontal className="h-4 w-4" />
-                    Open Filters
+                    {copy.openFilters}
                   </button>
                 </SheetTrigger>
                 <SheetContent
@@ -284,33 +468,51 @@ export default function ProductsPage() {
                 >
                   <SheetHeader className="border-b border-slate-200 p-6">
                     <SheetTitle className="text-left text-slate-950">
-                      Filters
+                      {copy.filters}
                     </SheetTitle>
                   </SheetHeader>
                   <div className="p-6">
-                    <FilterSidebar />
+                    <FilterSidebar
+                      search={search}
+                      selectedCategory={selectedCategory}
+                      selectedBrand={selectedBrand}
+                      onSearchChange={updateSearch}
+                      onCategoryChange={updateCategory}
+                      onBrandChange={updateBrand}
+                      onReset={resetFilters}
+                      copy={copy}
+                      categoryOptions={categoryOptions}
+                      brandOptions={brandOptions}
+                    />
                   </div>
                 </SheetContent>
               </Sheet>
 
-              <button className="flex h-10 w-10 items-center justify-center rounded-xl border border-blue-600 bg-blue-50 text-blue-600">
+              <button
+                type="button"
+                onClick={() => setViewMode('grid')}
+                className={`flex h-10 w-10 items-center justify-center rounded-xl border transition ${
+                  viewMode === 'grid'
+                    ? 'border-blue-600 bg-blue-50 text-blue-600'
+                    : 'border-[#E5E7EB] bg-white text-slate-500 hover:border-blue-600 hover:text-blue-600'
+                }`}
+                aria-label={copy.gridLabel}
+              >
                 <Grid3X3 className="h-4 w-4" />
               </button>
-              <button className="flex h-10 w-10 items-center justify-center rounded-xl border border-[#E5E7EB] bg-white text-slate-500 transition hover:border-blue-600 hover:text-blue-600">
+              <button
+                type="button"
+                onClick={() => setViewMode('list')}
+                className={`flex h-10 w-10 items-center justify-center rounded-xl border transition ${
+                  viewMode === 'list'
+                    ? 'border-blue-600 bg-blue-50 text-blue-600'
+                    : 'border-[#E5E7EB] bg-white text-slate-500 hover:border-blue-600 hover:text-blue-600'
+                }`}
+                aria-label={copy.listLabel}
+              >
                 <List className="h-4 w-4" />
               </button>
 
-              <Select defaultValue="newest">
-                <SelectTrigger className="h-10 w-[170px] rounded-xl border-[#E5E7EB] bg-white text-slate-700">
-                  <SelectValue placeholder="Sort by Newest" />
-                </SelectTrigger>
-                <SelectContent className="bg-white">
-                  <SelectItem value="newest">Sort by Newest</SelectItem>
-                  <SelectItem value="popular">Most Popular</SelectItem>
-                  <SelectItem value="rating">Highest Rated</SelectItem>
-                  <SelectItem value="name">Name A-Z</SelectItem>
-                </SelectContent>
-              </Select>
             </div>
           </div>
 
@@ -322,42 +524,85 @@ export default function ProductsPage() {
               hidden: {},
               show: { transition: { staggerChildren: 0.08 } },
             }}
-            className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4"
+            className={
+              viewMode === 'grid'
+                ? 'grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4'
+                : 'grid grid-cols-1 gap-5'
+            }
           >
-            {productList.map((product, index) => (
-              <ProductCard key={product.slug} product={product} index={index} />
+            {visibleProducts.map((product, index) => (
+              <ProductCard
+                key={product.slug}
+                product={product}
+                index={index}
+                viewMode={viewMode}
+              />
             ))}
           </motion.div>
 
-          <nav className="mt-14 flex items-center justify-center gap-2">
-            {['<', '1', '2', '3', '4', '5', '...', '7', '>'].map((page) => {
-              const active = page === '1'
-              const icon =
-                page === '<' ? (
-                  <ChevronLeft className="h-4 w-4" />
-                ) : page === '>' ? (
-                  <ChevronRight className="h-4 w-4" />
-                ) : (
-                  page
-                )
+          {visibleProducts.length === 0 && (
+            <div className="rounded-[24px] border border-[#E5E7EB] bg-white p-10 text-center shadow-[0_18px_55px_rgba(15,23,42,0.05)]">
+              <p className="text-xl font-extrabold text-[#0F172A]">
+                {copy.emptyTitle}
+              </p>
+              <p className="mt-2 text-sm text-[#64748B]">
+                {copy.emptyDescription}
+              </p>
+            </div>
+          )}
 
+          {visibleProducts.length > 0 && (
+          <nav className="mt-14 flex items-center justify-center gap-2">
+            <button
+              type="button"
+              onClick={() => goToPage(activePage - 1)}
+              disabled={activePage === 1}
+              className="flex h-10 min-w-10 items-center justify-center rounded-[10px] border border-[#E5E7EB] bg-white px-3 text-sm font-bold text-slate-700 transition hover:border-blue-600 hover:text-blue-600 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-[#E5E7EB] disabled:hover:text-slate-700"
+              aria-label={copy.previousLabel}
+            >
+              <ChevronLeft className={`h-4 w-4 ${isArabic ? 'rotate-180' : ''}`} />
+            </button>
+
+            {pages.map((page) => {
+              const active = page === activePage
               return (
                 <button
                   key={page}
+                  type="button"
+                  onClick={() => goToPage(page)}
                   className={`flex h-10 min-w-10 items-center justify-center rounded-[10px] border px-3 text-sm font-bold transition ${
                     active
                       ? 'border-blue-600 bg-blue-600 text-white'
                       : 'border-[#E5E7EB] bg-white text-slate-700 hover:border-blue-600 hover:text-blue-600'
-                  } ${page === '...' ? 'pointer-events-none border-transparent' : ''}`}
+                  }`}
                 >
-                  {icon}
+                  {page}
                 </button>
               )
             })}
+
+            <button
+              type="button"
+              onClick={() => goToPage(activePage + 1)}
+              disabled={activePage === totalPages}
+              className="flex h-10 min-w-10 items-center justify-center rounded-[10px] border border-[#E5E7EB] bg-white px-3 text-sm font-bold text-slate-700 transition hover:border-blue-600 hover:text-blue-600 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-[#E5E7EB] disabled:hover:text-slate-700"
+              aria-label={copy.nextLabel}
+            >
+              <ChevronRight className={`h-4 w-4 ${isArabic ? 'rotate-180' : ''}`} />
+            </button>
           </nav>
+          )}
         </div>
       </section>
       </main>
-    </LanguageProvider>
+    </>
+  )
+}
+
+export default function ProductsPage() {
+  return (
+    <Suspense fallback={null}>
+      <ProductsContent />
+    </Suspense>
   )
 }

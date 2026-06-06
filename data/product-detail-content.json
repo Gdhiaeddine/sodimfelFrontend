@@ -1,0 +1,77 @@
+{
+  "en": {
+    "breadcrumbHome": "Home",
+    "breadcrumbProducts": "Products",
+    "partnerBrand": "Partner Brand",
+    "requestQuote": "Request Quote",
+    "tabs": {
+      "overview": "Overview",
+      "specifications": "Specifications",
+      "applications": "Applications"
+    },
+    "overviewTitle": "Built For Reliable Industrial Power",
+    "overviewText": "Engineered for continuous operation, this equipment delivers dependable performance, safe distribution, and reliable protection for industrial electrical networks.",
+    "features": [
+      { "title": "High Efficiency", "text": "Optimized configuration reduces losses and improves long-term energy performance." },
+      { "title": "Long Lifespan", "text": "Built with durable components for demanding operations and reliable service." },
+      { "title": "Certified Safety", "text": "Selected according to recognized standards for electrical safety and reliability." }
+    ],
+    "specificationsTitle": "Technical Specifications",
+    "applicationsTitle": "Applications",
+    "applications": ["Industrial Plants", "Commercial Buildings", "Power Stations", "Data Centers", "Renewable Energy", "Oil & Gas"],
+    "relatedTitle": "Related Products",
+    "ctaTitle": "Need This Product For Your Project?",
+    "ctaDescription": "Our technical team can help you select the right equipment and configuration for your requirements.",
+    "contactEngineer": "Contact Engineer"
+  },
+  "fr": {
+    "breadcrumbHome": "Accueil",
+    "breadcrumbProducts": "Produits",
+    "partnerBrand": "Marque partenaire",
+    "requestQuote": "Demander un devis",
+    "tabs": {
+      "overview": "Aperçu",
+      "specifications": "Spécifications",
+      "applications": "Applications"
+    },
+    "overviewTitle": "Conçu pour une puissance industrielle fiable",
+    "overviewText": "Conçu pour un fonctionnement continu, cet équipement offre performance fiable, distribution sûre et protection adaptée aux réseaux électriques industriels.",
+    "features": [
+      { "title": "Haute efficacité", "text": "Configuration optimisée pour réduire les pertes et améliorer la performance énergétique." },
+      { "title": "Longue durée de vie", "text": "Composants durables pour opérations exigeantes et service fiable." },
+      { "title": "Sécurité certifiée", "text": "Sélection selon des standards reconnus de sécurité et de fiabilité électriques." }
+    ],
+    "specificationsTitle": "Spécifications techniques",
+    "applicationsTitle": "Applications",
+    "applications": ["Sites industriels", "Bâtiments commerciaux", "Postes électriques", "Data centers", "Énergie renouvelable", "Pétrole et gaz"],
+    "relatedTitle": "Produits associés",
+    "ctaTitle": "Besoin de ce produit pour votre projet ?",
+    "ctaDescription": "Notre équipe technique peut vous aider à choisir le bon équipement et la configuration adaptée à vos exigences.",
+    "contactEngineer": "Contacter un ingénieur"
+  },
+  "ar": {
+    "breadcrumbHome": "الرئيسية",
+    "breadcrumbProducts": "المنتجات",
+    "partnerBrand": "العلامة الشريكة",
+    "requestQuote": "طلب عرض سعر",
+    "tabs": {
+      "overview": "نظرة عامة",
+      "specifications": "المواصفات",
+      "applications": "الاستخدامات"
+    },
+    "overviewTitle": "مصمم لطاقة صناعية موثوقة",
+    "overviewText": "مصمم للعمل المستمر، يوفر هذا التجهيز أداءً موثوقاً وتوزيعاً آمناً وحماية مناسبة للشبكات الكهربائية الصناعية.",
+    "features": [
+      { "title": "كفاءة عالية", "text": "تكوين محسّن يقلل الخسائر ويحسن الأداء الطاقوي على المدى الطويل." },
+      { "title": "عمر خدمة طويل", "text": "مكونات متينة للعمليات الصعبة والخدمة الموثوقة." },
+      { "title": "سلامة معتمدة", "text": "اختيار وفق معايير معروفة للسلامة والموثوقية الكهربائية." }
+    ],
+    "specificationsTitle": "المواصفات التقنية",
+    "applicationsTitle": "الاستخدامات",
+    "applications": ["المواقع الصناعية", "المباني التجارية", "محطات الطاقة", "مراكز البيانات", "الطاقة المتجددة", "النفط والغاز"],
+    "relatedTitle": "منتجات ذات صلة",
+    "ctaTitle": "هل تحتاج هذا المنتج لمشروعك؟",
+    "ctaDescription": "يمكن لفريقنا التقني مساعدتك في اختيار التجهيز والتكوين المناسبين لمتطلباتك.",
+    "contactEngineer": "تواصل مع مهندس"
+  }
+}

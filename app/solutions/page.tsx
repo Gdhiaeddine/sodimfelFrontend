@@ -4,10 +4,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import {
-  ArrowDownToLine,
   ArrowRight,
   Bot,
-  ChevronDown,
   ChevronRight,
   Cpu,
   Database,
@@ -15,14 +13,13 @@ import {
   Headset,
   Leaf,
   LifeBuoy,
-  MonitorCog,
   RadioTower,
-  Ship,
-  Train,
   Wrench,
   Zap,
 } from 'lucide-react'
-import { solutionList } from '@/lib/solutions'
+import solutionsPageContent from '@/data/solutions-page-content.json'
+import { useLanguage } from '@/components/language-provider'
+import { getSolutionList } from '@/lib/solutions'
 
 const solutionIcons = {
   pen: Cpu,
@@ -48,25 +45,15 @@ const solutionIcons = {
   bot: Bot,
 }
 
-const specializedSolutions = [
-  { title: 'Renewable Energy Solutions', icon: Leaf },
-  { title: 'Data Center Infrastructure', icon: Database },
-  { title: 'Oil & Gas Solutions', icon: Factory },
-  { title: 'Marine & Offshore Solutions', icon: Ship },
-  { title: 'Railway & Metro Solutions', icon: Train },
-  { title: 'Smart Grid Solutions', icon: MonitorCog },
-]
-
-const heroStats = [
-  { value: '25+', label: 'Years Experience' },
-  { value: '500+', label: 'Projects Completed' },
-  { value: '1000+', label: 'Satisfied Clients' },
-  { value: '24/7', label: 'Technical Support' },
-]
+const specializedIcons = [RadioTower, Zap, Factory, Wrench, Database, LifeBuoy]
 
 export default function SolutionsPage() {
+  const { content, isArabic, language } = useLanguage()
+  const page = solutionsPageContent[language]
+  const solutionList = getSolutionList(language)
+
   return (
-    <main className="min-h-screen bg-white text-[#0F172A]">
+    <main className={`min-h-screen bg-white text-[#0F172A] ${isArabic ? 'text-right' : ''}`}>
       <section className="relative overflow-hidden bg-white px-6 pb-20 pt-[100px] lg:px-10">
         <div className="absolute right-[10%] top-[26%] h-[420px] w-[560px] rounded-full bg-[#2563EB]/10 blur-[90px]" />
         <div className="absolute right-[18%] top-[18%] hidden h-px w-[420%] rotate-12 bg-gradient-to-r from-transparent via-[#2563EB]/40 to-transparent lg:block" />
@@ -79,54 +66,33 @@ export default function SolutionsPage() {
           >
             <nav className="mb-8 flex items-center gap-2 text-sm font-semibold text-[#64748B]">
               <Link href="/" className="hover:text-[#2563EB]">
-                Home
+                {page.breadcrumbHome}
               </Link>
-              <ChevronRight className="h-4 w-4" />
-              <span className="text-[#0F172A]">Solutions</span>
+              <ChevronRight className={`h-4 w-4 ${isArabic ? 'rotate-180' : ''}`} />
+              <span className="text-[#0F172A]">{page.breadcrumbCurrent}</span>
             </nav>
 
             <p className="text-xs font-extrabold uppercase tracking-[2px] text-[#2563EB]">
-              Solutions
+              {page.heroLabel}
             </p>
             <h1 className="mt-5 max-w-[720px] text-5xl font-extrabold leading-[1.05] text-[#0F172A] sm:text-6xl lg:text-[64px]">
-              Explore Our
-              <br />
-              Electrical Solutions
+              {page.heroTitle.map((line) => (
+                <span key={line} className="block">
+                  {line}
+                </span>
+              ))}
             </h1>
             <p className="mt-6 max-w-[640px] text-lg leading-[1.8] text-[#64748B]">
-              Comprehensive electrical solutions designed to meet the unique
-              needs of industries and infrastructure projects.
+              {page.heroDescription}
             </p>
 
             <div className="mt-9 flex flex-wrap gap-4">
-              <a className="inline-flex h-13 items-center gap-2 rounded-2xl bg-[#2563EB] px-7 text-sm font-bold text-white shadow-[0_18px_36px_rgba(37,99,235,0.25)]">
-                Talk To An Expert
-                <ArrowRight className="h-4 w-4" />
-              </a>
-              <a className="inline-flex h-13 items-center gap-2 rounded-2xl border border-[#E5E7EB] bg-white px-7 text-sm font-bold text-[#0F172A] transition hover:border-[#2563EB] hover:text-[#2563EB]">
-                Download Brochure
-                <ArrowDownToLine className="h-4 w-4" />
-              </a>
+              <Link href="/request-quote" className="inline-flex h-13 items-center gap-2 rounded-2xl bg-[#2563EB] px-7 text-sm font-bold text-white shadow-[0_18px_36px_rgba(37,99,235,0.25)]">
+                {content.common.requestQuote}
+                <ArrowRight className={`h-4 w-4 ${isArabic ? 'rotate-180' : ''}`} />
+              </Link>
             </div>
 
-            <div className="mt-10 grid grid-cols-2 gap-4 lg:grid-cols-4">
-              {heroStats.map((stat, index) => (
-                <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, y: 24 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2 + index * 0.08, duration: 0.7 }}
-                  className="rounded-2xl border border-[#E5E7EB] bg-white p-4 shadow-[0_18px_50px_rgba(15,23,42,0.05)]"
-                >
-                  <p className="text-2xl font-extrabold text-[#0F172A]">
-                    {stat.value}
-                  </p>
-                  <p className="mt-1 text-xs font-semibold text-[#64748B]">
-                    {stat.label}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
           </motion.div>
 
           <motion.div
@@ -156,13 +122,13 @@ export default function SolutionsPage() {
                 ease: 'easeInOut',
                 delay: 0.8,
               }}
-              className="absolute bottom-2 left-0 h-[260px] w-[48%] rounded-[28px] border border-[#E5E7EB] bg-white p-6 shadow-[0_24px_80px_rgba(15,23,42,0.08)]"
+              className="absolute bottom-2 left-0 h-[260px] w-[48%]"
             >
               <Image
                 src="/images/product-switchgear.png"
                 alt="Electrical cabinet solution"
                 fill
-                className="object-contain p-8"
+                className="object-contain drop-shadow-[0_28px_38px_rgba(15,23,42,0.14)]"
               />
             </motion.div>
           </motion.div>
@@ -177,7 +143,7 @@ export default function SolutionsPage() {
             viewport={{ once: true }}
             className="text-sm font-extrabold uppercase tracking-[3px] text-[#2563EB]"
           >
-            All Solutions
+            {page.allLabel}
           </motion.p>
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
@@ -186,7 +152,7 @@ export default function SolutionsPage() {
             transition={{ delay: 0.1 }}
             className="mx-auto mt-4 max-w-3xl text-4xl font-extrabold leading-tight text-[#0F172A] sm:text-5xl"
           >
-            Solutions That Power Your Success
+            {page.allTitle}
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 30 }}
@@ -195,9 +161,7 @@ export default function SolutionsPage() {
             transition={{ delay: 0.2 }}
             className="mx-auto mt-5 max-w-3xl text-lg leading-[1.8] text-[#64748B]"
           >
-            From design and engineering to installation and maintenance, we
-            deliver end-to-end electrical solutions with unmatched quality and
-            reliability.
+            {page.allDescription}
           </motion.p>
         </div>
 
@@ -252,8 +216,14 @@ export default function SolutionsPage() {
                           {solution.description}
                         </p>
                         <span className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-[#2563EB]">
-                          Learn More
-                          <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+                          {page.learnMore}
+                          <ArrowRight
+                            className={`h-4 w-4 transition ${
+                              isArabic
+                                ? 'rotate-180 group-hover:-translate-x-1'
+                                : 'group-hover:translate-x-1'
+                            }`}
+                          />
                         </span>
                       </div>
                     </motion.article>
@@ -272,36 +242,28 @@ export default function SolutionsPage() {
               <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
                 <div>
                   <h3 className="text-3xl font-extrabold text-[#0F172A]">
-                    Specialized Solutions
+                    {page.specializedTitle}
                   </h3>
                   <p className="mt-3 max-w-2xl leading-relaxed text-[#64748B]">
-                    Industry-specific solutions designed to address unique
-                    challenges and maximize performance in critical environments.
+                    {page.specializedDescription}
                   </p>
                 </div>
-                <Link
-                  href="/solutions"
-                  className="inline-flex items-center gap-2 text-sm font-bold text-[#2563EB]"
-                >
-                  View All Specialized Solutions
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
               </div>
 
               <div className="mt-8 flex gap-6 overflow-x-auto pb-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-                {specializedSolutions.map((item, index) => {
-                  const Icon = item.icon
+                {page.specializedItems.map((title, index) => {
+                  const Icon = specializedIcons[index] ?? RadioTower
                   return (
                     <div
-                      key={item.title}
+                      key={title}
                       className={`flex min-w-[210px] items-center gap-4 pr-6 ${
-                        index !== specializedSolutions.length - 1
+                        index !== page.specializedItems.length - 1
                           ? 'border-r border-[#E5E7EB]'
                           : ''
                       }`}
                     >
                       <Icon className="h-7 w-7 shrink-0 text-[#2563EB]" />
-                      <p className="font-bold text-[#0F172A]">{item.title}</p>
+                      <p className="font-bold text-[#0F172A]">{title}</p>
                     </div>
                   )
                 })}
@@ -324,19 +286,18 @@ export default function SolutionsPage() {
           </div>
           <div className="relative z-10">
             <h2 className="max-w-3xl text-4xl font-extrabold tracking-tight sm:text-5xl">
-              Ready to Find the Right Solution for Your Project?
+              {page.ctaTitle}
             </h2>
             <p className="mt-5 max-w-2xl text-lg leading-relaxed text-slate-300">
-              Our experts are here to understand your requirements and recommend
-              the best electrical solution for you.
+              {page.ctaDescription}
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
-              <a className="inline-flex h-13 items-center rounded-2xl bg-[#2563EB] px-7 text-sm font-bold text-white">
-                Talk To An Expert
-              </a>
-              <a className="inline-flex h-13 items-center rounded-2xl border border-white/20 bg-white/5 px-7 text-sm font-bold text-white backdrop-blur-md transition hover:bg-white hover:text-[#050816]">
-                Request A Quote
-              </a>
+              <Link href="/request-quote" className="inline-flex h-13 items-center rounded-2xl bg-[#2563EB] px-7 text-sm font-bold text-white">
+                {content.common.requestQuote}
+              </Link>
+              <Link href="/contact" className="inline-flex h-13 items-center rounded-2xl border border-white/20 bg-white/5 px-7 text-sm font-bold text-white backdrop-blur-md transition hover:bg-white hover:text-[#050816]">
+                {content.common.contactUs}
+              </Link>
             </div>
           </div>
           <div className="relative z-10 mt-10 hidden min-h-[240px] lg:block">

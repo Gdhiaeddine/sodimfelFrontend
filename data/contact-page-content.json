@@ -1,0 +1,185 @@
+{
+  "en": {
+    "breadcrumbHome": "Home",
+    "breadcrumbCurrent": "Contact Us",
+    "heroLabel": "Contact Us",
+    "heroTitle": ["Let's Build", "The Future", "Together"],
+    "heroDescription": "We're here to help you with reliable electrical solutions, expert support, and tailored services for your business.",
+    "sendMessage": "Send Message",
+    "stats": [
+      { "title": "24/7", "label": "Technical Support" },
+      { "title": "Quick", "label": "Response" },
+      { "title": "1000+", "label": "Trusted By Thousands" },
+      { "title": "Expert", "label": "Team" }
+    ],
+    "infoLabel": "Get In Touch",
+    "infoTitle": "We'd Love To Hear From You",
+    "infoDescription": "Whether you have a question about our products, need technical support, or want to discuss a project, our team is ready to assist you.",
+    "contactCards": [
+      { "title": "Setif", "lines": ["0550460983", "0560459703", "0560092347"] },
+      { "title": "Djelfa", "lines": ["0560978095", "0560670045"] },
+      { "title": "Email", "lines": ["sarlsodimfel@gmail.com"] },
+      { "title": "Locations", "lines": ["Setif, Algeria", "Djelfa, Algeria"] }
+    ],
+    "formTitle": "Send Us A Message",
+    "success": "Your message has been sent successfully.",
+    "fields": {
+      "name": "Full Name",
+      "email": "Email Address",
+      "company": "Company Name",
+      "phone": "Phone Number",
+      "subject": "Subject",
+      "message": "Message"
+    },
+    "placeholders": {
+      "name": "Your full name",
+      "email": "you@example.com",
+      "company": "Company",
+      "phone": "0550 ...",
+      "subject": "How can we help?",
+      "message": "Tell us about your project or request..."
+    },
+    "errors": {
+      "name": "Full name is required.",
+      "email": "Email address is required.",
+      "subject": "Subject is required.",
+      "message": "Message is required.",
+      "consent": "Please accept the privacy consent."
+    },
+    "consent": "I agree to the Privacy Policy and consent to being contacted.",
+    "features": [
+      { "title": "Fast Response", "text": "Our team responds quickly to project, product, and support requests." },
+      { "title": "Expert Support", "text": "Experienced engineers help you choose the right technical solution." },
+      { "title": "Quality Solutions", "text": "Certified products and reliable services for demanding industries." },
+      { "title": "Customer Focused", "text": "Clear communication and dependable support from first contact onward." }
+    ],
+    "mapLabel": "Find Us",
+    "mapTitle": "Our Location",
+    "mapDescription": "Visit our head office or reach out to us. We are strategically located to serve you better.",
+    "directions": "Get Directions",
+    "mapCardTitle": "Google Maps Location",
+    "openLocation": "Open Location"
+  },
+  "fr": {
+    "breadcrumbHome": "Accueil",
+    "breadcrumbCurrent": "Contact",
+    "heroLabel": "Contact",
+    "heroTitle": ["Construisons", "l'avenir", "ensemble"],
+    "heroDescription": "Nous sommes là pour vous accompagner avec des solutions électriques fiables, un support expert et des services adaptés à votre activité.",
+    "sendMessage": "Envoyer un message",
+    "stats": [
+      { "title": "24/7", "label": "Support technique" },
+      { "title": "Rapide", "label": "Réponse" },
+      { "title": "1000+", "label": "Clients de confiance" },
+      { "title": "Expert", "label": "Équipe" }
+    ],
+    "infoLabel": "Contactez-nous",
+    "infoTitle": "Nous serions ravis de vous lire",
+    "infoDescription": "Pour une question sur nos produits, un besoin de support technique ou un projet à discuter, notre équipe est prête à vous assister.",
+    "contactCards": [
+      { "title": "Sétif", "lines": ["0550460983", "0560459703", "0560092347"] },
+      { "title": "Djelfa", "lines": ["0560978095", "0560670045"] },
+      { "title": "Email", "lines": ["sarlsodimfel@gmail.com"] },
+      { "title": "Localisations", "lines": ["Sétif, Algérie", "Djelfa, Algérie"] }
+    ],
+    "formTitle": "Envoyez-nous un message",
+    "success": "Votre message a été envoyé avec succès.",
+    "fields": {
+      "name": "Nom complet",
+      "email": "Adresse email",
+      "company": "Nom de l'entreprise",
+      "phone": "Numéro de téléphone",
+      "subject": "Sujet",
+      "message": "Message"
+    },
+    "placeholders": {
+      "name": "Votre nom complet",
+      "email": "vous@exemple.com",
+      "company": "Entreprise",
+      "phone": "0550 ...",
+      "subject": "Comment pouvons-nous aider ?",
+      "message": "Parlez-nous de votre projet ou demande..."
+    },
+    "errors": {
+      "name": "Le nom complet est obligatoire.",
+      "email": "L'adresse email est obligatoire.",
+      "subject": "Le sujet est obligatoire.",
+      "message": "Le message est obligatoire.",
+      "consent": "Veuillez accepter le consentement de confidentialité."
+    },
+    "consent": "J'accepte la politique de confidentialité et consens à être contacté.",
+    "features": [
+      { "title": "Réponse rapide", "text": "Notre équipe répond rapidement aux demandes de projet, produit et support." },
+      { "title": "Support expert", "text": "Des ingénieurs expérimentés vous aident à choisir la bonne solution technique." },
+      { "title": "Solutions de qualité", "text": "Produits certifiés et services fiables pour les industries exigeantes." },
+      { "title": "Orientation client", "text": "Communication claire et support fiable dès le premier contact." }
+    ],
+    "mapLabel": "Nous trouver",
+    "mapTitle": "Notre localisation",
+    "mapDescription": "Visitez notre siège ou contactez-nous. Nous sommes bien situés pour mieux vous servir.",
+    "directions": "Obtenir l'itinéraire",
+    "mapCardTitle": "Localisation Google Maps",
+    "openLocation": "Ouvrir la localisation"
+  },
+  "ar": {
+    "breadcrumbHome": "الرئيسية",
+    "breadcrumbCurrent": "اتصل بنا",
+    "heroLabel": "اتصل بنا",
+    "heroTitle": ["لنبنِ", "المستقبل", "معاً"],
+    "heroDescription": "نحن هنا لمساعدتك بحلول كهربائية موثوقة، دعم متخصص، وخدمات مناسبة لاحتياجات نشاطك.",
+    "sendMessage": "إرسال رسالة",
+    "stats": [
+      { "title": "24/7", "label": "دعم تقني" },
+      { "title": "سريع", "label": "استجابة" },
+      { "title": "1000+", "label": "عملاء موثوقون" },
+      { "title": "خبير", "label": "فريق" }
+    ],
+    "infoLabel": "تواصل معنا",
+    "infoTitle": "يسعدنا التواصل معك",
+    "infoDescription": "سواء كان لديك سؤال حول منتجاتنا أو تحتاج دعماً تقنياً أو ترغب في مناقشة مشروع، فريقنا جاهز لمساعدتك.",
+    "contactCards": [
+      { "title": "سطيف", "lines": ["0550460983", "0560459703", "0560092347"] },
+      { "title": "الجلفة", "lines": ["0560978095", "0560670045"] },
+      { "title": "البريد الإلكتروني", "lines": ["sarlsodimfel@gmail.com"] },
+      { "title": "المواقع", "lines": ["سطيف، الجزائر", "الجلفة، الجزائر"] }
+    ],
+    "formTitle": "أرسل لنا رسالة",
+    "success": "تم إرسال رسالتك بنجاح.",
+    "fields": {
+      "name": "الاسم الكامل",
+      "email": "البريد الإلكتروني",
+      "company": "اسم الشركة",
+      "phone": "رقم الهاتف",
+      "subject": "الموضوع",
+      "message": "الرسالة"
+    },
+    "placeholders": {
+      "name": "اسمك الكامل",
+      "email": "you@example.com",
+      "company": "الشركة",
+      "phone": "0550 ...",
+      "subject": "كيف يمكننا مساعدتك؟",
+      "message": "أخبرنا عن مشروعك أو طلبك..."
+    },
+    "errors": {
+      "name": "الاسم الكامل مطلوب.",
+      "email": "البريد الإلكتروني مطلوب.",
+      "subject": "الموضوع مطلوب.",
+      "message": "الرسالة مطلوبة.",
+      "consent": "يرجى قبول موافقة الخصوصية."
+    },
+    "consent": "أوافق على سياسة الخصوصية وأوافق على التواصل معي.",
+    "features": [
+      { "title": "استجابة سريعة", "text": "يرد فريقنا بسرعة على طلبات المشاريع والمنتجات والدعم." },
+      { "title": "دعم متخصص", "text": "يساعدك مهندسون ذوو خبرة على اختيار الحل التقني المناسب." },
+      { "title": "حلول عالية الجودة", "text": "منتجات معتمدة وخدمات موثوقة للصناعات ذات المتطلبات العالية." },
+      { "title": "تركيز على العميل", "text": "تواصل واضح ودعم موثوق منذ أول اتصال." }
+    ],
+    "mapLabel": "موقعنا",
+    "mapTitle": "موقع الشركة",
+    "mapDescription": "زر مقرنا أو تواصل معنا. نحن في موقع مناسب لخدمتكم بشكل أفضل.",
+    "directions": "الحصول على الاتجاهات",
+    "mapCardTitle": "موقع Google Maps",
+    "openLocation": "فتح الموقع"
+  }
+}

@@ -21,17 +21,18 @@ import {
 } from 'lucide-react'
 import { useRef } from 'react'
 import { useLanguage } from '@/components/language-provider'
-import { solutionList, type Solution } from '@/lib/solutions'
-
-const LANDING_SOLUTIONS = solutionList.slice(0, 4)
+import { getSolutionList, type Solution } from '@/lib/solutions'
 
 const solutionIcons = {
-  'electrical-design-engineering': Zap,
-  'power-distribution-systems': RadioTower,
-  'installation-commissioning': Wrench,
-  'testing-maintenance': LifeBuoy,
-  'automation-control-systems': Bot,
-  'technical-support-consulting': Headset,
+  'etudes-realisations-electriques': Zap,
+  'postes-livraison-sous-stations': RadioTower,
+  'armoires-electriques-diverses': Wrench,
+  'installation-electrique-industrielle': Factory,
+  'equipements-sf6-schneider-sarel-ediel': Zap,
+  'postes-prefabriques-beton-10kv-30kv': RadioTower,
+  'disjoncteurs-bt-hp': LifeBuoy,
+  'postes-transformateurs-mt-bt': RadioTower,
+  'fusibles-cables-mt-bt': Wrench,
 }
 
 function SolutionCard({
@@ -119,7 +120,8 @@ function SolutionCard({
 }
 
 export function Services() {
-  const { isFrench } = useLanguage()
+  const { content, isFrench, isArabic, language } = useLanguage()
+  const landingSolutions = getSolutionList(language).slice(0, 4)
 
   return (
     <section
@@ -130,7 +132,11 @@ export function Services() {
 
       <div className="relative z-10 mx-auto max-w-[1500px] px-6 lg:px-10">
         <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
-          <div className={`${isFrench ? 'max-w-[760px]' : 'max-w-[560px]'} text-left`}>
+          <div
+            className={`${isFrench || isArabic ? 'max-w-[760px]' : 'max-w-[560px]'} ${
+              isArabic ? 'text-right' : 'text-left'
+            }`}
+          >
             <motion.span
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -138,7 +144,7 @@ export function Services() {
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
               className="text-sm font-semibold uppercase tracking-[2px] text-blue-600"
             >
-              {isFrench ? 'Nos solutions' : 'Our Solutions'}
+              {content.services.label}
             </motion.span>
 
             <motion.h2
@@ -153,10 +159,10 @@ export function Services() {
               className="mt-4 text-balance text-4xl font-extrabold leading-[1.08] text-[#111827] sm:text-5xl lg:text-[52px]"
             >
               <span className="block">
-                {isFrench ? 'Solutions intelligentes' : 'Smart Solutions'}
+                {content.services.titleTop}
               </span>
               <span className="block">
-                {isFrench ? 'Pour chaque industrie' : 'For Every Industry'}
+                {content.services.titleBottom}
               </span>
             </motion.h2>
           </div>
@@ -169,14 +175,20 @@ export function Services() {
             className="flex justify-start md:justify-end"
           >
             <Link href="/solutions" className="solution-button group">
-              {isFrench ? 'Voir toutes les solutions' : 'View All Solutions'}
-              <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+              {content.common.viewAllSolutions}
+              <ArrowRight
+                className={`h-5 w-5 transition-transform duration-300 ${
+                  isArabic
+                    ? 'rotate-180 group-hover:-translate-x-1'
+                    : 'group-hover:translate-x-1'
+                }`}
+              />
             </Link>
           </motion.div>
         </div>
 
         <div className="solution-slider mt-16 flex snap-x snap-mandatory items-stretch gap-6 overflow-x-auto pb-5 sm:grid sm:auto-rows-fr sm:grid-cols-2 sm:overflow-visible sm:pb-0 lg:grid-cols-4">
-          {LANDING_SOLUTIONS.map((solution, index) => (
+          {landingSolutions.map((solution, index) => (
             <SolutionCard
               key={solution.slug}
               solution={solution}

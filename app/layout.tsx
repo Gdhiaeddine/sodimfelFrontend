@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter } from 'next/font/google'
+import { Alexandria, Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { LanguageProvider } from '@/components/language-provider'
 import { Navbar } from '@/components/navbar'
@@ -9,6 +9,12 @@ import './globals.css'
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
+  display: 'swap',
+})
+
+const alexandria = Alexandria({
+  subsets: ['arabic', 'latin'],
+  variable: '--font-alexandria',
   display: 'swap',
 })
 
@@ -48,7 +54,10 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} bg-background`}>
+    <html
+      lang="en"
+      className={`${inter.variable} ${alexandria.variable} bg-background`}
+    >
       <body className="font-sans antialiased">
         <LanguageProvider>
           <Navbar />

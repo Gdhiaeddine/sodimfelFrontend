@@ -7,79 +7,80 @@ import { useLanguage } from '@/components/language-provider'
 
 const PROJECTS = [
   {
-    title: { en: 'Power Plants', fr: 'Centrales électriques' },
-    location: { en: 'Energy Generation', fr: 'Production d’énergie' },
+    title: { en: 'Transformer Posts', fr: 'Postes transformateurs' },
+    location: { en: 'MT/BT 10 KV & 30 KV', fr: 'MT/BT 10 KV et 30 KV' },
     image: '/images/project-power-plant.png',
     className: 'lg:col-span-2 lg:row-span-2',
   },
   {
-    title: { en: 'Solar Farms', fr: 'Parcs solaires' },
-    location: { en: 'Renewable Energy', fr: 'Énergie renouvelable' },
-    image: '/images/project-solar-farm.png',
+    title: { en: 'SF6 Equipment', fr: 'Equipements SF6' },
+    location: { en: 'Schneider, Sarel & Ediel', fr: 'Schneider, Sarel et Ediel' },
+    image: '/images/product-switchgear.png',
     className: '',
   },
   {
-    title: { en: 'Data Centers', fr: 'Data centers' },
-    location: { en: 'Critical Infrastructure', fr: 'Infrastructure critique' },
-    image: '/images/project-data-center.png',
+    title: { en: 'Electrical Cabinets', fr: 'Armoires electriques' },
+    location: { en: 'Distribution & Protection', fr: 'Distribution et protection' },
+    image: '/images/service-electrical.png',
     className: '',
   },
   {
-    title: { en: 'Industrial Facilities', fr: 'Sites industriels' },
-    location: { en: 'Manufacturing', fr: 'Fabrication' },
+    title: { en: 'Industrial Installation', fr: 'Installation industrielle' },
+    location: { en: 'Electrical Works', fr: 'Travaux electriques' },
     image: '/images/project-industrial-facility.png',
     className: '',
   },
   {
-    title: { en: 'Commercial Complexes', fr: 'Complexes commerciaux' },
-    location: { en: 'Smart Buildings', fr: 'Bâtiments intelligents' },
-    image: '/images/project-commercial.png',
+    title: { en: 'Prefabricated Concrete Posts', fr: 'Postes beton prefabriques' },
+    location: { en: 'Turnkey Solutions', fr: 'Solutions cle en main' },
+    image: '/images/product-substation.png',
     className: '',
   },
 ]
 
 export function Projects() {
-  const { isFrench, language } = useLanguage()
+  const { content } = useLanguage()
+  const projects = content.projects.cards.map((copy, index) => ({
+    ...copy,
+    image: PROJECTS[index].image,
+    className: PROJECTS[index].className,
+  }))
 
   return (
     <section id="projects" className="relative bg-[var(--ink-2)] py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <SectionHeading
           dark
-          eyebrow={isFrench ? 'Réalisations' : 'Selected Work'}
-          title={isFrench ? 'Alimenter des' : 'Powering landmark'}
-          highlight={isFrench ? 'projets majeurs' : 'projects'}
-          description={
-            isFrench
-              ? 'Un partenaire de confiance pour livrer des infrastructures électriques critiques dans les secteurs les plus exigeants.'
-              : 'Trusted to deliver mission-critical electrical infrastructure across the most demanding sectors.'
-          }
+          eyebrow={content.projects.eyebrow}
+          title={content.projects.title}
+          highlight={content.projects.highlight}
+          description={content.projects.description}
         />
 
         <div className="mt-16 grid auto-rows-[200px] grid-cols-1 gap-4 sm:grid-cols-2 lg:auto-rows-[220px] lg:grid-cols-4">
-          {PROJECTS.map((p, i) => (
+          {projects.map((project, index) => (
             <motion.a
-              key={p.title.en}
-              href="#contact"
+              key={project.title}
+              href="/solutions"
               initial={{ opacity: 0, scale: 0.96 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: '-50px' }}
-              transition={{ duration: 0.6, delay: (i % 4) * 0.08 }}
-              className={`group relative overflow-hidden rounded-3xl border border-white/10 ${p.className}`}
+              transition={{ duration: 0.6, delay: (index % 4) * 0.08 }}
+              className={`group relative overflow-hidden rounded-3xl border border-white/10 ${project.className}`}
             >
               <Image
-                src={p.image || '/placeholder.svg'}
-                alt={p.title[language]}
+                src={project.image}
+                alt={project.title}
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[var(--ink)] via-[var(--ink)]/30 to-transparent transition-opacity duration-500 group-hover:from-[var(--ink)]/90" />
               <div className="absolute inset-x-0 bottom-0 translate-y-1 p-5 transition-transform duration-500 group-hover:translate-y-0">
                 <p className="text-xs font-semibold uppercase tracking-widest text-electric opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                  {p.location[language]}
+                  {project.location}
                 </p>
                 <h3 className="mt-1 text-xl font-bold text-foreground">
-                  {p.title[language]}
+                  {project.title}
                 </h3>
               </div>
             </motion.a>

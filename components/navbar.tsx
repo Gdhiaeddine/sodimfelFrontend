@@ -1,39 +1,27 @@
 'use client'
 
 import Image from 'next/image'
+import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
-import { useLanguage } from '@/components/language-provider'
+import { useLanguage, type Language } from '@/components/language-provider'
 
-const LINKS = {
-  en: [
-    { label: 'Home', href: '/' },
-    { label: 'About', href: '/about' },
-    { label: 'Solutions', href: '/solutions' },
-    { label: 'Products', href: '/products' },
-    { label: 'Projects', href: '#projects' },
-    { label: 'Contact', href: '/contact' },
-  ],
-  fr: [
-    { label: 'Accueil', href: '/' },
-    { label: 'À propos', href: '/about' },
-    { label: 'Solutions', href: '/solutions' },
-    { label: 'Produits', href: '/products' },
-    { label: 'Projets', href: '#projects' },
-    { label: 'Contact', href: '/contact' },
-  ],
-}
+const LANGUAGES: Array<{ code: Language; label: string }> = [
+  { code: 'en', label: 'EN' },
+  { code: 'fr', label: 'FR' },
+  { code: 'ar', label: 'AR' },
+]
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [hidden, setHidden] = useState(false)
   const [open, setOpen] = useState(false)
-  const { language, toggleLanguage, isFrench } = useLanguage()
+  const { language, setLanguage, content } = useLanguage()
   const pathname = usePathname()
-  const links = LINKS[language]
-  const quoteLabel = isFrench ? 'Demander un devis' : 'Request a Quote'
+  const links = content.nav.links
+  const quoteLabel = content.common.requestQuote
   const keepVisible = pathname.startsWith('/products')
 
   useEffect(() => {
@@ -70,7 +58,7 @@ export function Navbar() {
       } ${hidden && !keepVisible ? '-translate-y-full' : 'translate-y-0'}`}
     >
       <nav className="mx-auto flex h-18 max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
-        <a href="#home" className="relative h-30 w-36 shrink-0 glow-brand">
+        <Link href="/" className="relative h-30 w-36 shrink-0 glow-brand">
           <Image
             src="/images/sodimfel-logo.png"
             alt="SODIMFEL"
@@ -78,43 +66,52 @@ export function Navbar() {
             className="object-contain object-left"
             priority
           />
-        </a>
+        </Link>
 
         <ul className="hidden items-center gap-8 lg:flex">
-          {links.map((l) => (
-            <li key={l.href}>
-              <a
-                href={l.href}
+          {links.map((link) => (
+            <li key={link.href}>
+              <Link
+                href={link.href}
                 className="group relative text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
               >
-                {l.label}
+                {link.label}
                 <span className="absolute -bottom-1 left-0 h-px w-0 bg-electric-bright transition-all duration-300 group-hover:w-full" />
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
 
-        <div className="hidden lg:block">
-          <a
+        <div className="hidden items-center gap-3 lg:flex">
+          <Link
             href="/request-quote"
             className="inline-flex items-center rounded-full bg-[var(--electric)] px-5 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:glow-electric"
           >
             {quoteLabel}
-          </a>
+          </Link>
+
+          <div className="flex items-center rounded-full border border-white/20 bg-white/5 p-1 backdrop-blur-md">
+            {LANGUAGES.map((item) => (
+              <button
+                key={item.code}
+                type="button"
+                onClick={() => setLanguage(item.code)}
+                className={`rounded-full px-3 py-1.5 text-xs font-bold uppercase tracking-[0.16em] transition ${
+                  language === item.code
+                    ? 'bg-[var(--electric)] text-white'
+                    : 'text-foreground hover:text-electric'
+                }`}
+                aria-label={`${content.nav.switchLanguage}: ${item.label}`}
+              >
+                {item.label}
+              </button>
+            ))}
+          </div>
         </div>
 
         <button
           type="button"
-          onClick={toggleLanguage}
-          className="hidden rounded-full border border-white/20 bg-white/5 px-3 py-2 text-xs font-bold uppercase tracking-[0.18em] text-foreground backdrop-blur-md transition-all duration-300 hover:border-[var(--electric)] hover:text-electric lg:inline-flex"
-          aria-label={isFrench ? 'Switch to English' : 'Passer en français'}
-        >
-          {isFrench ? 'EN' : 'FR'}
-        </button>
-
-        <button
-          type="button"
-          onClick={() => setOpen((v) => !v)}
+          onClick={() => setOpen((value) => !value)}
           className="text-foreground lg:hidden"
           aria-label={open ? 'Close menu' : 'Open menu'}
         >
@@ -131,34 +128,43 @@ export function Navbar() {
             className="overflow-hidden border-t border-white/10 bg-[var(--ink)]/95 backdrop-blur-xl lg:hidden"
           >
             <ul className="flex flex-col px-6 py-4">
-              {links.map((l) => (
-                <li key={l.href}>
-                  <a
-                    href={l.href}
+              {links.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
                     onClick={() => setOpen(false)}
                     className="block py-3 text-base font-medium text-muted-foreground transition-colors hover:text-foreground"
                   >
-                    {l.label}
-                  </a>
+                    {link.label}
+                  </Link>
                 </li>
               ))}
               <li className="pt-2">
-                <a
+                <Link
                   href="/request-quote"
                   onClick={() => setOpen(false)}
                   className="inline-flex w-full items-center justify-center rounded-full bg-[var(--electric)] px-5 py-3 text-sm font-semibold text-white"
                 >
                   {quoteLabel}
-                </a>
+                </Link>
               </li>
               <li className="pt-3">
-                <button
-                  type="button"
-                  onClick={toggleLanguage}
-                  className="inline-flex w-full items-center justify-center rounded-full border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold text-foreground"
-                >
-                  {isFrench ? 'Switch to English' : 'Passer en français'}
-                </button>
+                <div className="grid grid-cols-3 gap-2">
+                  {LANGUAGES.map((item) => (
+                    <button
+                      key={item.code}
+                      type="button"
+                      onClick={() => setLanguage(item.code)}
+                      className={`rounded-full border border-white/15 px-4 py-3 text-sm font-bold ${
+                        language === item.code
+                          ? 'bg-[var(--electric)] text-white'
+                          : 'bg-white/5 text-foreground'
+                      }`}
+                    >
+                      {item.label}
+                    </button>
+                  ))}
+                </div>
               </li>
             </ul>
           </motion.div>

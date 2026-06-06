@@ -1,0 +1,71 @@
+{
+  "en": {
+    "breadcrumbHome": "Home",
+    "breadcrumbCurrent": "Solutions",
+    "heroLabel": "Solutions",
+    "heroTitle": ["Explore Our", "Electrical Solutions"],
+    "heroDescription": "Comprehensive electrical solutions designed to meet the unique needs of industries and infrastructure projects.",
+    "allLabel": "All Solutions",
+    "allTitle": "Solutions That Power Your Success",
+    "allDescription": "From studies and supply to assembly, installation, and support, we deliver practical electrical solutions with quality and reliability.",
+    "learnMore": "Learn More",
+    "specializedTitle": "Services & Products SODIMFEL",
+    "specializedDescription": "Concrete solutions for transformer posts, cabinets, SF6 equipment, cables, fuses, and electrical protection.",
+    "specializedItems": [
+      "MT/BT Posts 10 KV and 30 KV",
+      "SF6 Equipment Schneider, Sarel & Ediel",
+      "Prefabricated Reinforced Concrete Posts",
+      "Electrical Cabinets",
+      "MT/BT Fuses and Cables",
+      "BT and HP Circuit Breakers"
+    ],
+    "ctaTitle": "Ready to Find the Right Solution for Your Project?",
+    "ctaDescription": "Our experts are here to understand your requirements and recommend the best electrical solution for you."
+  },
+  "fr": {
+    "breadcrumbHome": "Accueil",
+    "breadcrumbCurrent": "Solutions",
+    "heroLabel": "Solutions",
+    "heroTitle": ["Découvrez nos", "solutions électriques"],
+    "heroDescription": "Des solutions électriques complètes conçues pour répondre aux besoins des industries et des projets d'infrastructure.",
+    "allLabel": "Toutes les solutions",
+    "allTitle": "Des solutions qui alimentent votre réussite",
+    "allDescription": "Des études à la fourniture, au montage, à l'installation et au support, nous livrons des solutions électriques concrètes avec qualité et fiabilité.",
+    "learnMore": "En savoir plus",
+    "specializedTitle": "Services & produits SODIMFEL",
+    "specializedDescription": "Solutions concrètes pour postes transformateurs, armoires, équipements SF6, câbles, fusibles et protections électriques.",
+    "specializedItems": [
+      "Postes MT/BT 10 KV et 30 KV",
+      "Équipements SF6 Schneider, Sarel & Ediel",
+      "Postes préfabriqués en béton armé",
+      "Armoires électriques diverses",
+      "Fusibles et câbles MT/BT",
+      "Disjoncteurs BT et haut poteau"
+    ],
+    "ctaTitle": "Prêt à trouver la bonne solution pour votre projet ?",
+    "ctaDescription": "Nos experts sont là pour comprendre vos exigences et recommander la meilleure solution électrique pour vous."
+  },
+  "ar": {
+    "breadcrumbHome": "الرئيسية",
+    "breadcrumbCurrent": "الحلول",
+    "heroLabel": "الحلول",
+    "heroTitle": ["استكشف", "حلولنا الكهربائية"],
+    "heroDescription": "حلول كهربائية متكاملة مصممة لتلبية احتياجات الصناعات ومشاريع البنية التحتية.",
+    "allLabel": "كل الحلول",
+    "allTitle": "حلول تدعم نجاح مشروعك",
+    "allDescription": "من الدراسات والتوريد إلى التركيب والدعم، نقدم حلولاً كهربائية عملية بجودة وموثوقية.",
+    "learnMore": "اعرف المزيد",
+    "specializedTitle": "خدمات ومنتجات SODIMFEL",
+    "specializedDescription": "حلول عملية لمحطات التحويل، الخزائن، تجهيزات SF6، الكوابل، الفيوزات، والحماية الكهربائية.",
+    "specializedItems": [
+      "محطات MT/BT 10 KV و30 KV",
+      "تجهيزات SF6 Schneider وSarel وEdiel",
+      "محطات خرسانية مسبقة الصنع",
+      "خزائن كهربائية متنوعة",
+      "فيوزات وكوابل MT/BT",
+      "قواطع BT وHP"
+    ],
+    "ctaTitle": "هل أنت مستعد لاختيار الحل المناسب لمشروعك؟",
+    "ctaDescription": "خبراؤنا جاهزون لفهم متطلباتك واقتراح أفضل حل كهربائي يناسب مشروعك."
+  }
+}

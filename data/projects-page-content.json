@@ -1,0 +1,131 @@
+{
+  "en": {
+    "breadcrumbHome": "Home",
+    "breadcrumbCurrent": "Projects",
+    "heroLabel": "Projects",
+    "heroTitle": "Trusted Partnerships.",
+    "heroHighlight": "Proven Results.",
+    "heroDescription": "We are proud to collaborate with leading organizations across multiple industries. Together, we deliver reliable electrical solutions that power progress and drive success.",
+    "clientsLabel": "Our Clients",
+    "clientsTitle": "Organizations That Trust Us",
+    "clientsDescription": "We have had the privilege of working with reputable companies and institutions that trust our expertise, quality, and commitment to excellence.",
+    "industriesLabel": "Industries Served",
+    "industriesTitle": "Industries We Serve",
+    "industries": [
+      { "title": "Power Utilities", "text": "Electrical infrastructure for power generation and distribution networks." },
+      { "title": "Industrial Manufacturing", "text": "Reliable equipment and services for high-demand production facilities." },
+      { "title": "Oil & Gas", "text": "Robust electrical solutions for critical energy environments." },
+      { "title": "Telecommunications", "text": "Power continuity solutions for communication infrastructure." },
+      { "title": "Infrastructure", "text": "Systems supporting ports, transport, utilities, and public projects." },
+      { "title": "Commercial Buildings", "text": "Safe and efficient distribution for modern commercial facilities." }
+    ],
+    "partnershipLabel": "Partnership Highlights",
+    "partnershipTitle": "Building Long-Term Relationships",
+    "partnershipDescription": "Our success is built on trusted partnerships and long-term collaboration with organizations across multiple sectors.",
+    "partnershipCards": [
+      { "title": "Reliable Delivery", "text": "We support clients with dependable execution, clear communication, and consistent project follow-through." },
+      { "title": "Certified Expertise", "text": "Our technical teams work with certified equipment, proven methods, and international standards." },
+      { "title": "Long-Term Support", "text": "We remain available after delivery with maintenance, technical guidance, and lifecycle support." }
+    ],
+    "testimonialsLabel": "Testimonials",
+    "testimonialsTitle": "Google Maps Reviews",
+    "testimonials": [
+      { "logo": "5.0", "quote": "Service agreable et produits innovants comme poste de transformateur prefabriqué !!! si quelqu'un a besoin des equipement Moyenne tension ... c'est la place à visiter.", "name": "math student", "position": "Local Guide · 24 avis · 20 photos", "company": "Google Maps · il y a 6 ans" },
+      { "logo": "5.0", "quote": "Innovative products, & good service. You should consider opening a branch in the Algerian west.", "name": "Automation SummerCamp", "position": "4 avis", "company": "Google Maps · il y a 6 ans" },
+      { "logo": "5.0", "quote": "Bon service et bonne qualité.", "name": "oussama samai", "position": "3 avis", "company": "Google Maps · il y a 2 ans" }
+    ],
+    "networkLabel": "Client Network",
+    "networkTitle": "Trusted By Industrial Clients",
+    "networkDescription": "Our references include industrial companies, construction groups, energy operators, ceramics manufacturers, utilities, and technical partners that rely on SODIMFEL for postes, SF6 equipment, armoires, cables, and electrical installation services.",
+    "reachStats": ["Client Logos", "5-Star Customer Feedback", "Service Sectors", "Years Experience"],
+    "ctaTitle": "Become Our Next Success Story",
+    "ctaDescription": "We are always ready to take on new challenges and create lasting value for our partners.",
+    "scheduleCall": "Request a Quote"
+  },
+  "fr": {
+    "breadcrumbHome": "Accueil",
+    "breadcrumbCurrent": "Projets",
+    "heroLabel": "Projets",
+    "heroTitle": "Partenariats de confiance.",
+    "heroHighlight": "Résultats prouvés.",
+    "heroDescription": "Nous sommes fiers de collaborer avec des organisations reconnues dans plusieurs secteurs. Ensemble, nous livrons des solutions électriques fiables qui soutiennent le progrès.",
+    "clientsLabel": "Nos clients",
+    "clientsTitle": "Des organisations qui nous font confiance",
+    "clientsDescription": "Nous avons eu le privilège de travailler avec des entreprises et institutions réputées qui font confiance à notre expertise, notre qualité et notre engagement.",
+    "industriesLabel": "Secteurs servis",
+    "industriesTitle": "Industries que nous servons",
+    "industries": [
+      { "title": "Réseaux électriques", "text": "Infrastructures électriques pour la production et la distribution d'énergie." },
+      { "title": "Industrie manufacturière", "text": "Équipements et services fiables pour les sites de production exigeants." },
+      { "title": "Pétrole et gaz", "text": "Solutions électriques robustes pour les environnements critiques." },
+      { "title": "Télécommunications", "text": "Solutions de continuité électrique pour les infrastructures de communication." },
+      { "title": "Infrastructure", "text": "Systèmes pour ports, transport, utilités et projets publics." },
+      { "title": "Bâtiments commerciaux", "text": "Distribution sûre et efficace pour les installations commerciales modernes." }
+    ],
+    "partnershipLabel": "Points forts du partenariat",
+    "partnershipTitle": "Construire des relations durables",
+    "partnershipDescription": "Notre réussite repose sur des partenariats de confiance et une collaboration durable avec des organisations de plusieurs secteurs.",
+    "partnershipCards": [
+      { "title": "Livraison fiable", "text": "Nous accompagnons nos clients avec une exécution fiable, une communication claire et un suivi constant." },
+      { "title": "Expertise certifiée", "text": "Nos équipes techniques travaillent avec des équipements certifiés, des méthodes éprouvées et des standards internationaux." },
+      { "title": "Support durable", "text": "Nous restons disponibles après la livraison avec maintenance, conseil technique et accompagnement." }
+    ],
+    "testimonialsLabel": "Témoignages",
+    "testimonialsTitle": "Avis Google Maps",
+    "testimonials": [
+      { "logo": "5.0", "quote": "Service agréable et produits innovants comme poste de transformateur préfabriqué !!! si quelqu'un a besoin des équipements moyenne tension ... c'est la place à visiter.", "name": "math student", "position": "Local Guide · 24 avis · 20 photos", "company": "Google Maps · il y a 6 ans" },
+      { "logo": "5.0", "quote": "Produits innovants et bon service. Vous devriez envisager d'ouvrir une branche dans l'ouest algérien.", "name": "Automation SummerCamp", "position": "4 avis", "company": "Google Maps · il y a 6 ans" },
+      { "logo": "5.0", "quote": "Bon service et bonne qualité.", "name": "oussama samai", "position": "3 avis", "company": "Google Maps · il y a 2 ans" }
+    ],
+    "networkLabel": "Réseau clients",
+    "networkTitle": "Reconnu par des clients industriels",
+    "networkDescription": "Nos références incluent des industriels, groupes de construction, opérateurs énergétiques, fabricants, utilités et partenaires techniques qui comptent sur SODIMFEL pour les postes, équipements SF6, armoires, câbles et installations électriques.",
+    "reachStats": ["Logos clients", "Retours clients 5 étoiles", "Secteurs de service", "Années d'expérience"],
+    "ctaTitle": "Devenez notre prochaine réussite",
+    "ctaDescription": "Nous sommes prêts à relever de nouveaux défis et à créer une valeur durable pour nos partenaires.",
+    "scheduleCall": "Demander un devis"
+  },
+  "ar": {
+    "breadcrumbHome": "الرئيسية",
+    "breadcrumbCurrent": "المشاريع",
+    "heroLabel": "المشاريع",
+    "heroTitle": "شراكات موثوقة.",
+    "heroHighlight": "نتائج مثبتة.",
+    "heroDescription": "نفخر بالتعاون مع مؤسسات رائدة في قطاعات مختلفة. معاً نقدم حلولاً كهربائية موثوقة تدعم التقدم والنجاح.",
+    "clientsLabel": "عملاؤنا",
+    "clientsTitle": "مؤسسات تثق بنا",
+    "clientsDescription": "تشرفنا بالعمل مع شركات ومؤسسات موثوقة تعتمد على خبرتنا وجودتنا والتزامنا بالتميز.",
+    "industriesLabel": "القطاعات المخدومة",
+    "industriesTitle": "القطاعات التي نخدمها",
+    "industries": [
+      { "title": "شبكات الكهرباء", "text": "بنية كهربائية لتوليد وتوزيع الطاقة." },
+      { "title": "الصناعة التحويلية", "text": "معدات وخدمات موثوقة لمواقع الإنتاج عالية الطلب." },
+      { "title": "النفط والغاز", "text": "حلول كهربائية قوية للبيئات الحساسة." },
+      { "title": "الاتصالات", "text": "حلول استمرارية الطاقة للبنية التحتية للاتصالات." },
+      { "title": "البنية التحتية", "text": "أنظمة تدعم النقل والمرافق والمشاريع العامة." },
+      { "title": "المباني التجارية", "text": "توزيع آمن وفعال للمنشآت التجارية الحديثة." }
+    ],
+    "partnershipLabel": "أبرز الشراكات",
+    "partnershipTitle": "بناء علاقات طويلة الأمد",
+    "partnershipDescription": "نجاحنا مبني على شراكات موثوقة وتعاون طويل الأمد مع مؤسسات من قطاعات متعددة.",
+    "partnershipCards": [
+      { "title": "تنفيذ موثوق", "text": "ندعم العملاء بتنفيذ يعتمد عليه، تواصل واضح، ومتابعة مستمرة للمشروع." },
+      { "title": "خبرة معتمدة", "text": "تعمل فرقنا التقنية بمعدات معتمدة وطرق مثبتة ومعايير دولية." },
+      { "title": "دعم طويل الأمد", "text": "نبقى متاحين بعد التسليم بالصيانة والإرشاد التقني والدعم." }
+    ],
+    "testimonialsLabel": "آراء العملاء",
+    "testimonialsTitle": "تقييمات Google Maps",
+    "testimonials": [
+      { "logo": "5.0", "quote": "خدمة جيدة ومنتجات مبتكرة مثل محطة محول مسبقة الصنع. إذا احتجت معدات الجهد المتوسط فهذا هو المكان المناسب.", "name": "math student", "position": "Local Guide · 24 avis · 20 photos", "company": "Google Maps · منذ 6 سنوات" },
+      { "logo": "5.0", "quote": "منتجات مبتكرة وخدمة جيدة. من الجيد التفكير في فتح فرع في الغرب الجزائري.", "name": "Automation SummerCamp", "position": "4 avis", "company": "Google Maps · منذ 6 سنوات" },
+      { "logo": "5.0", "quote": "خدمة جيدة وجودة ممتازة.", "name": "oussama samai", "position": "3 avis", "company": "Google Maps · منذ سنتين" }
+    ],
+    "networkLabel": "شبكة العملاء",
+    "networkTitle": "موثوقون لدى عملاء صناعيين",
+    "networkDescription": "تشمل مراجعنا شركات صناعية، مجموعات بناء، مشغلي طاقة، مصانع، مرافق وشركاء تقنيين يعتمدون على SODIMFEL في المحطات، تجهيزات SF6، الخزائن، الكوابل والتركيبات الكهربائية.",
+    "reachStats": ["شعارات العملاء", "تقييمات 5 نجوم", "قطاعات الخدمة", "سنوات الخبرة"],
+    "ctaTitle": "كن قصة نجاحنا القادمة",
+    "ctaDescription": "نحن جاهزون دائماً لمواجهة تحديات جديدة وخلق قيمة دائمة لشركائنا.",
+    "scheduleCall": "طلب عرض سعر"
+  }
+}

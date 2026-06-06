@@ -4,7 +4,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import {
-  ArrowDownToLine,
   ArrowRight,
   BadgeCheck,
   BarChart3,
@@ -29,7 +28,9 @@ import {
   Wrench,
   Zap,
 } from 'lucide-react'
-import type { Solution } from '@/lib/solutions'
+import solutionDetailContent from '@/data/solution-detail-content.json'
+import { useLanguage } from '@/components/language-provider'
+import { getSolutions, type Solution } from '@/lib/solutions'
 
 const iconMap = {
   badge: BadgeCheck,
@@ -72,8 +73,12 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 }
 
 export function SolutionDetailsClient({ solution }: { solution: Solution }) {
+  const { isArabic, language } = useLanguage()
+  const copy = solutionDetailContent[language]
+  const localizedSolution = getSolutions(language)[solution.slug] ?? solution
+
   return (
-    <main className="min-h-screen bg-white text-[#0F172A]">
+    <main className={`min-h-screen bg-white text-[#0F172A] ${isArabic ? 'text-right' : ''}`}>
       <section className="mx-auto grid max-w-[1440px] grid-cols-1 gap-12 px-6 pb-20 pt-24 lg:grid-cols-2 lg:px-10">
         <motion.div
           initial={{ opacity: 0, y: 38 }}
@@ -83,33 +88,29 @@ export function SolutionDetailsClient({ solution }: { solution: Solution }) {
         >
           <nav className="mb-8 flex items-center gap-2 text-sm font-semibold text-[#64748B]">
             <Link href="/" className="hover:text-[#2563EB]">
-              Home
+              {copy.breadcrumbHome}
             </Link>
-            <ChevronRight className="h-4 w-4" />
+            <ChevronRight className={`h-4 w-4 ${isArabic ? 'rotate-180' : ''}`} />
             <Link href="/solutions" className="hover:text-[#2563EB]">
-              Solutions
+              {copy.breadcrumbSolutions}
             </Link>
-            <ChevronRight className="h-4 w-4" />
-            <span className="text-[#0F172A]">{solution.title}</span>
+            <ChevronRight className={`h-4 w-4 ${isArabic ? 'rotate-180' : ''}`} />
+            <span className="text-[#0F172A]">{localizedSolution.title}</span>
           </nav>
           <span className="w-fit rounded-full bg-[#2563EB]/10 px-4 py-2 text-xs font-extrabold uppercase tracking-[2px] text-[#2563EB]">
-            {solution.badge}
+            {localizedSolution.badge}
           </span>
           <h1 className="mt-6 max-w-3xl text-5xl font-extrabold leading-[1.04] tracking-tight text-[#0F172A] sm:text-6xl lg:text-[64px]">
-            {solution.title}
+            {localizedSolution.title}
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-[1.85] text-[#64748B]">
-            {solution.description}
+            {localizedSolution.description}
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
-            <a className="inline-flex h-13 items-center gap-2 rounded-2xl bg-[#2563EB] px-7 text-sm font-bold text-white shadow-[0_18px_36px_rgba(37,99,235,0.25)]">
-              Talk To An Expert
-              <ArrowRight className="h-4 w-4" />
-            </a>
-            <a className="inline-flex h-13 items-center gap-2 rounded-2xl border border-[#E5E7EB] bg-white px-7 text-sm font-bold text-[#0F172A] transition hover:border-[#2563EB] hover:text-[#2563EB]">
-              Download Brochure
-              <ArrowDownToLine className="h-4 w-4" />
-            </a>
+            <Link href="/request-quote" className="inline-flex h-13 items-center gap-2 rounded-2xl bg-[#2563EB] px-7 text-sm font-bold text-white shadow-[0_18px_36px_rgba(37,99,235,0.25)]">
+              {copy.requestQuote}
+              <ArrowRight className={`h-4 w-4 ${isArabic ? 'rotate-180' : ''}`} />
+            </Link>
           </div>
         </motion.div>
 
@@ -122,8 +123,8 @@ export function SolutionDetailsClient({ solution }: { solution: Solution }) {
           <div className="absolute inset-10 rounded-full bg-[#2563EB]/10 blur-[90px]" />
           <div className="relative h-full min-h-[520px] overflow-hidden rounded-[28px] border border-[#E5E7EB] bg-white shadow-[0_26px_90px_rgba(15,23,42,0.08)]">
             <Image
-              src={solution.heroImage}
-              alt={solution.title}
+              src={localizedSolution.heroImage}
+              alt={localizedSolution.title}
               fill
               priority
               className="object-cover transition duration-700 hover:scale-105"
@@ -134,7 +135,7 @@ export function SolutionDetailsClient({ solution }: { solution: Solution }) {
 
       <section className="mx-auto max-w-[1440px] px-6 pb-20 lg:px-10">
         <div className="flex gap-5 overflow-x-auto pb-3 [scrollbar-width:none] lg:flex-wrap lg:overflow-visible [&::-webkit-scrollbar]:hidden">
-          {solution.features.map((feature, index) => {
+          {localizedSolution.features.map((feature, index) => {
             const Icon = getIcon(feature.icon)
             return (
               <motion.div
@@ -165,15 +166,15 @@ export function SolutionDetailsClient({ solution }: { solution: Solution }) {
           viewport={{ once: true }}
           className="flex flex-col justify-center"
         >
-          <SectionLabel>Overview</SectionLabel>
+          <SectionLabel>{copy.overview}</SectionLabel>
           <h2 className="mt-4 text-4xl font-extrabold leading-tight text-[#0F172A] sm:text-5xl">
-            {solution.overviewTitle}
+            {localizedSolution.overviewTitle}
           </h2>
           <p className="mt-6 text-lg leading-[1.85] text-[#64748B]">
-            {solution.overviewText}
+            {localizedSolution.overviewText}
           </p>
           <div className="mt-8 grid gap-4">
-            {solution.checklist.map((item) => (
+            {localizedSolution.checklist.map((item) => (
               <div key={item} className="flex items-center gap-3">
                 <CheckCircle2 className="h-5 w-5 text-[#2563EB]" />
                 <span className="font-semibold text-[#0F172A]">{item}</span>
@@ -189,18 +190,13 @@ export function SolutionDetailsClient({ solution }: { solution: Solution }) {
           className="relative min-h-[520px] overflow-hidden rounded-[28px] border border-[#E5E7EB] bg-[#F8FAFC] shadow-[0_24px_80px_rgba(15,23,42,0.07)]"
         >
           <Image
-            src={solution.heroImage}
-            alt={solution.title}
+            src={localizedSolution.heroImage}
+            alt={localizedSolution.title}
             fill
             className="object-cover"
           />
           <div className="absolute inset-x-5 bottom-5 grid grid-cols-2 gap-3">
-            {[
-              'Safe Designs',
-              'Optimized Systems',
-              'Smart Engineering',
-              'Sustainable Solutions',
-            ].map((item) => (
+            {copy.badges.map((item) => (
               <div
                 key={item}
                 className="rounded-2xl border border-white/40 bg-white/85 p-4 text-sm font-bold text-[#0F172A] shadow-lg backdrop-blur-md"
@@ -214,12 +210,12 @@ export function SolutionDetailsClient({ solution }: { solution: Solution }) {
 
       <section className="bg-[#F8FAFC] px-6 py-24 lg:px-10">
         <div className="mx-auto max-w-[1440px] text-center">
-          <SectionLabel>Our Process</SectionLabel>
+          <SectionLabel>{copy.processLabel}</SectionLabel>
           <h2 className="mt-4 text-4xl font-extrabold text-[#0F172A] sm:text-5xl">
-            How We Deliver Your Solution
+            {copy.processTitle}
           </h2>
           <div className="mt-14 flex gap-6 overflow-x-auto pb-4 [scrollbar-width:none] lg:overflow-visible [&::-webkit-scrollbar]:hidden">
-            {solution.process.map((step, index) => {
+            {localizedSolution.process.map((step, index) => {
               const Icon = getIcon(step.icon)
               return (
                 <motion.div
@@ -230,7 +226,7 @@ export function SolutionDetailsClient({ solution }: { solution: Solution }) {
                   transition={{ delay: index * 0.08, duration: 0.6 }}
                   className="relative min-w-[240px] flex-1 text-center"
                 >
-                  {index !== solution.process.length - 1 && (
+                  {index !== localizedSolution.process.length - 1 && (
                     <div className="absolute left-[60%] top-8 hidden w-full border-t border-dashed border-[#2563EB]/35 lg:block" />
                   )}
                   <div className="relative z-10 mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-[#2563EB] text-white shadow-[0_18px_38px_rgba(37,99,235,0.28)]">
@@ -253,9 +249,9 @@ export function SolutionDetailsClient({ solution }: { solution: Solution }) {
       </section>
 
       <section className="mx-auto max-w-[1440px] px-6 py-24 lg:px-10">
-        <SectionLabel>Technologies & Tools We Use</SectionLabel>
+        <SectionLabel>{copy.toolsLabel}</SectionLabel>
         <div className="mt-8 flex gap-5 overflow-x-auto pb-3 [scrollbar-width:none] lg:flex-wrap lg:overflow-visible [&::-webkit-scrollbar]:hidden">
-          {solution.tools.map((tool, index) => {
+          {localizedSolution.tools.map((tool, index) => {
             const Icon = getIcon(tool.icon)
             return (
               <motion.div
@@ -280,9 +276,9 @@ export function SolutionDetailsClient({ solution }: { solution: Solution }) {
       </section>
 
       <section className="mx-auto max-w-[1440px] px-6 pb-24 lg:px-10">
-        <SectionLabel>Industries We Serve</SectionLabel>
+        <SectionLabel>{copy.industriesLabel}</SectionLabel>
         <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {solution.industries.map((industry, index) => {
+          {localizedSolution.industries.map((industry, index) => {
             const Icon = getIcon(industry.icon)
             return (
               <motion.div
@@ -304,9 +300,9 @@ export function SolutionDetailsClient({ solution }: { solution: Solution }) {
       </section>
 
       <section className="mx-auto max-w-[1440px] px-6 pb-24 lg:px-10">
-        <SectionLabel>Featured Projects</SectionLabel>
+        <SectionLabel>{copy.projectsLabel}</SectionLabel>
         <div className="mt-8 grid gap-6">
-          {solution.projects.map((project, index) => (
+          {localizedSolution.projects.map((project, index) => (
             <motion.article
               key={project.title}
               initial={{ opacity: 0, y: 32 }}
@@ -331,8 +327,8 @@ export function SolutionDetailsClient({ solution }: { solution: Solution }) {
                   {project.text}
                 </p>
                 <a className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-[#2563EB]">
-                  View Case Study
-                  <ArrowRight className="h-4 w-4" />
+                  {copy.viewCaseStudy}
+                  <ArrowRight className={`h-4 w-4 ${isArabic ? 'rotate-180' : ''}`} />
                 </a>
               </div>
             </motion.article>
@@ -353,27 +349,31 @@ export function SolutionDetailsClient({ solution }: { solution: Solution }) {
           </div>
           <div className="relative z-10 flex flex-col justify-center">
             <h2 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
-              Have a Project in Mind?
+              {copy.ctaTitle}
             </h2>
             <p className="mt-3 text-2xl font-bold text-blue-200">
-              Let&apos;s Engineer the Right Solution Together.
+              {copy.ctaSubtitle}
             </p>
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-slate-300">
-              Our engineering experts are ready to understand your requirements
-              and deliver the best electrical solution for your project.
+              {copy.ctaDescription}
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
-              <a className="inline-flex h-13 items-center rounded-2xl bg-[#2563EB] px-7 text-sm font-bold text-white">
-                Talk To An Expert
-              </a>
-              <a className="inline-flex h-13 items-center rounded-2xl border border-white/20 bg-white/5 px-7 text-sm font-bold text-white backdrop-blur-md transition hover:bg-white hover:text-[#050816]">
-                Request A Quote
-              </a>
+              <Link href="/request-quote" className="inline-flex h-13 items-center rounded-2xl bg-[#2563EB] px-7 text-sm font-bold text-white">
+                {copy.requestQuote}
+              </Link>
+              <Link href="/contact" className="inline-flex h-13 items-center rounded-2xl border border-white/20 bg-white/5 px-7 text-sm font-bold text-white backdrop-blur-md transition hover:bg-white hover:text-[#050816]">
+                {copy.contactUs}
+              </Link>
             </div>
           </div>
 
           <form className="relative z-10 grid gap-4 rounded-[24px] border border-white/10 bg-white/10 p-6 backdrop-blur-xl">
-            {['Full Name', 'Email Address', 'Company Name', 'Phone Number'].map(
+            {[
+              copy.form.fullName,
+              copy.form.email,
+              copy.form.company,
+              copy.form.phone,
+            ].map(
               (field) => (
                 <input
                   key={field}
@@ -383,12 +383,12 @@ export function SolutionDetailsClient({ solution }: { solution: Solution }) {
               )
             )}
             <textarea
-              placeholder="Project Requirements"
+              placeholder={copy.form.requirements}
               rows={5}
               className="rounded-xl border border-white/15 bg-white/10 px-4 py-3 text-sm text-white outline-none placeholder:text-slate-300 focus:border-[#2563EB]"
             />
             <button className="h-12 rounded-xl bg-[#2563EB] text-sm font-bold text-white">
-              Submit Request
+              {copy.form.submit}
             </button>
           </form>
         </motion.div>

@@ -6,30 +6,10 @@ import { CheckCircle2, Globe2, PackageCheck, PanelsTopLeft } from 'lucide-react'
 import { useLanguage } from '@/components/language-provider'
 
 const STATS = [
-  {
-    value: 500,
-    suffix: '+',
-    label: { en: 'Projects Completed', fr: 'Projets réalisés' },
-    icon: PanelsTopLeft,
-  },
-  {
-    value: 50,
-    suffix: '+',
-    label: { en: 'Global Partners', fr: 'Partenaires mondiaux' },
-    icon: Globe2,
-  },
-  {
-    value: 1000,
-    suffix: '+',
-    label: { en: 'Products Delivered', fr: 'Produits livrés' },
-    icon: PackageCheck,
-  },
-  {
-    value: 98,
-    suffix: '%',
-    label: { en: 'Client Satisfaction', fr: 'Satisfaction client' },
-    icon: CheckCircle2,
-  },
+  { value: 500, suffix: '+', icon: PanelsTopLeft },
+  { value: 50, suffix: '+', icon: Globe2 },
+  { value: 1000, suffix: '+', icon: PackageCheck },
+  { value: 98, suffix: '%', icon: CheckCircle2 },
 ]
 
 function CountUp({
@@ -69,7 +49,7 @@ function CountUp({
 export function Stats() {
   const [counting, setCounting] = useState(false)
   const completedRef = useRef(false)
-  const { language } = useLanguage()
+  const { content } = useLanguage()
 
   return (
     <div className="stats-shell">
@@ -90,25 +70,30 @@ export function Stats() {
         className="stats-bar"
       >
         <div className="stats-grid">
-          {STATS.map((s, i) => (
-            <div
-              key={s.label.en}
-              className="stats-item"
-              style={{ transitionDelay: `${i * 30}ms` }}
-            >
-              <s.icon className="stats-icon" aria-hidden />
-              <div>
-                <span className="stats-number">
-                  <CountUp
-                    value={s.value}
-                    suffix={s.suffix}
-                    active={counting}
-                  />
-                </span>
-                <span className="stats-label">{s.label[language]}</span>
+          {STATS.map((stat, index) => {
+            const Icon = stat.icon
+            return (
+              <div
+                key={content.stats[index].label}
+                className="stats-item"
+                style={{ transitionDelay: `${index * 30}ms` }}
+              >
+                <Icon className="stats-icon" aria-hidden />
+                <div>
+                  <span className="stats-number">
+                    <CountUp
+                      value={stat.value}
+                      suffix={stat.suffix}
+                      active={counting}
+                    />
+                  </span>
+                  <span className="stats-label">
+                    {content.stats[index].label}
+                  </span>
+                </div>
               </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
       </motion.div>
     </div>

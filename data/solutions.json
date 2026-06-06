@@ -1,0 +1,185 @@
+{
+  "en": {
+    "common": {
+      "overviewText": "SODIMFEL supports industrial electrical projects with supply, assembly, installation, and delivery of posts, cabinets, and MT/BT equipment. Our solutions cover 10 KV and 30 KV posts, complete accessories, SF6 equipment, and certified products for demanding electrical networks.",
+      "features": [
+        { "title": "Technical Study", "text": "Analysis, sizing, and preparation of the right solution for each site.", "icon": "pen" },
+        { "title": "Certified Equipment", "text": "Solutions selected for industrial requirements and applicable approvals.", "icon": "badge" },
+        { "title": "Complete Delivery", "text": "Supply, assembly, installation, and commissioning according to project needs.", "icon": "settings" },
+        { "title": "Trusted Brands", "text": "Equipment from partner brands such as Schneider, Sarel, and Ediel.", "icon": "shield" },
+        { "title": "Adapted Power Ratings", "text": "MT/BT configurations for 10 KV and 30 KV transformer posts.", "icon": "zap" },
+        { "title": "Technical Support", "text": "Guidance before, during, and after project delivery.", "icon": "headset" }
+      ],
+      "checklist": [
+        "Electrical studies and implementation",
+        "MT/BT equipment supply and assembly",
+        "10 KV and 30 KV transformer posts",
+        "Electrical cabinets and SF6 equipment",
+        "Complete accessories and certified products",
+        "Industrial electrical installation"
+      ],
+      "process": [
+        { "title": "Needs Analysis", "text": "Identify power ratings, voltages, equipment, and site constraints.", "icon": "headset" },
+        { "title": "Technical Selection", "text": "Prepare the right configuration with equipment and accessories.", "icon": "pen" },
+        { "title": "Supply", "text": "Procure the required electrical equipment and components.", "icon": "clipboard" },
+        { "title": "Installation", "text": "Assemble, connect, and integrate on industrial or transformer post sites.", "icon": "settings" },
+        { "title": "Commissioning", "text": "Control, validate, and provide technical support after delivery.", "icon": "wrench" }
+      ],
+      "tools": [
+        { "name": "MT/BT Posts 10 KV and 30 KV", "label": "Transformer posts", "icon": "tower" },
+        { "name": "SF6 Equipment", "label": "Complete transformer post equipment", "icon": "shield" },
+        { "name": "Electrical Cabinets", "label": "Distribution and control", "icon": "settings" },
+        { "name": "BT and HP Circuit Breakers", "label": "Electrical protection", "icon": "zap" },
+        { "name": "MT/BT Cables", "label": "Connection and distribution", "icon": "network" },
+        { "name": "MT/BT Fuses", "label": "Medium and low voltage protection", "icon": "badge" }
+      ],
+      "industries": [
+        { "title": "Industrial Plants", "icon": "factory" },
+        { "title": "Commercial Buildings", "icon": "building" },
+        { "title": "Power Utilities", "icon": "tower" },
+        { "title": "Oil & Gas", "icon": "gauge" },
+        { "title": "Data Centers", "icon": "database" },
+        { "title": "Infrastructure", "icon": "network" },
+        { "title": "Renewable Energy", "icon": "leaf" }
+      ],
+      "projects": [
+        { "title": "Industrial Plant Power Distribution", "text": "Complete electrical configuration for a manufacturing site.", "image": "/images/project-industrial-facility.png" },
+        { "title": "Transformer Post Delivery", "text": "Supply and assembly of MT/BT transformer post equipment.", "image": "/images/project-power-plant.png" },
+        { "title": "Commercial Electrical Installation", "text": "Electrical equipment and cabinets for a commercial facility.", "image": "/images/project-commercial.png" }
+      ]
+    },
+    "items": [
+      { "slug": "etudes-realisations-electriques", "title": "Electrical Studies and Implementation", "badge": "SERVICES", "category": "Electrical Studies", "description": "Technical studies, sizing, and implementation of electrical solutions adapted to industrial needs.", "image": "/images/project-industrial-facility.png", "heroImage": "/images/project-industrial-facility.png", "overviewTitle": "Reliable electrical studies for every project" },
+      { "slug": "postes-livraison-sous-stations", "title": "Delivery Posts and Substations", "badge": "SERVICES", "category": "Electrical Posts", "description": "Delivery posts and substations for industrial and energy electrical networks.", "image": "/images/product-substation.png", "heroImage": "/images/product-substation.png", "overviewTitle": "Electrical posts designed for service continuity" },
+      { "slug": "armoires-electriques-diverses", "title": "Electrical Cabinets", "badge": "SERVICES", "category": "Electrical Cabinets", "description": "Supply and integration of electrical cabinets for distribution, control, and protection.", "image": "/images/service-electrical.png", "heroImage": "/images/service-electrical.png", "overviewTitle": "Electrical cabinets adapted to your installations" },
+      { "slug": "installation-electrique-industrielle", "title": "Industrial Electrical Installation", "badge": "SERVICES", "category": "Industrial Installation", "description": "Complete industrial electrical installation for production sites, technical buildings, and infrastructure.", "image": "/images/service-maintenance.png", "heroImage": "/images/service-maintenance.png", "overviewTitle": "Precise and secure industrial installation" },
+      { "slug": "equipements-sf6-schneider-sarel-ediel", "title": "Complete SF6 Equipment", "badge": "SERVICES", "category": "SF6 Equipment", "description": "Complete SF6 equipment supply for transformer posts from Schneider, Sarel, and Ediel.", "image": "/images/product-switchgear.png", "heroImage": "/images/product-switchgear.png", "overviewTitle": "SF6 equipment from recognized brands" },
+      { "slug": "postes-prefabriques-beton-10kv-30kv", "title": "Prefabricated Reinforced Concrete Posts", "badge": "SERVICES", "category": "Prefabricated Posts", "description": "Prefabricated reinforced concrete posts for 10 KV and 30 KV networks.", "image": "/images/product-substation.png", "heroImage": "/images/product-substation.png", "overviewTitle": "Robust prefabricated posts for MT networks" },
+      { "slug": "disjoncteurs-bt-hp", "title": "Low Voltage and HP Circuit Breakers", "badge": "SERVICES", "category": "Electrical Protection", "description": "Low-voltage and high-pole HP circuit breakers for 100 KVA and 160 KVA power ratings.", "image": "/images/product-switchgear.png", "heroImage": "/images/product-switchgear.png", "overviewTitle": "Reliable protection for BT and HP networks" },
+      { "slug": "postes-transformateurs-mt-bt", "title": "MT/BT Transformer Posts 10 KV and 30 KV", "badge": "SERVICES", "category": "Transformer Posts", "description": "Sale and assembly of MT/BT transformer posts with complete accessories, from 100 KVA to 2500 KVA, Sonelgaz approved.", "image": "/images/product-oil-transformer.png", "heroImage": "/images/product-oil-transformer.png", "overviewTitle": "Sonelgaz-approved MT/BT transformer posts" },
+      { "slug": "fusibles-cables-mt-bt", "title": "Medium/Low Voltage Fuses and Cables", "badge": "SERVICES", "category": "Commercialized Products", "description": "Medium/low voltage fuses and cables for electrical installations.", "image": "/images/service-electrical.png", "heroImage": "/images/service-electrical.png", "overviewTitle": "Essential accessories for electrical networks" }
+    ]
+  },
+  "fr": {
+    "common": {
+      "overviewText": "SODIMFEL accompagne les projets électriques industriels avec des services de fourniture, montage, installation et réalisation de postes, armoires et équipements MT/BT. Nos solutions couvrent les postes 10 KV et 30 KV, les accessoires complets, les équipements SF6 et les produits homologués.",
+      "features": [
+        { "title": "Étude technique", "text": "Analyse, dimensionnement et préparation de la solution adaptée au site.", "icon": "pen" },
+        { "title": "Équipements certifiés", "text": "Solutions conformes aux exigences industrielles et homologations applicables.", "icon": "badge" },
+        { "title": "Réalisation complète", "text": "Fourniture, montage, installation et mise en service selon le besoin.", "icon": "settings" },
+        { "title": "Marques reconnues", "text": "Équipements de marques partenaires telles que Schneider, Sarel et Ediel.", "icon": "shield" },
+        { "title": "Puissances adaptées", "text": "Configurations MT/BT pour postes 10 KV et 30 KV.", "icon": "zap" },
+        { "title": "Support technique", "text": "Accompagnement avant, pendant et après la réalisation.", "icon": "headset" }
+      ],
+      "checklist": [
+        "Études et réalisations électriques",
+        "Fourniture et montage d'équipements MT/BT",
+        "Postes transformateurs 10 KV et 30 KV",
+        "Armoires électriques et équipements SF6",
+        "Accessoires complets et produits homologués",
+        "Installation électrique industrielle"
+      ],
+      "process": [
+        { "title": "Analyse du besoin", "text": "Identification des puissances, tensions, équipements et contraintes du site.", "icon": "headset" },
+        { "title": "Étude et choix technique", "text": "Préparation de la solution avec équipements, accessoires et configuration adaptée.", "icon": "pen" },
+        { "title": "Fourniture", "text": "Approvisionnement des équipements électriques et composants nécessaires.", "icon": "clipboard" },
+        { "title": "Installation", "text": "Montage, raccordement et intégration sur site industriel ou poste transformateur.", "icon": "settings" },
+        { "title": "Mise en service", "text": "Contrôle, validation et accompagnement technique après réalisation.", "icon": "wrench" }
+      ],
+      "tools": [
+        { "name": "Postes MT/BT 10 KV et 30 KV", "label": "Postes transformateurs", "icon": "tower" },
+        { "name": "Équipements SF6", "label": "Postes transformateurs complets", "icon": "shield" },
+        { "name": "Armoires électriques", "label": "Distribution et contrôle", "icon": "settings" },
+        { "name": "Disjoncteurs BT et HP", "label": "Protection électrique", "icon": "zap" },
+        { "name": "Câbles MT/BT", "label": "Raccordement et distribution", "icon": "network" },
+        { "name": "Fusibles MT/BT", "label": "Protection moyenne et basse tension", "icon": "badge" }
+      ],
+      "industries": [
+        { "title": "Sites industriels", "icon": "factory" },
+        { "title": "Bâtiments commerciaux", "icon": "building" },
+        { "title": "Réseaux électriques", "icon": "tower" },
+        { "title": "Oil & Gas", "icon": "gauge" },
+        { "title": "Data centers", "icon": "database" },
+        { "title": "Infrastructure", "icon": "network" },
+        { "title": "Énergie renouvelable", "icon": "leaf" }
+      ],
+      "projects": [
+        { "title": "Distribution pour site industriel", "text": "Configuration électrique complète pour un site de production.", "image": "/images/project-industrial-facility.png" },
+        { "title": "Livraison de poste transformateur", "text": "Fourniture et montage d'équipements MT/BT.", "image": "/images/project-power-plant.png" },
+        { "title": "Installation électrique commerciale", "text": "Équipements et armoires pour bâtiment commercial.", "image": "/images/project-commercial.png" }
+      ]
+    },
+    "items": [
+      { "slug": "etudes-realisations-electriques", "title": "Études et réalisations électriques", "badge": "SERVICES", "category": "Études électriques", "description": "Études techniques, dimensionnement et réalisation de solutions électriques adaptées aux besoins industriels.", "image": "/images/project-industrial-facility.png", "heroImage": "/images/project-industrial-facility.png", "overviewTitle": "Des études électriques fiables pour chaque projet" },
+      { "slug": "postes-livraison-sous-stations", "title": "Postes de livraison et sous-stations", "badge": "SERVICES", "category": "Postes électriques", "description": "Réalisation de postes de livraison et sous-stations pour réseaux électriques industriels et énergétiques.", "image": "/images/product-substation.png", "heroImage": "/images/product-substation.png", "overviewTitle": "Des postes électriques conçus pour la continuité de service" },
+      { "slug": "armoires-electriques-diverses", "title": "Armoires électriques diverses", "badge": "SERVICES", "category": "Armoires électriques", "description": "Fourniture et intégration d'armoires électriques pour distribution, contrôle et protection.", "image": "/images/service-electrical.png", "heroImage": "/images/service-electrical.png", "overviewTitle": "Des armoires électriques adaptées à vos installations" },
+      { "slug": "installation-electrique-industrielle", "title": "Installation électrique industrielle", "badge": "SERVICES", "category": "Installation industrielle", "description": "Installation électrique industrielle complète pour sites de production, bâtiments techniques et infrastructures.", "image": "/images/service-maintenance.png", "heroImage": "/images/service-maintenance.png", "overviewTitle": "Une installation industrielle précise et sécurisée" },
+      { "slug": "equipements-sf6-schneider-sarel-ediel", "title": "Équipements SF6 complets", "badge": "SERVICES", "category": "Équipements SF6", "description": "Fourniture d'équipements SF6 complets pour postes transformateurs de marques Schneider, Sarel et Ediel.", "image": "/images/product-switchgear.png", "heroImage": "/images/product-switchgear.png", "overviewTitle": "Des équipements SF6 de marques reconnues" },
+      { "slug": "postes-prefabriques-beton-10kv-30kv", "title": "Postes préfabriqués en béton armé", "badge": "SERVICES", "category": "Postes préfabriqués", "description": "Postes préfabriqués en béton armé pour réseaux 10 KV et 30 KV.", "image": "/images/product-substation.png", "heroImage": "/images/product-substation.png", "overviewTitle": "Des postes préfabriqués robustes pour réseaux MT" },
+      { "slug": "disjoncteurs-bt-hp", "title": "Disjoncteurs basse tension et haut poteau", "badge": "SERVICES", "category": "Protection électrique", "description": "Disjoncteurs basse tension et haut poteau HP pour puissances 100 KVA et 160 KVA.", "image": "/images/product-switchgear.png", "heroImage": "/images/product-switchgear.png", "overviewTitle": "Des protections fiables pour réseaux BT et HP" },
+      { "slug": "postes-transformateurs-mt-bt", "title": "Postes transformateurs MT/BT 10 KV et 30 KV", "badge": "SERVICES", "category": "Postes transformateurs", "description": "Vente et montage de postes transformateurs MT/BT avec accessoires complets, de 100 KVA à 2500 KVA, homologués par Sonelgaz.", "image": "/images/product-oil-transformer.png", "heroImage": "/images/product-oil-transformer.png", "overviewTitle": "Des postes transformateurs MT/BT homologués Sonelgaz" },
+      { "slug": "fusibles-cables-mt-bt", "title": "Fusibles et câbles moyenne/basse tension", "badge": "SERVICES", "category": "Produits commercialisés", "description": "Commercialisation de fusibles moyenne/basse tension et câbles moyenne/basse tension pour installations électriques.", "image": "/images/service-electrical.png", "heroImage": "/images/service-electrical.png", "overviewTitle": "Des accessoires essentiels pour vos réseaux électriques" }
+    ]
+  },
+  "ar": {
+    "common": {
+      "overviewText": "تدعم SODIMFEL المشاريع الكهربائية الصناعية من خلال توريد وتركيب وإنجاز المحطات والخزائن وتجهيزات MT/BT. تغطي حلولنا محطات 10 KV و30 KV والملحقات الكاملة وتجهيزات SF6 والمنتجات المعتمدة.",
+      "features": [
+        { "title": "دراسة تقنية", "text": "تحليل وتحديد المقاسات وتحضير الحل المناسب لكل موقع.", "icon": "pen" },
+        { "title": "تجهيزات معتمدة", "text": "حلول مختارة حسب المتطلبات الصناعية والاعتمادات المطلوبة.", "icon": "badge" },
+        { "title": "إنجاز كامل", "text": "توريد وتركيب وتشغيل حسب احتياجات المشروع.", "icon": "settings" },
+        { "title": "علامات موثوقة", "text": "تجهيزات من علامات شريكة مثل Schneider وSarel وEdiel.", "icon": "shield" },
+        { "title": "قدرات مناسبة", "text": "تكوينات MT/BT لمحطات 10 KV و30 KV.", "icon": "zap" },
+        { "title": "دعم تقني", "text": "مرافقة قبل وأثناء وبعد إنجاز المشروع.", "icon": "headset" }
+      ],
+      "checklist": [
+        "دراسات وإنجازات كهربائية",
+        "توريد وتركيب تجهيزات MT/BT",
+        "محطات تحويل 10 KV و30 KV",
+        "خزائن كهربائية وتجهيزات SF6",
+        "ملحقات كاملة ومنتجات معتمدة",
+        "تركيب كهربائي صناعي"
+      ],
+      "process": [
+        { "title": "تحليل الحاجة", "text": "تحديد القدرة والجهد والتجهيزات وقيود الموقع.", "icon": "headset" },
+        { "title": "اختيار تقني", "text": "تحضير الحل المناسب مع التجهيزات والملحقات.", "icon": "pen" },
+        { "title": "التوريد", "text": "توفير المعدات الكهربائية والمكونات اللازمة.", "icon": "clipboard" },
+        { "title": "التركيب", "text": "التركيب والربط والإدماج في الموقع الصناعي أو محطة التحويل.", "icon": "settings" },
+        { "title": "التشغيل", "text": "المراقبة والتحقق والدعم التقني بعد الإنجاز.", "icon": "wrench" }
+      ],
+      "tools": [
+        { "name": "محطات MT/BT 10 KV و30 KV", "label": "محطات تحويل", "icon": "tower" },
+        { "name": "تجهيزات SF6", "label": "تجهيز كامل لمحطات التحويل", "icon": "shield" },
+        { "name": "خزائن كهربائية", "label": "توزيع وتحكم", "icon": "settings" },
+        { "name": "قواطع BT وHP", "label": "حماية كهربائية", "icon": "zap" },
+        { "name": "كوابل MT/BT", "label": "ربط وتوزيع", "icon": "network" },
+        { "name": "فيوزات MT/BT", "label": "حماية الجهد المتوسط والمنخفض", "icon": "badge" }
+      ],
+      "industries": [
+        { "title": "المواقع الصناعية", "icon": "factory" },
+        { "title": "المباني التجارية", "icon": "building" },
+        { "title": "شبكات الكهرباء", "icon": "tower" },
+        { "title": "النفط والغاز", "icon": "gauge" },
+        { "title": "مراكز البيانات", "icon": "database" },
+        { "title": "البنية التحتية", "icon": "network" },
+        { "title": "الطاقة المتجددة", "icon": "leaf" }
+      ],
+      "projects": [
+        { "title": "توزيع كهربائي لموقع صناعي", "text": "تجهيز كهربائي كامل لموقع إنتاج.", "image": "/images/project-industrial-facility.png" },
+        { "title": "توريد محطة تحويل", "text": "توريد وتركيب تجهيزات MT/BT.", "image": "/images/project-power-plant.png" },
+        { "title": "تركيب كهربائي تجاري", "text": "تجهيزات وخزائن لمبنى تجاري.", "image": "/images/project-commercial.png" }
+      ]
+    },
+    "items": [
+      { "slug": "etudes-realisations-electriques", "title": "دراسات وإنجازات كهربائية", "badge": "SERVICES", "category": "دراسات كهربائية", "description": "دراسات تقنية وتحديد المقاسات وإنجاز حلول كهربائية مناسبة للاحتياجات الصناعية.", "image": "/images/project-industrial-facility.png", "heroImage": "/images/project-industrial-facility.png", "overviewTitle": "دراسات كهربائية موثوقة لكل مشروع" },
+      { "slug": "postes-livraison-sous-stations", "title": "محطات التسليم والمحطات الفرعية", "badge": "SERVICES", "category": "محطات كهربائية", "description": "إنجاز محطات التسليم والمحطات الفرعية للشبكات الصناعية والطاقة.", "image": "/images/product-substation.png", "heroImage": "/images/product-substation.png", "overviewTitle": "محطات كهربائية مصممة لاستمرارية الخدمة" },
+      { "slug": "armoires-electriques-diverses", "title": "خزائن كهربائية متنوعة", "badge": "SERVICES", "category": "خزائن كهربائية", "description": "توريد وإدماج خزائن كهربائية للتوزيع والتحكم والحماية.", "image": "/images/service-electrical.png", "heroImage": "/images/service-electrical.png", "overviewTitle": "خزائن كهربائية مناسبة لتركيباتكم" },
+      { "slug": "installation-electrique-industrielle", "title": "تركيب كهربائي صناعي", "badge": "SERVICES", "category": "تركيب صناعي", "description": "تركيب كهربائي صناعي كامل لمواقع الإنتاج والمباني التقنية والبنية التحتية.", "image": "/images/service-maintenance.png", "heroImage": "/images/service-maintenance.png", "overviewTitle": "تركيب صناعي دقيق وآمن" },
+      { "slug": "equipements-sf6-schneider-sarel-ediel", "title": "تجهيزات SF6 كاملة", "badge": "SERVICES", "category": "تجهيزات SF6", "description": "توريد تجهيزات SF6 كاملة لمحطات التحويل من Schneider وSarel وEdiel.", "image": "/images/product-switchgear.png", "heroImage": "/images/product-switchgear.png", "overviewTitle": "تجهيزات SF6 من علامات معروفة" },
+      { "slug": "postes-prefabriques-beton-10kv-30kv", "title": "محطات خرسانية مسبقة الصنع", "badge": "SERVICES", "category": "محطات مسبقة الصنع", "description": "محطات خرسانية مسلحة مسبقة الصنع لشبكات 10 KV و30 KV.", "image": "/images/product-substation.png", "heroImage": "/images/product-substation.png", "overviewTitle": "محطات مسبقة الصنع قوية لشبكات MT" },
+      { "slug": "disjoncteurs-bt-hp", "title": "قواطع جهد منخفض وHP", "badge": "SERVICES", "category": "حماية كهربائية", "description": "قواطع جهد منخفض وعلى عمود HP لقدرات 100 KVA و160 KVA.", "image": "/images/product-switchgear.png", "heroImage": "/images/product-switchgear.png", "overviewTitle": "حماية موثوقة لشبكات BT وHP" },
+      { "slug": "postes-transformateurs-mt-bt", "title": "محطات تحويل MT/BT 10 KV و30 KV", "badge": "SERVICES", "category": "محطات تحويل", "description": "بيع وتركيب محطات تحويل MT/BT بملحقات كاملة من 100 KVA إلى 2500 KVA ومعتمدة من Sonelgaz.", "image": "/images/product-oil-transformer.png", "heroImage": "/images/product-oil-transformer.png", "overviewTitle": "محطات تحويل MT/BT معتمدة من Sonelgaz" },
+      { "slug": "fusibles-cables-mt-bt", "title": "فيوزات وكوابل جهد متوسط ومنخفض", "badge": "SERVICES", "category": "منتجات تجارية", "description": "بيع فيوزات وكوابل الجهد المتوسط والمنخفض للتركيبات الكهربائية.", "image": "/images/service-electrical.png", "heroImage": "/images/service-electrical.png", "overviewTitle": "ملحقات أساسية لشبكاتكم الكهربائية" }
+    ]
+  }
+}

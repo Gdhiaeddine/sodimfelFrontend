@@ -7,34 +7,24 @@ import { ArrowRight } from 'lucide-react'
 import { useLanguage } from '@/components/language-provider'
 
 const BRANDS = [
-  {
-    name: 'ABB',
-    logo: '/brands/abb.png',
-  },
+  { name: 'ABB', logo: '/brands/abb.png', brand: 'ABB' },
   {
     name: 'Elsewedy Electric',
     logo: '/brands/Elsewedy_Electric.png',
+    brand: 'Elsewedy Electric',
   },
-  {
-    name: 'Enel Azazga',
-    logo: '/brands/enel_azazga.png',
-  },
-  {
-    name: 'Sarel',
-    logo: '/brands/sarel.png',
-  },
+  { name: 'Enel Azazga', logo: '/brands/enel_azazga.png', brand: 'Enel Azazga' },
+  { name: 'Sarel', logo: '/brands/sarel.png', brand: 'Sarel' },
   {
     name: 'Schneider Electric',
     logo: '/brands/Schneider_Electric.png',
+    brand: 'Schneider Electric',
   },
-  {
-    name: 'Utec',
-    logo: '/brands/utec.png',
-  },
+  { name: 'Utec', logo: '/brands/utec.png', brand: 'Utec' },
 ]
 
 export function TrustedProductBrands() {
-  const { isFrench } = useLanguage()
+  const { content, isArabic } = useLanguage()
 
   return (
     <section
@@ -46,7 +36,7 @@ export function TrustedProductBrands() {
 
       <div className="relative z-10 mx-auto max-w-[1400px] px-6">
         <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
-          <div className="max-w-[760px] text-left">
+          <div className={`max-w-[760px] ${isArabic ? 'text-right' : 'text-left'}`}>
             <motion.span
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -54,7 +44,7 @@ export function TrustedProductBrands() {
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
               className="text-sm font-semibold uppercase tracking-[3px] text-[#2563EB]"
             >
-              {isFrench ? 'Nos partenaires' : 'Our Partners'}
+              {content.brands.label}
             </motion.span>
 
             <motion.h2
@@ -68,14 +58,8 @@ export function TrustedProductBrands() {
               }}
               className="mt-5 text-balance text-4xl font-extrabold leading-[1.08] text-[#111827] sm:text-5xl lg:text-[56px]"
             >
-              <span className="block">
-                {isFrench ? 'Marques de confiance' : 'Trusted Brands'}
-              </span>
-              <span className="block">
-                {isFrench
-                  ? 'Derrière nos solutions'
-                  : 'Behind Our Solutions'}
-              </span>
+              <span className="block">{content.brands.titleTop}</span>
+              <span className="block">{content.brands.titleBottom}</span>
             </motion.h2>
           </div>
 
@@ -84,11 +68,17 @@ export function TrustedProductBrands() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.28, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="flex justify-start md:justify-end"
+            className={`flex ${isArabic ? 'justify-start md:justify-start' : 'justify-start md:justify-end'}`}
           >
             <Link href="/products" className="solution-button group">
-              {isFrench ? 'Voir toutes les marques' : 'View All Brands'}
-              <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+              {content.common.viewAllBrands}
+              <ArrowRight
+                className={`h-5 w-5 transition-transform duration-300 ${
+                  isArabic
+                    ? 'rotate-180 group-hover:-translate-x-1'
+                    : 'group-hover:translate-x-1'
+                }`}
+              />
             </Link>
           </motion.div>
         </div>
@@ -107,13 +97,19 @@ export function TrustedProductBrands() {
               }}
               className="brand-logo-slot group"
             >
-              <Image
-                src={brand.logo}
-                alt={brand.name}
-                width={180}
-                height={80}
-                className="brand-logo-image"
-              />
+              <Link
+                href={`/products?brand=${encodeURIComponent(brand.brand)}`}
+                aria-label={`View ${brand.name} products`}
+                className="flex h-full w-full items-center justify-center"
+              >
+                <Image
+                  src={brand.logo}
+                  alt={brand.name}
+                  width={180}
+                  height={80}
+                  className="brand-logo-image"
+                />
+              </Link>
             </motion.article>
           ))}
         </div>

@@ -1,0 +1,377 @@
+{
+  "en": {
+    "common": {
+      "requestQuote": "Request a Quote",
+      "contactUs": "Contact Us",
+      "viewAllSolutions": "View All Solutions",
+      "viewAllProducts": "View All Products",
+      "viewAllBrands": "View All Brands"
+    },
+    "loader": {
+      "initializingPower": "Initializing Power"
+    },
+    "nav": {
+      "links": [
+        { "label": "Home", "href": "/" },
+        { "label": "About", "href": "/about" },
+        { "label": "Solutions", "href": "/solutions" },
+        { "label": "Products", "href": "/products" },
+        { "label": "Projects", "href": "/projects" },
+        { "label": "Contact", "href": "/contact" }
+      ],
+      "switchLanguage": "Change language"
+    },
+    "hero": {
+      "eyebrow": "Engineering • Energy • Excellence",
+      "titleTop": "POWERING",
+      "titleHighlight": "THE FUTURE",
+      "titleBottom": "OF INDUSTRY",
+      "description": "Electrical posts, transformer stations, SF6 equipment, electrical cabinets, cables, protection devices, and industrial electrical installations.",
+      "explore": "Explore Solutions"
+    },
+    "stats": [
+      { "label": "Projects Completed" },
+      { "label": "Partner Brands" },
+      { "label": "Products Delivered" },
+      { "label": "Client Satisfaction" }
+    ],
+    "services": {
+      "label": "Our Solutions",
+      "titleTop": "Smart Solutions",
+      "titleBottom": "For Every Industry"
+    },
+    "products": {
+      "label": "Featured Products",
+      "titleTop": "Electrical Products",
+      "titleBottom": "For Power Posts & Installations"
+    },
+    "brands": {
+      "label": "Our Partners",
+      "titleTop": "Trusted Brands",
+      "titleBottom": "Behind Our Solutions"
+    },
+    "projects": {
+      "eyebrow": "Delivered Services",
+      "title": "Transformer posts,",
+      "highlight": "panels & installations",
+      "description": "Complete electrical solutions for MT/BT transformer posts, panels, SF6 equipment, and industrial installations.",
+      "cards": [
+        { "title": "Transformer Posts", "location": "MT/BT 10 KV & 30 KV" },
+        { "title": "SF6 Equipment", "location": "Schneider, Sarel & Ediel" },
+        { "title": "Electrical Cabinets", "location": "Distribution & Protection" },
+        { "title": "Industrial Installation", "location": "Electrical Works" },
+        { "title": "Prefabricated Concrete Posts", "location": "Turnkey Solutions" }
+      ]
+    },
+    "trust": {
+      "eyebrow": "Why SODIMFEL",
+      "title": "Built on trust and",
+      "highlight": "engineering",
+      "description": "A partner that combines technical mastery with reliable electrical supply, installation, and support.",
+      "items": [
+        { "title": "25+ Years Experience", "desc": "Proven expertise in electrical equipment, posts, and industrial installations." },
+        { "title": "Certified Products", "desc": "Products and equipment selected for demanding medium and low voltage networks." },
+        { "title": "Industrial Expertise", "desc": "Practical knowledge across transformer posts, SF6 equipment, cabinets, cables, and protection." },
+        { "title": "Technical Support", "desc": "Support for product selection, installation needs, and project requirements." }
+      ]
+    },
+    "contactCta": {
+      "label": "Let's Build Together",
+      "titlePrefix": "Ready to power your ",
+      "titleHighlight": "next project?",
+      "description": "Tell us about your transformer posts, panels, SF6 equipment, and industrial electrical installation needs."
+    },
+    "footer": {
+      "description": "Electrical equipment, transformer posts, SF6 solutions, cabinets, cables, and industrial installations.",
+      "location": "Setif and Djelfa, Algeria",
+      "rights": "All rights reserved.",
+      "columns": [
+        {
+          "title": "Company",
+          "links": [
+            { "label": "About Us", "href": "/about" },
+            { "label": "Contact Us", "href": "/contact" },
+            { "label": "Request a Quote", "href": "/request-quote" }
+          ]
+        },
+        {
+          "title": "Solutions",
+          "links": [
+            { "label": "Études électriques", "href": "/solutions/etudes-realisations-electriques" },
+            { "label": "Postes & sous-stations", "href": "/solutions/postes-livraison-sous-stations" },
+            { "label": "Armoires électriques", "href": "/solutions/armoires-electriques-diverses" },
+            { "label": "Postes MT/BT", "href": "/solutions/postes-transformateurs-mt-bt" }
+          ]
+        },
+        {
+          "title": "Products",
+          "links": [
+            { "label": "Poste ACC", "href": "/products/poste-acc" },
+            { "label": "Poste 10/30KV", "href": "/products/poste-10-30kv-schneider" },
+            { "label": "Transformateurs", "href": "/products/transformateurs" },
+            { "label": "Équipements SF6", "href": "/products/equipements-sf6" }
+          ]
+        },
+        {
+          "title": "Resources",
+          "links": [
+            { "label": "All Products", "href": "/products" },
+            { "label": "All Solutions", "href": "/solutions" },
+            { "label": "Projects", "href": "/projects" },
+            { "label": "Support", "href": "/contact" }
+          ]
+        }
+      ]
+    }
+  },
+  "fr": {
+    "common": {
+      "requestQuote": "Demander un devis",
+      "contactUs": "Contactez-nous",
+      "viewAllSolutions": "Voir toutes les solutions",
+      "viewAllProducts": "Voir tous les produits",
+      "viewAllBrands": "Voir toutes les marques"
+    },
+    "loader": {
+      "initializingPower": "Initialisation de l'energie"
+    },
+    "nav": {
+      "links": [
+        { "label": "Accueil", "href": "/" },
+        { "label": "À propos", "href": "/about" },
+        { "label": "Solutions", "href": "/solutions" },
+        { "label": "Produits", "href": "/products" },
+        { "label": "Projets", "href": "/projects" },
+        { "label": "Contact", "href": "/contact" }
+      ],
+      "switchLanguage": "Changer la langue"
+    },
+    "hero": {
+      "eyebrow": "Ingénierie • Énergie • Excellence",
+      "titleTop": "ALIMENTER",
+      "titleHighlight": "L'AVENIR DE",
+      "titleBottom": "L'INDUSTRIE",
+      "description": "Postes électriques, postes transformateurs, équipements SF6, armoires électriques, câbles, protections et installations électriques industrielles.",
+      "explore": "Découvrir les solutions"
+    },
+    "stats": [
+      { "label": "Projets réalisés" },
+      { "label": "Marques partenaires" },
+      { "label": "Produits livrés" },
+      { "label": "Satisfaction client" }
+    ],
+    "services": {
+      "label": "Nos solutions",
+      "titleTop": "Solutions intelligentes",
+      "titleBottom": "Pour chaque industrie"
+    },
+    "products": {
+      "label": "Produits phares",
+      "titleTop": "Produits électriques",
+      "titleBottom": "Pour postes et installations"
+    },
+    "brands": {
+      "label": "Nos partenaires",
+      "titleTop": "Marques de confiance",
+      "titleBottom": "Derrière nos solutions"
+    },
+    "projects": {
+      "eyebrow": "Services réalisés",
+      "title": "Postes, armoires",
+      "highlight": "et installations",
+      "description": "Des solutions électriques complètes pour postes MT/BT, armoires, équipements SF6 et installations industrielles.",
+      "cards": [
+        { "title": "Postes transformateurs", "location": "MT/BT 10 KV et 30 KV" },
+        { "title": "Équipements SF6", "location": "Schneider, Sarel et Ediel" },
+        { "title": "Armoires électriques", "location": "Distribution et protection" },
+        { "title": "Installation industrielle", "location": "Travaux électriques" },
+        { "title": "Postes béton préfabriqués", "location": "Solutions clé en main" }
+      ]
+    },
+    "trust": {
+      "eyebrow": "Pourquoi SODIMFEL",
+      "title": "Fondé sur la confiance et",
+      "highlight": "l'ingénierie",
+      "description": "Un partenaire qui associe maîtrise technique, fourniture électrique fiable, installation et support.",
+      "items": [
+        { "title": "25+ ans d'expérience", "desc": "Expertise reconnue en équipements électriques, postes et installations industrielles." },
+        { "title": "Produits certifiés", "desc": "Produits et équipements sélectionnés pour réseaux moyenne et basse tension." },
+        { "title": "Expertise industrielle", "desc": "Maîtrise des postes transformateurs, équipements SF6, armoires, câbles et protections." },
+        { "title": "Support technique", "desc": "Accompagnement pour le choix des produits, l'installation et les besoins de projet." }
+      ]
+    },
+    "contactCta": {
+      "label": "Construisons ensemble",
+      "titlePrefix": "Prêt à alimenter votre ",
+      "titleHighlight": "prochain projet ?",
+      "description": "Parlez-nous de vos besoins en postes transformateurs, armoires, équipements SF6 et installations électriques industrielles."
+    },
+    "footer": {
+      "description": "Équipements électriques, postes transformateurs, solutions SF6, armoires, câbles et installations industrielles.",
+      "location": "Sétif et Djelfa, Algérie",
+      "rights": "Tous droits réservés.",
+      "columns": [
+        {
+          "title": "Entreprise",
+          "links": [
+            { "label": "À propos", "href": "/about" },
+            { "label": "Contact", "href": "/contact" },
+            { "label": "Demander un devis", "href": "/request-quote" }
+          ]
+        },
+        {
+          "title": "Solutions",
+          "links": [
+            { "label": "Études électriques", "href": "/solutions/etudes-realisations-electriques" },
+            { "label": "Postes & sous-stations", "href": "/solutions/postes-livraison-sous-stations" },
+            { "label": "Armoires électriques", "href": "/solutions/armoires-electriques-diverses" },
+            { "label": "Postes MT/BT", "href": "/solutions/postes-transformateurs-mt-bt" }
+          ]
+        },
+        {
+          "title": "Produits",
+          "links": [
+            { "label": "Poste ACC", "href": "/products/poste-acc" },
+            { "label": "Poste 10/30KV", "href": "/products/poste-10-30kv-schneider" },
+            { "label": "Transformateurs", "href": "/products/transformateurs" },
+            { "label": "Équipements SF6", "href": "/products/equipements-sf6" }
+          ]
+        },
+        {
+          "title": "Ressources",
+          "links": [
+            { "label": "Tous les produits", "href": "/products" },
+            { "label": "Toutes les solutions", "href": "/solutions" },
+            { "label": "Projets", "href": "/projects" },
+            { "label": "Support", "href": "/contact" }
+          ]
+        }
+      ]
+    }
+  },
+  "ar": {
+    "common": {
+      "requestQuote": "طلب عرض سعر",
+      "contactUs": "اتصل بنا",
+      "viewAllSolutions": "عرض كل الحلول",
+      "viewAllProducts": "عرض كل المنتجات",
+      "viewAllBrands": "عرض كل العلامات"
+    },
+    "loader": {
+      "initializingPower": "تهيئة الطاقة"
+    },
+    "nav": {
+      "links": [
+        { "label": "الرئيسية", "href": "/" },
+        { "label": "من نحن", "href": "/about" },
+        { "label": "الحلول", "href": "/solutions" },
+        { "label": "المنتجات", "href": "/products" },
+        { "label": "المشاريع", "href": "/projects" },
+        { "label": "اتصل بنا", "href": "/contact" }
+      ],
+      "switchLanguage": "تغيير اللغة"
+    },
+    "hero": {
+      "eyebrow": "هندسة • طاقة • تميز",
+      "titleTop": "نزوّد",
+      "titleHighlight": "مستقبل",
+      "titleBottom": "الصناعة بالطاقة",
+      "description": "محطات كهربائية، محولات، تجهيزات SF6، خزائن كهربائية، كابلات، أجهزة حماية وتركيبات كهربائية صناعية.",
+      "explore": "استكشف الحلول"
+    },
+    "stats": [
+      { "label": "مشاريع منجزة" },
+      { "label": "علامات شريكة" },
+      { "label": "منتجات موردة" },
+      { "label": "رضا العملاء" }
+    ],
+    "services": {
+      "label": "حلولنا",
+      "titleTop": "حلول ذكية",
+      "titleBottom": "لكل قطاع"
+    },
+    "products": {
+      "label": "منتجات مميزة",
+      "titleTop": "منتجات كهربائية",
+      "titleBottom": "للمحطات والتركيبات"
+    },
+    "brands": {
+      "label": "شركاؤنا",
+      "titleTop": "علامات موثوقة",
+      "titleBottom": "وراء حلولنا"
+    },
+    "projects": {
+      "eyebrow": "خدمات منفذة",
+      "title": "محطات، خزائن",
+      "highlight": "وتركيبات",
+      "description": "حلول كهربائية متكاملة لمحطات MT/BT والخزائن وتجهيزات SF6 والتركيبات الصناعية.",
+      "cards": [
+        { "title": "محطات المحولات", "location": "10 كيلوفولت و30 كيلوفولت" },
+        { "title": "تجهيزات SF6", "location": "Schneider وSarel وEdiel" },
+        { "title": "خزائن كهربائية", "location": "توزيع وحماية" },
+        { "title": "تركيبات صناعية", "location": "أعمال كهربائية" },
+        { "title": "محطات خرسانية مسبقة الصنع", "location": "حلول جاهزة" }
+      ]
+    },
+    "trust": {
+      "eyebrow": "لماذا SODIMFEL",
+      "title": "خبرة مبنية على الثقة",
+      "highlight": "والهندسة",
+      "description": "شريك يجمع بين الخبرة التقنية والتوريد والتركيب والدعم في المجال الكهربائي.",
+      "items": [
+        { "title": "أكثر من 25 سنة خبرة", "desc": "خبرة في المعدات الكهربائية والمحطات والتركيبات الصناعية." },
+        { "title": "منتجات موثوقة", "desc": "معدات مختارة لشبكات الجهد المتوسط والمنخفض." },
+        { "title": "خبرة صناعية", "desc": "معرفة عملية بمحطات المحولات وتجهيزات SF6 والخزائن والكابلات والحماية." },
+        { "title": "دعم تقني", "desc": "مرافقة في اختيار المنتجات ومتطلبات التركيب والمشاريع." }
+      ]
+    },
+    "contactCta": {
+      "label": "لنبنِ معاً",
+      "titlePrefix": "هل أنت مستعد لتشغيل ",
+      "titleHighlight": "مشروعك القادم؟",
+      "description": "أخبرنا عن احتياجاتك في محطات المحولات والخزائن وتجهيزات SF6 والتركيبات الكهربائية الصناعية."
+    },
+    "footer": {
+      "description": "معدات كهربائية، محطات محولات، حلول SF6، خزائن، كابلات وتركيبات صناعية.",
+      "location": "سطيف والجلفة، الجزائر",
+      "rights": "جميع الحقوق محفوظة.",
+      "columns": [
+        {
+          "title": "الشركة",
+          "links": [
+            { "label": "من نحن", "href": "/about" },
+            { "label": "اتصل بنا", "href": "/contact" },
+            { "label": "طلب عرض سعر", "href": "/request-quote" }
+          ]
+        },
+        {
+          "title": "الحلول",
+          "links": [
+            { "label": "الدراسات الكهربائية", "href": "/solutions/etudes-realisations-electriques" },
+            { "label": "محطات وتسليم الطاقة", "href": "/solutions/postes-livraison-sous-stations" },
+            { "label": "الخزائن الكهربائية", "href": "/solutions/armoires-electriques-diverses" },
+            { "label": "محطات MT/BT", "href": "/solutions/postes-transformateurs-mt-bt" }
+          ]
+        },
+        {
+          "title": "المنتجات",
+          "links": [
+            { "label": "Poste ACC", "href": "/products/poste-acc" },
+            { "label": "Poste 10/30KV", "href": "/products/poste-10-30kv-schneider" },
+            { "label": "المحولات", "href": "/products/transformateurs" },
+            { "label": "تجهيزات SF6", "href": "/products/equipements-sf6" }
+          ]
+        },
+        {
+          "title": "الموارد",
+          "links": [
+            { "label": "كل المنتجات", "href": "/products" },
+            { "label": "كل الحلول", "href": "/solutions" },
+            { "label": "المشاريع", "href": "/projects" },
+            { "label": "الدعم", "href": "/contact" }
+          ]
+        }
+      ]
+    }
+  }
+}

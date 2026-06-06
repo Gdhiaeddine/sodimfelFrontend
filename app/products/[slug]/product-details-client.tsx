@@ -5,17 +5,13 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import {
-  ArrowDownToLine,
   ArrowLeft,
   ArrowRight,
-  BadgeCheck,
   Bolt,
   Building2,
   ChevronRight,
   Database,
-  Download,
   Factory,
-  FileBadge,
   FileText,
   Flame,
   Gauge,
@@ -26,71 +22,19 @@ import {
   Sparkles,
   Zap,
 } from 'lucide-react'
-import type { Product } from '@/lib/products'
+import productDetailContent from '@/data/product-detail-content.json'
+import { useLanguage } from '@/components/language-provider'
+import { getProductList, getProducts, type Product } from '@/lib/products'
 
 const tabItems = [
-  { label: 'Overview', icon: FileText, href: '#overview' },
-  { label: 'Specifications', icon: Gauge, href: '#specifications' },
-  { label: 'Applications', icon: Factory, href: '#applications' },
-  { label: 'Downloads', icon: Download, href: '#downloads' },
+  { key: 'overview', icon: FileText, href: '#overview' },
+  { key: 'specifications', icon: Gauge, href: '#specifications' },
+  { key: 'applications', icon: Factory, href: '#applications' },
 ]
 
-const features = [
-  {
-    icon: Sparkles,
-    title: 'High Efficiency',
-    text: 'Optimized core and winding design reduces losses and improves long-term energy performance.',
-  },
-  {
-    icon: LifeBuoy,
-    title: 'Long Lifespan',
-    text: 'Built with durable insulation systems and robust tank construction for demanding operations.',
-  },
-  {
-    icon: ShieldCheck,
-    title: 'Certified Safety',
-    text: 'Manufactured to recognized international standards for electrical safety and reliability.',
-  },
-]
+const featureIcons = [Sparkles, LifeBuoy, ShieldCheck]
 
-const applications = [
-  { title: 'Industrial Plants', icon: Factory },
-  { title: 'Commercial Buildings', icon: Building2 },
-  { title: 'Power Stations', icon: RadioTower },
-  { title: 'Data Centers', icon: Database },
-  { title: 'Renewable Energy', icon: Leaf },
-  { title: 'Oil & Gas', icon: Flame },
-]
-
-const downloads = [
-  { title: 'Technical Datasheet', meta: 'PDF / 2.4 MB', icon: FileText },
-  { title: 'Installation Manual', meta: 'PDF / 4.8 MB', icon: FileBadge },
-  { title: 'Certification Documents', meta: 'ZIP / 3.2 MB', icon: BadgeCheck },
-  { title: 'Product Brochure', meta: 'PDF / 1.9 MB', icon: FileText },
-]
-
-const relatedProducts = [
-  {
-    title: 'Dry Type Transformer',
-    image: '/images/product-dry-transformer.png',
-    slug: 'dry-type-transformer',
-  },
-  {
-    title: 'Compact Substation',
-    image: '/images/product-substation.png',
-    slug: 'compact-substation',
-  },
-  {
-    title: 'MV Switchgear',
-    image: '/images/product-switchgear.png',
-    slug: 'mv-switchgear',
-  },
-  {
-    title: 'Power Distribution Panel',
-    image: '/images/service-electrical.png',
-    slug: 'power-distribution-panel',
-  },
-]
+const applicationIcons = [Factory, Building2, RadioTower, Database, Leaf, Flame]
 
 const fadeUp = {
   hidden: { opacity: 0, y: 42 },
@@ -106,14 +50,14 @@ function SectionTitle({ children }: { children: React.ReactNode }) {
 }
 
 export function ProductDetailsClient({ product }: { product: Product }) {
-  const [activeTab, setActiveTab] = useState(tabItems[0].href)
-  const highlights = product.specs
-    .filter((spec) =>
-      ['Power Rating', 'Rated Current', 'Voltage Class', 'Cooling Type', 'Standard'].includes(
-        spec.label
-      )
-    )
+  const { isArabic, language } = useLanguage()
+  const copy = productDetailContent[language]
+  const localizedProduct = getProducts(language)[product.slug] ?? product
+  const relatedProducts = getProductList(language)
+    .filter((item) => item.slug !== localizedProduct.slug)
     .slice(0, 4)
+  const [activeTab, setActiveTab] = useState(tabItems[0].href)
+  const highlights = localizedProduct.specs.slice(0, 4)
 
   useEffect(() => {
     const sectionIds = tabItems.map((tab) => tab.href.slice(1))
@@ -142,21 +86,21 @@ export function ProductDetailsClient({ product }: { product: Product }) {
   }, [])
 
   return (
-    <main className="min-h-screen bg-white text-[#0F172A]">
+    <main className={`min-h-screen bg-white text-[#0F172A] ${isArabic ? 'text-right' : ''}`}>
       <div className="mx-auto max-w-[1440px] px-6 pb-8 pt-28 lg:px-10">
         <nav className="flex items-center gap-2 text-sm font-medium text-[#64748B]">
           <Link href="/" className="transition-colors hover:text-[#2563EB]">
-            Home
+            {copy.breadcrumbHome}
           </Link>
-          <ChevronRight className="h-4 w-4" />
+          <ChevronRight className={`h-4 w-4 ${isArabic ? 'rotate-180' : ''}`} />
           <Link
             href="/products"
             className="transition-colors hover:text-[#2563EB]"
           >
-            Products
+            {copy.breadcrumbProducts}
           </Link>
-          <ChevronRight className="h-4 w-4" />
-          <span className="text-[#0F172A]">{product.title}</span>
+          <ChevronRight className={`h-4 w-4 ${isArabic ? 'rotate-180' : ''}`} />
+          <span className="text-[#0F172A]">{localizedProduct.title}</span>
         </nav>
       </div>
 
@@ -175,8 +119,8 @@ export function ProductDetailsClient({ product }: { product: Product }) {
               className="relative h-[72%] w-[82%]"
             >
               <Image
-                src={product.image}
-                alt={product.title}
+                src={localizedProduct.image}
+                alt={localizedProduct.title}
                 fill
                 priority
                 className="object-contain drop-shadow-[0_32px_40px_rgba(15,23,42,0.16)]"
@@ -191,7 +135,7 @@ export function ProductDetailsClient({ product }: { product: Product }) {
           </motion.div>
 
           <div className="mt-5 grid grid-cols-4 gap-4">
-            {[product.image, product.image, product.image, product.image].map(
+            {[localizedProduct.image, localizedProduct.image, localizedProduct.image, localizedProduct.image].map(
               (image, index) => (
                 <button
                   key={index}
@@ -201,7 +145,7 @@ export function ProductDetailsClient({ product }: { product: Product }) {
                 >
                   <Image
                     src={image}
-                    alt={`${product.title} thumbnail ${index + 1}`}
+                    alt={`${localizedProduct.title} thumbnail ${index + 1}`}
                     fill
                     className="object-contain p-3"
                   />
@@ -221,36 +165,47 @@ export function ProductDetailsClient({ product }: { product: Product }) {
             variants={fadeUp}
             className="w-fit rounded-full bg-[#2563EB]/10 px-4 py-2 text-xs font-extrabold uppercase tracking-[2px] text-[#2563EB]"
           >
-            {product.category}
+            {localizedProduct.category}
           </motion.span>
+          <motion.div
+            variants={fadeUp}
+            className="mt-5 flex w-fit items-center gap-4 rounded-2xl border border-[#E5E7EB] bg-white px-4 py-3 shadow-[0_16px_45px_rgba(15,23,42,0.05)]"
+          >
+            <span className="text-xs font-bold uppercase tracking-[2px] text-[#64748B]">
+              {copy.partnerBrand}
+            </span>
+            <Image
+              src={localizedProduct.brand.logo}
+              alt={localizedProduct.brand.name}
+              width={120}
+              height={40}
+              className="max-h-8 w-auto object-contain"
+            />
+            <span className="text-sm font-bold text-[#0F172A]">
+              {localizedProduct.brand.name}
+            </span>
+          </motion.div>
           <motion.h1
             variants={fadeUp}
             className="mt-6 text-5xl font-extrabold leading-[1.02] tracking-tight text-[#0F172A] lg:text-[64px]"
           >
-            {product.title}
+            {localizedProduct.title}
           </motion.h1>
           <motion.p
             variants={fadeUp}
             className="mt-6 max-w-2xl text-lg leading-[1.85] text-[#64748B]"
           >
-            {product.description}
+            {localizedProduct.description}
           </motion.p>
 
           <motion.div variants={fadeUp} className="mt-8 flex flex-wrap gap-4">
-            <a
-              href="#contact"
+            <Link
+              href="/request-quote"
               className="inline-flex h-13 items-center gap-2 rounded-2xl bg-[#2563EB] px-7 text-sm font-bold text-white shadow-[0_18px_36px_rgba(37,99,235,0.25)] transition hover:-translate-y-0.5"
             >
-              Request Quote
-              <ArrowRight className="h-4 w-4" />
-            </a>
-            <a
-              href="#downloads"
-              className="inline-flex h-13 items-center gap-2 rounded-2xl border border-[#E5E7EB] bg-white px-7 text-sm font-bold text-[#0F172A] transition hover:border-[#2563EB] hover:text-[#2563EB]"
-            >
-              Download Datasheet
-              <ArrowDownToLine className="h-4 w-4" />
-            </a>
+              {copy.requestQuote}
+              <ArrowRight className={`h-4 w-4 ${isArabic ? 'rotate-180' : ''}`} />
+            </Link>
           </motion.div>
 
           <motion.div
@@ -285,7 +240,7 @@ export function ProductDetailsClient({ product }: { product: Product }) {
             const Icon = tab.icon
             return (
               <a
-                key={tab.label}
+                key={tab.key}
                 href={tab.href}
                 onClick={() => setActiveTab(tab.href)}
                 className={`flex min-w-fit items-center gap-2 border-b-2 py-5 text-sm font-bold transition ${
@@ -295,7 +250,7 @@ export function ProductDetailsClient({ product }: { product: Product }) {
                 }`}
               >
                 <Icon className="h-4 w-4" />
-                {tab.label}
+                {copy.tabs[tab.key as keyof typeof copy.tabs]}
               </a>
             )
           })}
@@ -311,15 +266,13 @@ export function ProductDetailsClient({ product }: { product: Product }) {
           className="grid overflow-hidden rounded-3xl border border-[#E5E7EB] bg-white shadow-[0_24px_80px_rgba(15,23,42,0.06)] lg:grid-cols-[1.05fr_0.95fr]"
         >
           <div className="p-8 sm:p-12">
-            <SectionTitle>Built For Reliable Industrial Power</SectionTitle>
+            <SectionTitle>{copy.overviewTitle}</SectionTitle>
             <p className="mt-5 max-w-2xl text-lg leading-[1.85] text-[#64748B]">
-              Engineered for continuous operation, this transformer delivers
-              stable voltage, excellent thermal performance, and dependable
-              protection for industrial power networks.
+              {copy.overviewText}
             </p>
             <div className="mt-8 space-y-5">
-              {features.map((feature) => {
-                const Icon = feature.icon
+              {copy.features.map((feature, index) => {
+                const Icon = featureIcons[index] ?? Sparkles
                 return (
                   <div key={feature.title} className="flex gap-4">
                     <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#2563EB]/10 text-[#2563EB]">
@@ -341,8 +294,8 @@ export function ProductDetailsClient({ product }: { product: Product }) {
           <div className="relative min-h-[340px] bg-[#F8FAFC]">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(37,99,235,0.14),transparent_58%)]" />
             <Image
-              src={product.image}
-              alt={product.title}
+              src={localizedProduct.image}
+              alt={localizedProduct.title}
               fill
               className="object-contain p-12"
             />
@@ -354,13 +307,13 @@ export function ProductDetailsClient({ product }: { product: Product }) {
         id="specifications"
         className="mx-auto max-w-[1440px] px-6 pb-20 lg:px-10"
       >
-        <SectionTitle>Technical Specifications</SectionTitle>
+        <SectionTitle>{copy.specificationsTitle}</SectionTitle>
         <div className="mt-8 overflow-hidden rounded-3xl border border-[#E5E7EB] bg-white shadow-[0_24px_80px_rgba(15,23,42,0.06)]">
-          {product.specs.map((spec, index) => (
+          {localizedProduct.specs.map((spec, index) => (
             <div
               key={spec.label}
               className={`grid grid-cols-1 gap-2 px-6 py-5 sm:grid-cols-2 sm:px-8 ${
-                index !== product.specs.length - 1
+                index !== localizedProduct.specs.length - 1
                   ? 'border-b border-[#E5E7EB]'
                   : ''
               }`}
@@ -373,13 +326,13 @@ export function ProductDetailsClient({ product }: { product: Product }) {
       </section>
 
       <section id="applications" className="mx-auto max-w-[1440px] px-6 pb-20 lg:px-10">
-        <SectionTitle>Applications</SectionTitle>
+        <SectionTitle>{copy.applicationsTitle}</SectionTitle>
         <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {applications.map((app, index) => {
-            const Icon = app.icon
+          {copy.applications.map((title, index) => {
+            const Icon = applicationIcons[index] ?? Factory
             return (
               <motion.div
-                key={app.title}
+                key={title}
                 initial={{ opacity: 0, y: 34 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -390,7 +343,7 @@ export function ProductDetailsClient({ product }: { product: Product }) {
                   <Icon className="h-6 w-6" />
                 </div>
                 <h3 className="mt-5 text-xl font-bold text-[#0F172A]">
-                  {app.title}
+                  {title}
                 </h3>
               </motion.div>
             )
@@ -398,32 +351,8 @@ export function ProductDetailsClient({ product }: { product: Product }) {
         </div>
       </section>
 
-      <section id="downloads" className="mx-auto max-w-[1440px] px-6 pb-20 lg:px-10">
-        <SectionTitle>Downloads</SectionTitle>
-        <div className="mt-8 grid grid-cols-1 gap-5 lg:grid-cols-2">
-          {downloads.map((download) => {
-            const Icon = download.icon
-            return (
-              <div
-                key={download.title}
-                className="flex items-center gap-5 rounded-3xl border border-[#E5E7EB] bg-white p-6 shadow-[0_20px_60px_rgba(15,23,42,0.05)] transition hover:border-[#2563EB]"
-              >
-                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[#2563EB]/10 text-[#2563EB]">
-                  <Icon className="h-6 w-6" />
-                </div>
-                <div className="min-w-0 flex-1">
-                  <h3 className="font-bold text-[#0F172A]">{download.title}</h3>
-                  <p className="mt-1 text-sm text-[#64748B]">{download.meta}</p>
-                </div>
-                <Download className="h-5 w-5 text-[#2563EB]" />
-              </div>
-            )
-          })}
-        </div>
-      </section>
-
       <section className="mx-auto max-w-[1440px] px-6 pb-20 lg:px-10">
-        <SectionTitle>Related Products</SectionTitle>
+        <SectionTitle>{copy.relatedTitle}</SectionTitle>
         <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {relatedProducts.map((related, index) => (
             <motion.div
@@ -470,20 +399,19 @@ export function ProductDetailsClient({ product }: { product: Product }) {
           <div className="relative flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
             <div>
               <h2 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
-                Need This Product For Your Project?
+                {copy.ctaTitle}
               </h2>
               <p className="mt-4 max-w-2xl text-lg leading-relaxed text-slate-300">
-                Our technical team can help you select the right equipment and
-                configuration for your requirements.
+                {copy.ctaDescription}
               </p>
             </div>
             <div className="flex flex-wrap gap-4">
-              <a className="inline-flex h-13 items-center rounded-2xl bg-[#2563EB] px-7 text-sm font-bold text-white">
-                Request Quote
-              </a>
-              <a className="inline-flex h-13 items-center rounded-2xl border border-white/20 bg-white/5 px-7 text-sm font-bold text-white backdrop-blur-md transition hover:bg-white hover:text-[#050816]">
-                Contact Engineer
-              </a>
+              <Link href="/request-quote" className="inline-flex h-13 items-center rounded-2xl bg-[#2563EB] px-7 text-sm font-bold text-white">
+                {copy.requestQuote}
+              </Link>
+              <Link href="/contact" className="inline-flex h-13 items-center rounded-2xl border border-white/20 bg-white/5 px-7 text-sm font-bold text-white backdrop-blur-md transition hover:bg-white hover:text-[#050816]">
+                {copy.contactEngineer}
+              </Link>
             </div>
           </div>
         </motion.div>

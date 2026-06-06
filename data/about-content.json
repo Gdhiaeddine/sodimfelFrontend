@@ -1,0 +1,230 @@
+{
+  "en": {
+    "breadcrumbHome": "Home",
+    "breadcrumbCurrent": "About",
+    "hero": {
+      "label": "Company Profile",
+      "title": ["Our Story,", "Our Mission,", "Our Future"],
+      "description": "Building reliable electrical solutions that power industries, businesses, and communities.",
+      "contact": "Contact Us"
+    },
+    "stats": {
+      "years": "Years Experience",
+      "projects": "Projects Completed",
+      "clients": "Satisfied Clients",
+      "support": "Technical Support",
+      "partners": "Global Partners"
+    },
+    "story": {
+      "label": "Our Story",
+      "title": "Engineering Excellence Since Day One",
+      "text": "SODIMFEL has grown from a focused electrical solutions provider into a trusted partner for industrial, commercial, and energy infrastructure projects. Our expertise combines product supply, engineering support, installation, commissioning, and long-term maintenance for mission-critical power environments.",
+      "timeline": [
+        ["1998", "Company Founded"],
+        ["2005", "Expanded Product Portfolio"],
+        ["2012", "Regional Expansion"],
+        ["2018", "Manufacturing Development"],
+        ["2023", "1000+ Projects Milestone"],
+        ["2025", "National Industry Leader"]
+      ]
+    },
+    "values": {
+      "label": "Our Core Values",
+      "title": "Principles Behind Every Project",
+      "items": [
+        { "title": "Quality First", "text": "Reliable products, verified processes, and precise execution." },
+        { "title": "Safety Always", "text": "Every project is designed around people, assets, and continuity." },
+        { "title": "Innovation", "text": "Modern engineering for smarter, more efficient power systems." },
+        { "title": "Integrity", "text": "Transparent guidance and responsible delivery from start to finish." },
+        { "title": "Customer Success", "text": "Technical support that protects long-term performance." },
+        { "title": "Sustainability", "text": "Efficient solutions that reduce losses and support cleaner energy." }
+      ]
+    },
+    "why": {
+      "label": "Why Choose SODIMFEL",
+      "title": "Your Trusted Partner in Electrical Solutions",
+      "checklist": [
+        "25+ Years of Experience",
+        "Certified and Tested Products",
+        "Expert Engineers & Technicians",
+        "Reliable After-Sales Support",
+        "Wide Product Portfolio",
+        "Industry Compliance & Standards"
+      ]
+    },
+    "expertise": {
+      "label": "Our Expertise",
+      "title": "End-to-End Electrical Capability",
+      "learnMore": "Learn More"
+    },
+    "industries": {
+      "label": "Industries We Serve",
+      "items": [
+        "Industrial Plants",
+        "Power Utilities",
+        "Commercial Buildings",
+        "Data Centers",
+        "Oil & Gas",
+        "Renewable Energy",
+        "Infrastructure"
+      ]
+    },
+    "cta": {
+      "title": "Reliable MT/BT Transformer Posts",
+      "description": "We supply and install 10 KV and 30 KV transformer posts with complete accessories, tailored power ratings, and dependable technical support for industrial electrical projects.",
+      "button": "Explore Transformer Posts"
+    }
+  },
+  "fr": {
+    "breadcrumbHome": "Accueil",
+    "breadcrumbCurrent": "À propos",
+    "hero": {
+      "label": "Profil de l'entreprise",
+      "title": ["Notre histoire,", "Notre mission,", "Notre avenir"],
+      "description": "Construire des solutions électriques fiables qui alimentent les industries, les entreprises et les communautés.",
+      "contact": "Contactez-nous"
+    },
+    "stats": {
+      "years": "Années d'expérience",
+      "projects": "Projets réalisés",
+      "clients": "Clients satisfaits",
+      "support": "Support technique",
+      "partners": "Partenaires"
+    },
+    "story": {
+      "label": "Notre histoire",
+      "title": "L'excellence électrique depuis le premier jour",
+      "text": "SODIMFEL est passée d'un fournisseur spécialisé de solutions électriques à un partenaire de confiance pour les projets industriels, commerciaux et énergétiques. Notre expertise associe la fourniture de produits, l'accompagnement technique, l'installation, la mise en service et la maintenance durable.",
+      "timeline": [
+        ["1998", "Création de l'entreprise"],
+        ["2005", "Extension du portefeuille produits"],
+        ["2012", "Expansion régionale"],
+        ["2018", "Développement industriel"],
+        ["2023", "Cap des 1000+ projets"],
+        ["2025", "Acteur national reconnu"]
+      ]
+    },
+    "values": {
+      "label": "Nos valeurs",
+      "title": "Les principes derrière chaque projet",
+      "items": [
+        { "title": "Qualité d'abord", "text": "Produits fiables, processus vérifiés et exécution précise." },
+        { "title": "Sécurité toujours", "text": "Chaque projet protège les personnes, les actifs et la continuité." },
+        { "title": "Innovation", "text": "Une ingénierie moderne pour des systèmes électriques plus efficaces." },
+        { "title": "Intégrité", "text": "Conseil transparent et livraison responsable du début à la fin." },
+        { "title": "Réussite client", "text": "Un support technique qui protège la performance à long terme." },
+        { "title": "Durabilité", "text": "Des solutions efficaces qui réduisent les pertes et soutiennent une énergie plus propre." }
+      ]
+    },
+    "why": {
+      "label": "Pourquoi choisir SODIMFEL",
+      "title": "Votre partenaire de confiance en solutions électriques",
+      "checklist": [
+        "25+ ans d'expérience",
+        "Produits certifiés et testés",
+        "Ingénieurs et techniciens experts",
+        "Support après-vente fiable",
+        "Large portefeuille de produits",
+        "Conformité aux standards industriels"
+      ]
+    },
+    "expertise": {
+      "label": "Notre expertise",
+      "title": "Une capacité électrique complète",
+      "learnMore": "En savoir plus"
+    },
+    "industries": {
+      "label": "Industries servies",
+      "items": [
+        "Sites industriels",
+        "Réseaux électriques",
+        "Bâtiments commerciaux",
+        "Data centers",
+        "Pétrole et gaz",
+        "Énergies renouvelables",
+        "Infrastructure"
+      ]
+    },
+    "cta": {
+      "title": "Postes transformateurs MT/BT fiables",
+      "description": "Nous fournissons et installons des postes transformateurs 10 KV et 30 KV avec accessoires complets, puissances adaptées et support technique fiable pour les projets électriques industriels.",
+      "button": "Explorer les postes transformateurs"
+    }
+  },
+  "ar": {
+    "breadcrumbHome": "الرئيسية",
+    "breadcrumbCurrent": "من نحن",
+    "hero": {
+      "label": "نبذة عن الشركة",
+      "title": ["قصتنا،", "مهمتنا،", "مستقبلنا"],
+      "description": "نبني حلولاً كهربائية موثوقة لتشغيل الصناعات والمؤسسات والمجتمعات.",
+      "contact": "اتصل بنا"
+    },
+    "stats": {
+      "years": "سنة خبرة",
+      "projects": "مشروع منجز",
+      "clients": "عميل راض",
+      "support": "دعم تقني",
+      "partners": "شريك"
+    },
+    "story": {
+      "label": "قصتنا",
+      "title": "تميز كهربائي منذ اليوم الأول",
+      "text": "تطورت SODIMFEL من مزود متخصص للحلول الكهربائية إلى شريك موثوق للمشاريع الصناعية والتجارية ومشاريع الطاقة. تجمع خبرتنا بين توريد المنتجات، الدعم الهندسي، التركيب، التشغيل، والصيانة طويلة المدى.",
+      "timeline": [
+        ["1998", "تأسيس الشركة"],
+        ["2005", "توسيع محفظة المنتجات"],
+        ["2012", "توسع إقليمي"],
+        ["2018", "تطوير صناعي"],
+        ["2023", "إنجاز أكثر من 1000 مشروع"],
+        ["2025", "فاعل وطني موثوق"]
+      ]
+    },
+    "values": {
+      "label": "قيمنا الأساسية",
+      "title": "المبادئ خلف كل مشروع",
+      "items": [
+        { "title": "الجودة أولاً", "text": "منتجات موثوقة، عمليات دقيقة، وتنفيذ مضبوط." },
+        { "title": "السلامة دائماً", "text": "كل مشروع مصمم لحماية الأشخاص والمعدات واستمرارية الخدمة." },
+        { "title": "الابتكار", "text": "هندسة حديثة لأنظمة كهربائية أذكى وأكثر كفاءة." },
+        { "title": "النزاهة", "text": "إرشاد واضح وتنفيذ مسؤول من البداية إلى النهاية." },
+        { "title": "نجاح العميل", "text": "دعم تقني يحافظ على الأداء على المدى الطويل." },
+        { "title": "الاستدامة", "text": "حلول فعالة تقلل الخسائر وتدعم طاقة أنظف." }
+      ]
+    },
+    "why": {
+      "label": "لماذا SODIMFEL",
+      "title": "شريكك الموثوق في الحلول الكهربائية",
+      "checklist": [
+        "أكثر من 25 سنة خبرة",
+        "منتجات معتمدة ومختبرة",
+        "مهندسون وتقنيون متخصصون",
+        "دعم ما بعد البيع موثوق",
+        "محفظة منتجات واسعة",
+        "مطابقة للمعايير الصناعية"
+      ]
+    },
+    "expertise": {
+      "label": "خبرتنا",
+      "title": "قدرة كهربائية متكاملة",
+      "learnMore": "اعرف المزيد"
+    },
+    "industries": {
+      "label": "القطاعات التي نخدمها",
+      "items": [
+        "المواقع الصناعية",
+        "شبكات الكهرباء",
+        "المباني التجارية",
+        "مراكز البيانات",
+        "النفط والغاز",
+        "الطاقة المتجددة",
+        "البنية التحتية"
+      ]
+    },
+    "cta": {
+      "title": "محطات تحويل MT/BT موثوقة",
+      "description": "نوفر ونركب محطات تحويل 10 KV و30 KV مع ملحقات كاملة وقدرات مناسبة ودعم تقني موثوق للمشاريع الكهربائية الصناعية.",
+      "button": "استكشف محطات التحويل"
+    }
+  }
+}

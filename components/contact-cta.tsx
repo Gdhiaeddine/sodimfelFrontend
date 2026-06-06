@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import { Magnetic } from '@/components/magnetic'
@@ -7,7 +8,7 @@ import { Electricity } from '@/components/electricity'
 import { useLanguage } from '@/components/language-provider'
 
 export function ContactCta() {
-  const { isFrench } = useLanguage()
+  const { content } = useLanguage()
 
   return (
     <section id="contact" className="relative overflow-hidden bg-[var(--ink)] py-24 lg:py-32">
@@ -31,38 +32,36 @@ export function ContactCta() {
         className="relative mx-auto flex max-w-4xl flex-col items-center px-6 text-center"
       >
         <p className="mb-5 text-xs font-semibold uppercase tracking-[0.3em] text-electric">
-          {isFrench ? 'Construisons ensemble' : "Let's Build Together"}
+          {content.contactCta.label}
         </p>
         <h2
           className="text-balance text-4xl font-extrabold tracking-tight text-foreground sm:text-6xl"
           style={{ letterSpacing: '-0.04em' }}
         >
-          {isFrench ? 'Prêt à alimenter votre ' : 'Ready to power your '}
+          {content.contactCta.titlePrefix}
           <span className="text-electric text-glow-electric">
-            {isFrench ? 'prochain projet ?' : 'next project?'}
+            {content.contactCta.titleHighlight}
           </span>
         </h2>
         <p className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-muted-foreground">
-          {isFrench
-            ? 'Discutez avec notre équipe d’ingénierie de vos besoins en transformateurs, distribution et infrastructures énergétiques complètes.'
-            : 'Talk to our engineering team about transformers, distribution, and complete energy infrastructure tailored to your operation.'}
+          {content.contactCta.description}
         </p>
         <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
           <Magnetic>
-            <a
-              href="mailto:contact@sodimfel.com"
+            <Link
+              href="/request-quote"
               className="group inline-flex items-center gap-2 rounded-full bg-[var(--electric)] px-8 py-4 text-sm font-semibold text-white transition-all duration-300 hover:glow-electric"
             >
-              {isFrench ? 'Demander un devis' : 'Request a Quote'}
+              {content.common.requestQuote}
               <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-            </a>
+            </Link>
           </Magnetic>
-          <a
-            href="tel:+10000000000"
+          <Link
+            href="/contact"
             className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/5 px-8 py-4 text-sm font-semibold text-foreground backdrop-blur-md transition-colors duration-300 hover:bg-white hover:text-[var(--ink)]"
           >
-            {isFrench ? 'Appeler notre équipe' : 'Call Our Team'}
-          </a>
+            {content.common.contactUs}
+          </Link>
         </div>
       </motion.div>
     </section>

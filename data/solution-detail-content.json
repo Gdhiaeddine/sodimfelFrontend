@@ -1,0 +1,77 @@
+{
+  "en": {
+    "breadcrumbHome": "Home",
+    "breadcrumbSolutions": "Solutions",
+    "requestQuote": "Request a Quote",
+    "overview": "Overview",
+    "badges": ["Safe Designs", "Optimized Systems", "Smart Engineering", "Sustainable Solutions"],
+    "processLabel": "Our Process",
+    "processTitle": "How We Deliver Your Solution",
+    "toolsLabel": "Technologies & Tools We Use",
+    "industriesLabel": "Industries We Serve",
+    "projectsLabel": "Featured Projects",
+    "viewCaseStudy": "View Case Study",
+    "ctaTitle": "Have a Project in Mind?",
+    "ctaSubtitle": "Let's Engineer the Right Solution Together.",
+    "ctaDescription": "Our engineering experts are ready to understand your requirements and deliver the best electrical solution for your project.",
+    "contactUs": "Contact Us",
+    "form": {
+      "fullName": "Full Name",
+      "email": "Email Address",
+      "company": "Company Name",
+      "phone": "Phone Number",
+      "requirements": "Project Requirements",
+      "submit": "Submit Request"
+    }
+  },
+  "fr": {
+    "breadcrumbHome": "Accueil",
+    "breadcrumbSolutions": "Solutions",
+    "requestQuote": "Demander un devis",
+    "overview": "Aperçu",
+    "badges": ["Conceptions sûres", "Systèmes optimisés", "Ingénierie intelligente", "Solutions durables"],
+    "processLabel": "Notre processus",
+    "processTitle": "Comment nous livrons votre solution",
+    "toolsLabel": "Technologies et outils utilisés",
+    "industriesLabel": "Industries servies",
+    "projectsLabel": "Projets réalisés",
+    "viewCaseStudy": "Voir le cas",
+    "ctaTitle": "Vous avez un projet ?",
+    "ctaSubtitle": "Concevons ensemble la bonne solution.",
+    "ctaDescription": "Nos experts sont prêts à comprendre vos exigences et à livrer la meilleure solution électrique pour votre projet.",
+    "contactUs": "Contactez-nous",
+    "form": {
+      "fullName": "Nom complet",
+      "email": "Adresse email",
+      "company": "Nom de l'entreprise",
+      "phone": "Numéro de téléphone",
+      "requirements": "Exigences du projet",
+      "submit": "Envoyer la demande"
+    }
+  },
+  "ar": {
+    "breadcrumbHome": "الرئيسية",
+    "breadcrumbSolutions": "الحلول",
+    "requestQuote": "طلب عرض سعر",
+    "overview": "نظرة عامة",
+    "badges": ["تصاميم آمنة", "أنظمة محسّنة", "هندسة ذكية", "حلول مستدامة"],
+    "processLabel": "مسار العمل",
+    "processTitle": "كيف ننجز الحل الخاص بك",
+    "toolsLabel": "التقنيات والأدوات المستخدمة",
+    "industriesLabel": "القطاعات التي نخدمها",
+    "projectsLabel": "مشاريع مميزة",
+    "viewCaseStudy": "عرض الحالة",
+    "ctaTitle": "هل لديك مشروع؟",
+    "ctaSubtitle": "لنصمم الحل المناسب معاً.",
+    "ctaDescription": "خبراؤنا جاهزون لفهم متطلباتك وتقديم أفضل حل كهربائي لمشروعك.",
+    "contactUs": "اتصل بنا",
+    "form": {
+      "fullName": "الاسم الكامل",
+      "email": "البريد الإلكتروني",
+      "company": "اسم الشركة",
+      "phone": "رقم الهاتف",
+      "requirements": "متطلبات المشروع",
+      "submit": "إرسال الطلب"
+    }
+  }
+}
