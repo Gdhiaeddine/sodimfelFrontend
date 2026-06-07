@@ -214,7 +214,7 @@ export function SolutionDetailsClient({ solution }: { solution: Solution }) {
           <h2 className="mt-4 text-4xl font-extrabold text-[#0F172A] sm:text-5xl">
             {copy.processTitle}
           </h2>
-          <div className="mt-14 flex gap-6 overflow-x-auto pb-4 [scrollbar-width:none] lg:overflow-visible [&::-webkit-scrollbar]:hidden">
+          <div className="mt-14 flex gap-6 overflow-x-auto pb-4 [scrollbar-width:none] lg:grid lg:grid-cols-2 lg:overflow-visible xl:grid-cols-3 2xl:grid-cols-5 [&::-webkit-scrollbar]:hidden">
             {localizedSolution.process.map((step, index) => {
               const Icon = getIcon(step.icon)
               return (
@@ -224,10 +224,10 @@ export function SolutionDetailsClient({ solution }: { solution: Solution }) {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.08, duration: 0.6 }}
-                  className="relative min-w-[240px] flex-1 text-center"
+                  className="relative min-w-[240px] flex-1 rounded-[24px] border border-[#E5E7EB] bg-white p-6 text-center shadow-[0_18px_55px_rgba(15,23,42,0.05)] lg:min-w-0"
                 >
                   {index !== localizedSolution.process.length - 1 && (
-                    <div className="absolute left-[60%] top-8 hidden w-full border-t border-dashed border-[#2563EB]/35 lg:block" />
+                    <div className="absolute left-[60%] top-14 hidden w-full border-t border-dashed border-[#2563EB]/35 2xl:block" />
                   )}
                   <div className="relative z-10 mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-[#2563EB] text-white shadow-[0_18px_38px_rgba(37,99,235,0.28)]">
                     <Icon className="h-7 w-7" />
